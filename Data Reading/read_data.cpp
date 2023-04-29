@@ -1,6 +1,8 @@
 #include "read_data.h"
 
 void readToy(const std::string& filename, Graph& g) {
+    g.clear();
+
     std::ifstream file(filename);
     std::string line;
     std::getline(file, line);
@@ -14,15 +16,21 @@ void readToy(const std::string& filename, Graph& g) {
 
         int source = stoi(src);
         int destination = stoi(dest);
-        int distance = stoi(dist);
+        double distance = stod(dist);
 
         Vertex* s = g.findVertex(source);
         Vertex* d = g.findVertex(destination);
 
-        if (s == nullptr) s = new Vertex(source);
+        if (s == nullptr) {
+            s = new Vertex(source);
+            g.addVertex(s);
+        }
 
-        if (d == nullptr) d = new Vertex(destination);
+        if (d == nullptr) {
+            d = new Vertex(destination);
+            g.addVertex(d);
+        }
 
-        // CREATE AND ADD EDGES
+        g.addBidirectionalEdge(s, d, distance);
     }
 }

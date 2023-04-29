@@ -8,7 +8,10 @@
 class Graph {
 public:
     Vertex* findVertex(int id);
+    std::vector<Vertex*> getVertexSet() const;
     void addVertex(Vertex* v);
+    void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
+    void clear();
 private:
     std::vector<Vertex*> vertexSet;
 };
