@@ -6,6 +6,8 @@
 #include <vector>
 #include <algorithm>
 
+Vertex* binarySearch(int id, const std::vector<Vertex*>& v, int low, int high);
+
 class Graph {
 public:
     Vertex* findVertex(int id);
