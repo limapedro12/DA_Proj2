@@ -9,7 +9,7 @@
 #include <fstream>
 #include <iostream>
 
-void readToy(const std::string& filename, Graph& g);
+void readToy(const std::string& name, Graph& g);
 void readReal(int graph_no, Graph& g);
 
 #endif //DA_PROJ2_READ_DATA_H

@@ -1,13 +1,13 @@
 #include "read_data.h"
 
-void readToy(const std::string& filename, Graph& g) {
+void readToy(const std::string& name, Graph& g) {
     g.clear();
 
-    std::ifstream file(filename);
+    std::ifstream file("../Project2Data/Toy-Graphs/" + name + ".csv");
     std::string line;
     std::getline(file, line);
 
-    std::cout << "Loading...\n\n";
+    std::cout << "A carregar...\n\n";
 
     while(std::getline(file, line)) {
         std::string src, dest, dist;
@@ -35,6 +35,8 @@ void readToy(const std::string& filename, Graph& g) {
 
         g.addBidirectionalEdge(s, d, distance);
     }
+
+    g.sort();
 }
 
 void readReal(int graph_no, Graph& g) {
@@ -46,7 +48,7 @@ void readReal(int graph_no, Graph& g) {
     std::string line;
     std::getline(nodes, line);
 
-    std::cout << "Loading...\n\n";
+    std::cout << "A carregar...\n\n";
 
     while (std::getline(nodes, line)) {
         std::string id_string, lon_string, lat_string;
@@ -81,4 +83,6 @@ void readReal(int graph_no, Graph& g) {
 
         g.addBidirectionalEdge(source, dest, dist);
     }
+
+    g.sort();
 }

@@ -25,3 +25,9 @@ void Graph::addBidirectionalEdge(Vertex *source, Vertex *dest, double dist) {
 void Graph::clear() {
     vertexSet.clear();
 }
+
+void Graph::sort() {
+    std::sort(vertexSet.begin(), vertexSet.end(), [](Vertex* a, Vertex* b) {
+        return a->getId() < b->getId();
+    });
+}

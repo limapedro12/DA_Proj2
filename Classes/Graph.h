@@ -4,6 +4,7 @@
 #include "VertexEdge.h"
 
 #include <vector>
+#include <algorithm>
 
 class Graph {
 public:
@@ -12,6 +13,7 @@ public:
     void addVertex(Vertex* v);
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
     void clear();
+    void sort();
 private:
     std::vector<Vertex*> vertexSet;
 };
