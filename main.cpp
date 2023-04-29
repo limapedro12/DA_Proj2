@@ -8,7 +8,7 @@
 int main() {
     Graph g;
 
-    readToy("../Project2Data/Toy-Graphs/shipping.csv", g);
+    readToy("../Project2Data/Toy-Graphs/tourism.csv", g);
 
     std::vector<Vertex*> v = g.getVertexSet();
 

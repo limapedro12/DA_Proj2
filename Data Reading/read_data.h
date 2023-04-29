@@ -7,8 +7,9 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <iostream>
 
 void readToy(const std::string& filename, Graph& g);
-void readReal(const std::string& filename, Graph& g);
+void readReal(int graph_no, Graph& g);
 
 #endif //DA_PROJ2_READ_DATA_H
