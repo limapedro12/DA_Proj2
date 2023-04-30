@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Interface/menu.h"
 #include "Classes/Graph.h"
 
