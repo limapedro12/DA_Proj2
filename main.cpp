@@ -2,7 +2,6 @@
 #include "Classes/Graph.h"
 
 int main() {
-    Graph g;
     Menu menu;
 
     menu.mainMenu();

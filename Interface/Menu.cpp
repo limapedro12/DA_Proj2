@@ -5,6 +5,10 @@ Menu::Menu() {
     this->graph = g;
 }
 
+Graph Menu::getGraph() const {
+    return graph;
+}
+
 void Menu::mainMenu() {
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n" <<
@@ -99,6 +103,6 @@ void Menu::readDataMenu() {
             readToy("tourism", graph);
             ready = true;
             return;
-        } else if (option == 0) return;
+        }
     }
 }

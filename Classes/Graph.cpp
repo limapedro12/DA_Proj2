@@ -1,20 +1,7 @@
 #include "Graph.h"
 
-Vertex* binarySearch(int id, const std::vector<Vertex*>& v, int low, int high) {
-    while (low <= high) {
-        int m = low + (high - low) / 2;
-
-        if (v[m]->getId() == id) return v[m];
-        else if (v[m]->getId() < id) low = m + 1;
-        else high = m - 1;
-    }
-
-    return nullptr;
-}
-
 Vertex* Graph::findVertex(int id) {
-    if (vertexSet.empty()) return nullptr;
-    return binarySearch(id, vertexSet, 0, vertexSet.size() - 1);
+    return vertexSet[id];
 }
 
 std::vector<Vertex*> Graph::getVertexSet() const {

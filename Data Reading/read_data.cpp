@@ -3,37 +3,38 @@
 void readToy(const std::string& name, Graph& g) {
     g.clear();
 
-    std::ifstream file("../Project2Data/Toy-Graphs/" + name + ".csv");
+    std::ifstream nodes("../Project2Data/Toy-Graphs/" + name + "/nodes.csv");
+    std::ifstream edges("../Project2Data/Toy-Graphs/" + name + "/edges.csv");
+
     std::string line;
-    std::getline(file, line);
+    std::getline(nodes, line);
 
     std::cout << "A carregar...\n\n";
 
-    while(std::getline(file, line)) {
-        std::string src, dest, dist;
+    while(std::getline(nodes, line)) {
+        int id = stoi(line);
+
+        Vertex* v = new Vertex(id);
+        g.addVertex(v);
+    }
+
+    std::getline(edges, line);
+
+    while (std::getline(edges, line)) {
+        std::string source_string, dest_string, dist_string;
         std::istringstream iss(line);
-        std::getline(iss, src, ',');
-        std::getline(iss, dest, ',');
-        std::getline(iss, dist, ',');
+        std::getline(iss, source_string, ',');
+        std::getline(iss, dest_string, ',');
+        std::getline(iss, dist_string, ',');
 
-        int source = stoi(src);
-        int destination = stoi(dest);
-        double distance = stod(dist);
+        int source_id = stoi(source_string);
+        int dest_id = stoi(dest_string);
+        double dist = stod(dist_string);
 
-        Vertex* s = g.findVertex(source);
-        Vertex* d = g.findVertex(destination);
+        Vertex* source = g.findVertex(source_id);
+        Vertex* dest = g.findVertex(dest_id);
 
-        if (s == nullptr) {
-            s = new Vertex(source);
-            g.addVertex(s);
-        }
-
-        if (d == nullptr) {
-            d = new Vertex(destination);
-            g.addVertex(d);
-        }
-
-        g.addBidirectionalEdge(s, d, distance);
+        g.addBidirectionalEdge(source, dest, dist);
     }
 
     g.sort();

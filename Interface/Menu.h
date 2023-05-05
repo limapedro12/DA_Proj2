@@ -10,6 +10,7 @@ class Menu {
 public:
     Menu();
     void mainMenu();
+    Graph getGraph() const;
 private:
     Graph graph;
     bool ready = false;
