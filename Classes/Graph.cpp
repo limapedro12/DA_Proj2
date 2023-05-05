@@ -29,3 +29,10 @@ void Graph::sort() {
         return a->getId() < b->getId();
     });
 }
+
+bool inPath(int value, int path[], unsigned int n) {
+    for (size_t i = 0; i < n; i++)
+        if (path[i] == value)
+            return true;
+    return false;
+}
