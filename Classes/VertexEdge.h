@@ -10,15 +10,15 @@ class Edge;
 
 class Vertex {
 public:
-    Vertex(int id);
-    Vertex(int id, double lat, double lon);
-    int getId() const;
+    Vertex(unsigned int id);
+    Vertex(unsigned int id, double lat, double lon);
+    unsigned int getId() const;
     std::vector<Edge*> getAdj() const;
     Edge* addEdge(Vertex* dest, double dist);
 
     void print() const;
 private:
-    int id;
+    unsigned int id;
     double lat = 0;
     double lon = 0;
     std::vector<Edge*> adj;

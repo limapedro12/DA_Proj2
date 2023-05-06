@@ -12,7 +12,7 @@ void readToy(const std::string& name, Graph& g) {
     std::cout << "A carregar...\n\n";
 
     while(std::getline(nodes, line)) {
-        int id = stoi(line);
+        unsigned int id = stoul(line);
 
         Vertex* v = new Vertex(id);
         g.addVertex(v);
@@ -27,8 +27,8 @@ void readToy(const std::string& name, Graph& g) {
         std::getline(iss, dest_string, ',');
         std::getline(iss, dist_string, ',');
 
-        int source_id = stoi(source_string);
-        int dest_id = stoi(dest_string);
+        unsigned int source_id = stoul(source_string);
+        unsigned int dest_id = stoul(dest_string);
         double dist = stod(dist_string);
 
         Vertex* source = g.findVertex(source_id);
@@ -37,7 +37,6 @@ void readToy(const std::string& name, Graph& g) {
         g.addBidirectionalEdge(source, dest, dist);
     }
 
-    g.sort();
 }
 
 void readReal(int graph_no, Graph& g) {
@@ -58,7 +57,7 @@ void readReal(int graph_no, Graph& g) {
         std::getline(iss, lon_string, ',');
         std::getline(iss, lat_string, ',');
 
-        int id = stoi(id_string);
+        unsigned int id = stoul(id_string);
         double lat = stod(lat_string);
         double lon = stod(lon_string);
 
@@ -75,8 +74,8 @@ void readReal(int graph_no, Graph& g) {
         std::getline(iss, dest_string, ',');
         std::getline(iss, dist_string, ',');
 
-        int source_id = stoi(source_string);
-        int dest_id = stoi(dest_string);
+        unsigned int source_id = stoul(source_string);
+        unsigned int dest_id = stoul(dest_string);
         double dist = stod(dist_string);
 
         Vertex* source = g.findVertex(source_id);
@@ -84,6 +83,4 @@ void readReal(int graph_no, Graph& g) {
 
         g.addBidirectionalEdge(source, dest, dist);
     }
-
-    g.sort();
 }

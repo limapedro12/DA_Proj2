@@ -5,24 +5,25 @@
 
 #include <vector>
 #include <algorithm>
+#include <cstring>
+#include <iostream>
 
-bool inPath(int value, int path[], unsigned int n);
+bool inPath(unsigned int value, unsigned int path[], unsigned int n);
 
 class Graph {
 public:
-    Vertex* findVertex(int id);
+    Vertex* findVertex(unsigned int id);
     std::vector<Vertex*> getVertexSet() const;
     void addVertex(Vertex* v);
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
     void clear();
-    void sort();
 
-    void tspBacktrackingAux(int path[], int idx, unsigned int n, long cost);
-    int tspBacktracking(unsigned int n, int path[]);
+    void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
+    int tspBacktracking(unsigned int path[]);
 private:
     std::vector<Vertex*> vertexSet;
-    long minCost;
-    int* minPath;
+    unsigned long minCost;
+    unsigned int* minPath;
 };
 
 
