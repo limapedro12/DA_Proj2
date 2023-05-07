@@ -2,6 +2,7 @@
 #define DA_PROJ2_MENU_H
 
 #include <iostream>
+#include <chrono>
 
 #include "../Classes/Graph.h"
 #include "../Data Reading/read_data.h"

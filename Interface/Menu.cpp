@@ -39,17 +39,49 @@ void Menu::mainMenu() {
 
         if (option == 1) readDataMenu();
         else if (option == 2) {
+            auto start = std::chrono::high_resolution_clock::now();
+
             unsigned int path[graph.getVertexSet().size()];
 
             std::cout << "Custo: " << graph.tspBacktracking(path) << std::endl;
-            for (size_t i = 0; i < graph.getVertexSet().size(); i++)
-                std::cout << path[i] << " ";
-            std::cout << std::endl;
-        } // CHAMAR MÉTODO GRAFO
-        /*
-        else if (option == 3) // CHAMAR MÉTODO GRAFO
-        else if (option == 4) // CHAMAR MÉTODO GRAFO
-        */
+
+            auto stop = std::chrono::high_resolution_clock::now();
+
+            for (size_t i = 0; i < graph.getVertexSet().size() - 1; i++)
+                std::cout << path[i] << " -> ";
+            std::cout << path[graph.getVertexSet().size()-1] << std::endl;
+
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+            std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+        } else if (option == 3) {
+            auto start = std::chrono::high_resolution_clock::now();
+
+            // CHAMAR MÉTODO GRAFO
+
+            auto stop = std::chrono::high_resolution_clock::now();
+
+            // mostrar caminho?
+
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+            std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+        } else if (option == 4) {
+            auto start = std::chrono::high_resolution_clock::now();
+
+            // CHAMAR MÉTODO GRAFO
+
+            auto stop = std::chrono::high_resolution_clock::now();
+
+            // mostrar caminho?
+
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+            std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+        }
         else if (option == 0) {
             std::cout << "Obrigado por usar o nosso programa!\n\nFrancisco Alves, Pedro Lima e Pedro Januário\n";
             return;

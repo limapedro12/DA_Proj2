@@ -72,6 +72,6 @@ int Graph::tspBacktracking(unsigned int path[]){
     tspBacktrackingAux(path, 1, 0);
 
     memcpy(path, minPath, sizeof(unsigned int)*vertexSet.size());
+    delete minPath;
     return minCost;
 }
-
