@@ -31,7 +31,69 @@ bool inPath(unsigned int value, unsigned int path[], unsigned int n) {
     return false;
 }
 
-void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost){
+int Graph::pathCost(unsigned int path[]) const {
+    int cost = 0;
+    bool change;
+    for (size_t i = 0; i < vertexSet.size() - 2; i++) {
+        change = false;
+        Vertex* v = vertexSet[i];
+        Vertex* w = vertexSet[i + 1];
+        for (Edge* e : v->adj) {
+            if (e->getDest()->getId() == w->getId()) {
+                change = true;
+                cost += e->getDist();
+                break;
+            }
+        }
+        if (!change) return INT_MAX;
+    }
+
+    Vertex* source = vertexSet[0];
+    change = false;
+    for (Edge* e : source->adj) {
+        if (e->getDest()->getId() == path[0]) {
+            change = true;
+            cost += e->getDist();
+            break;
+        }
+    }
+    if (!change) return INT_MAX;
+
+    Vertex* ending = path[vertexSet.size() - 1];
+    change = false;
+    for (Edge* e : ending->adj) {
+        if (e->getDest() == source) {
+            change = true;
+            cost += e->getDist();
+            break;
+        }
+    }
+    if (!change) return INT_MAX;
+
+    return cost;
+}
+
+int Graph::tspBruteForce(unsigned int path[]) const {
+    path[0] = 0;
+
+    int minCost = INT_MAX;
+    
+    minPath = new unsigned int[vertexSet.size() - 1];
+
+    for (size_t i = 1; i < vertexSet.size(); i++) minPath[i - 1] = vertexSet[i]->getId();
+
+    do {
+        int current_cost = pathCost(minPath);
+        if (current_cost < minCost) {
+            memcpy(path + sizeof(unsigned int), minPath, sizeof(unsigned int)*vertexSet.size());
+            minCost = current_cost;
+        }
+    } while (std::next_permutation(minPath));
+
+    return minCost;
+}
+
+void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost) const {
     unsigned int cenas = path[idx-1];
     Vertex* curr = vertexSet[cenas];
     if(idx == vertexSet.size()){
@@ -64,7 +126,7 @@ void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned l
     }
 }
 
-int Graph::tspBacktracking(unsigned int path[]){
+int Graph::tspBacktracking(unsigned int path[]) const {
     minPath = new unsigned int[vertexSet.size()];
     minCost = ULONG_MAX;
     path[0] = 0;
