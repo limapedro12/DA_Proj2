@@ -18,11 +18,13 @@ public:
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
     void clear();
 
-    int pathCost(unsigned int path[]) const;
-    int tspBruteForce(unsigned int path[]) const;
+    //int pathCost(unsigned int path[]) const;
+    //int tspBruteForce(unsigned int path[]) const;
 
-    void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost) const;
-    int tspBacktracking(unsigned int path[]) const;
+    void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
+    int tspBacktracking(unsigned int path[]);
+
+    void print() const;
 private:
     std::vector<Vertex*> vertexSet;
     unsigned long minCost;
