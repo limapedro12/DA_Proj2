@@ -11,5 +11,6 @@
 
 void readToy(const std::string& name, Graph& g);
 void readReal(int graph_no, Graph& g);
+void readExtra(unsigned int node_count, Graph& g);
 
 #endif //DA_PROJ2_READ_DATA_H
