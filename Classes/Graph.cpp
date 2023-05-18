@@ -39,6 +39,8 @@ bool inPath(unsigned int value, unsigned int path[], unsigned int n) {
 }
 
 bool inPath(unsigned int value, vector<Edge*> path, unsigned int n) {
+    if(n == 0)
+        return false;
     for (size_t i = 0; i < n; i++)
         if (path[i]->getSource()->getId() == value)
             return true;
@@ -134,9 +136,9 @@ void printPath(string pathName, vector<Edge*> &path) {
         if (i % 10 == 0) {
             cout << "\n    ";
         }
-        printf("[ %3d, %3d], ", path[i]->getSource(), path[i]->getSource()->getLon());
+        printf("%d[ %3d, %3d], ", path[i]->getSource()->getId(), path[i]->getSource(), path[i]->getSource()->getLon());
     }
-    printf("[ %3d, %3d]", path.back()->getDest()->getLat(), path.back()->getDest()->getLon());
+    printf("%d[ %3d, %3d]", path.back()->getDest()->getId(), path.back()->getDest()->getLat(), path.back()->getDest()->getLon());
     printf("\n];\n");
 }
 
@@ -172,10 +174,12 @@ vector<Edge*> Graph::RandomPath(){
     vector<Edge*> path(vertexSet.size());
     bool isDone = true;
 
-    if(RandomPathAux(path, 0))
+    if(RandomPathAux(path, 0)) {
         return path;
-    else
-        return vector<Edge*>();
+    }
+    else {
+        return vector<Edge *>();
+    }
 }
 
 
@@ -183,6 +187,7 @@ vector<Edge*> improvePath(vector<Edge*> path){
     double curLength = pathLengthSq(path);
     int n = path.size();
     bool foundImprovement = true;
+    cout << "Starting 2-opt\n";
     while (foundImprovement) {
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
@@ -198,12 +203,14 @@ vector<Edge*> improvePath(vector<Edge*> path){
                 if (lengthDelta < 0) {
                     if(!do2Opt(path, i, j))
                         continue;
+                    printPath("Improved path", path);
                     curLength += lengthDelta;
                     foundImprovement = true;
                 }
             }
         }
     }
+    cout << "Done 2-opt\n";
     return path;
 }
 

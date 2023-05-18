@@ -72,11 +72,11 @@ void Menu::mainMenu() {
             auto start = std::chrono::high_resolution_clock::now();
 
             std::vector<Edge*> path = graph.RandomPath();
-            printPath("path1", path);
+            printPath("Original Path", path);
 
             std::vector<Edge*> improvedPath = improvePath(path);
 
-            printPath("path2", improvedPath);
+            printPath("Improved Path2", improvedPath);
 
             auto stop = std::chrono::high_resolution_clock::now();
 
