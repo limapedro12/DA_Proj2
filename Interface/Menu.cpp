@@ -71,11 +71,16 @@ void Menu::mainMenu() {
         } else if (option == 4) {
             auto start = std::chrono::high_resolution_clock::now();
 
-            // CHAMAR MÉTODO GRAFO
+            std::vector<Edge*> path = graph.RandomPath();
+            printPath("path1", path);
+
+            std::vector<Edge*> improvedPath = improvePath(path);
+
+            printPath("path2", improvedPath);
 
             auto stop = std::chrono::high_resolution_clock::now();
 
-            // mostrar caminho?
+            printPath("2-opt Path", path);
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 

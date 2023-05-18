@@ -14,6 +14,14 @@ unsigned int Vertex::getId() const {
     return id;
 }
 
+double Vertex::getLat() const {
+    return lat;
+}
+
+double Vertex::getLon() const {
+    return lon;
+}
+
 std::vector<Edge*> Vertex::getAdj() const {
     return adj;
 }
@@ -59,3 +67,5 @@ void Edge::setReverse(Edge *reverse) {
 void Edge::print() const {
     std::cout << "->" << dest->getId() << ',' << dist << std::endl;
 }
+
+
