@@ -72,17 +72,30 @@ void Menu::mainMenu() {
             auto start = std::chrono::high_resolution_clock::now();
 
             std::vector<Edge*> path = graph.RandomPath();
-            printPath("Original Path", path);
+//            printPath("Original Path", path);
+
+            int size_before = 0;
+            for (auto edge : path) {
+                size_before += edge->getDist();
+            }
 
             std::vector<Edge*> improvedPath = improvePath(path);
 
-            printPath("Improved Path2", improvedPath);
+//            printPath("Improved Path2", improvedPath);
+
+            int size_after = 0;
+            for (auto edge : improvedPath) {
+                size_after += edge->getDist();
+            }
 
             auto stop = std::chrono::high_resolution_clock::now();
 
-            printPath("2-opt Path", path);
+//            printPath("2-opt Path", path);
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+            std::cout << "Custo inicial: " << size_before << std::endl;
+            std::cout << "Custo final: " << size_after << std::endl;
 
             std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
             std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;

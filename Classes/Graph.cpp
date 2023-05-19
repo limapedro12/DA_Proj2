@@ -189,6 +189,7 @@ vector<Edge*> improvePath(vector<Edge*> path){
     bool foundImprovement = true;
     cout << "Starting 2-opt\n";
     while (foundImprovement) {
+//        cout << "More 2-opt\n";
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
             for (int j = i + 1; j < n - 1; j++) {
@@ -198,12 +199,13 @@ vector<Edge*> improvePath(vector<Edge*> path){
                     continue;
 
                 double lengthDelta = -path[i]->getDist() - path[j]->getDist() + e2->getDist() + e1->getDist();
+                lengthDelta = ::round(lengthDelta*100)/100;
 
                 // If the length of the path is reduced, do a 2-opt swap
                 if (lengthDelta < 0) {
                     if(!do2Opt(path, i, j))
                         continue;
-                    printPath("Improved path", path);
+//                    cout << i << ", " << j << " - " << lengthDelta << endl;
                     curLength += lengthDelta;
                     foundImprovement = true;
                 }
