@@ -21,6 +21,7 @@ public:
 
     bool RandomPathAux(std::vector<Edge*> &path, unsigned int idx);
     std::vector<Edge*> RandomPath();
+    std::vector<Edge*> RandomPath2();
 
     void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
     int tspBacktracking(unsigned int path[]);

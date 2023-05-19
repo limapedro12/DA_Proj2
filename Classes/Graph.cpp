@@ -142,6 +142,7 @@ void printPath(string pathName, vector<Edge*> &path) {
     printf("\n];\n");
 }
 
+
 // Create a random path with all the points in graph g that starts and ends in the same point
 bool Graph::RandomPathAux(vector<Edge*> &path, unsigned int idx){
     Vertex* curr;
@@ -165,21 +166,57 @@ bool Graph::RandomPathAux(vector<Edge*> &path, unsigned int idx){
             path[idx] = e;
             if(RandomPathAux(path, idx+1))
                 return true;
+            else
+                cout << "Path failed\n";
         }
     }
     return false;
 }
 
 vector<Edge*> Graph::RandomPath(){
+    cout << "Starting RandomPath\n";
     vector<Edge*> path(vertexSet.size());
     bool isDone = true;
 
     if(RandomPathAux(path, 0)) {
+        cout << "Done RandomPath\n";
         return path;
     }
     else {
         return vector<Edge *>();
     }
+}
+
+// Make a random path that starts and ends in the same point and goes through all the points in the graph
+vector<Edge*> Graph::RandomPath2(){
+    vector<Edge*> path;
+    vector<Vertex*> vertices = vertexSet;
+    int n = vertices.size();
+    int i = 0;
+    bool notDone = true;
+    while(notDone) {
+        while (i < n) {
+            int idx = rand() % vertices.size();
+            Vertex *v = vertices[idx];
+            vertices.erase(vertices.begin() + idx);
+            if (i == 0) {
+                path.push_back(v->getAdj()[0]);
+            } else {
+                Edge *e = get_edge(path.back()->getDest(), v);
+                if (e != nullptr)
+                    path.push_back(e);
+                else
+                    i--;
+            }
+            i++;
+        }
+        Edge *e = get_edge(path.back()->getDest(), path[0]->getSource());
+        if (e != nullptr) {
+            notDone = false;
+            path.push_back(e);
+        }
+    }
+    return path;
 }
 
 
