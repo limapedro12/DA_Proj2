@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Vertex* Graph::findVertex(unsigned int id) {
+Vertex* Graph::findVertex(unsigned int id) const{
     return vertexSet[id];
 }
 
@@ -111,6 +111,10 @@ Edge* get_edge(Vertex* src, Vertex* dest){
     return nullptr;
 }
 
+Edge* get_edge(const Graph& g, int src, int dest){
+    return get_edge(g.findVertex(src), g.findVertex(dest));
+}
+
 // Perform a 2-opt swap
 bool do2Opt(vector<Edge*> &path, int i, int j) {
     Edge* e_first = get_edge(path[i]->getSource(), path[j]->getSource());
@@ -190,33 +194,181 @@ vector<Edge*> Graph::RandomPath(){
 // Make a random path that starts and ends in the same point and goes through all the points in the graph
 vector<Edge*> Graph::RandomPath2(){
     vector<Edge*> path;
-    vector<Vertex*> vertices = vertexSet;
-    int n = vertices.size();
-    int i = 0;
     bool notDone = true;
+    bool breakLoop = false;
     while(notDone) {
-        while (i < n) {
-            int idx = rand() % vertices.size();
-            Vertex *v = vertices[idx];
-            vertices.erase(vertices.begin() + idx);
-            if (i == 0) {
-                path.push_back(v->getAdj()[0]);
-            } else {
-                Edge *e = get_edge(path.back()->getDest(), v);
-                if (e != nullptr)
-                    path.push_back(e);
-                else
-                    i--;
+        vector<unordered_set<Edge*>> vertices;
+        vertices.reserve(vertexSet.size());
+        for(Vertex* v : vertexSet){
+            unordered_set<Edge*> vus;
+            for(Edge* e : v->getAdj()){
+                if(e->getDest()->getId() == 0)
+                    continue;
+                vus.insert(e);
             }
+            vertices.push_back(vus);
+        }
+
+        path.clear();
+        int n = vertexSet.size();
+        int i = 0;
+        Vertex* curr = vertexSet[0];
+        while (i < n - 1) {
+            unordered_set<Edge *> adj = vertices[curr->getId()];
+            if(adj.empty()){
+                cout << "Empty adj\n";
+                breakLoop = true;
+                break;
+            }
+            int idx = rand() % adj.size();
+            auto e_itr = adj.begin();
+            for(int j = 0; j < idx; j++)
+                e_itr++;
+            Edge* e = *e_itr;
+            for(Edge* e2 : adj){
+                vertices[e2->getDest()->getId()].erase(e2->getReverse());
+            }
+            vertices[curr->getId()].clear();
+            path.push_back(e);
+            curr = e->getDest();
             i++;
         }
-        Edge *e = get_edge(path.back()->getDest(), path[0]->getSource());
+        if(breakLoop){
+            breakLoop = false;
+            continue;
+        }
+        cout << "Almost done\n";
+        Edge *e = get_edge(*this, path.back()->getDest()->getId(), 0);
+        if (e == nullptr) {
+            double dist = sqrt(pow(path.back()->getDest()->getLat() - vertexSet[0]->getLat(), 2) +
+                               pow(path.back()->getDest()->getLon() - vertexSet[0]->getLon(), 2));
+            e = new Edge(path.back()->getDest(), vertexSet[0], dist);
+        }
         if (e != nullptr) {
             notDone = false;
             path.push_back(e);
         }
     }
     return path;
+}
+
+vector<Edge*> Graph::NearestPointsPath(){
+    struct comp { bool operator()(Edge* e1, Edge* e2){
+            return e1->getDist() < e2->getDist();
+    }};
+    vector<Edge*> path;
+    bool notDone = true;
+    bool breakLoop = false;
+    while(notDone) {
+//        cout << "Still not done\n";
+        vector<priority_queue<Edge*, vector<Edge*>, comp>> vertices;
+        vertices.reserve(vertexSet.size());
+        for(Vertex* v : vertexSet){
+            priority_queue<Edge*, vector<Edge*>, comp> vpq;
+            for(Edge* e : v->getAdj()){
+//                cout << "Pushing " << e->getSource()->getId() << " -> " << e->getDest()->getId() << endl;
+                if(e->getDest()->getId() == 0)
+                    continue;
+                vpq.push(e);
+            }
+            vertices.push_back(vpq);
+        }
+        unordered_set<int> visited;
+
+        path.clear();
+        int n = vertexSet.size();
+        int i = 0;
+        Vertex* curr = vertexSet[0];
+        while (i < n - 1) {
+            priority_queue<Edge *, vector<Edge *>, comp> adj = vertices[curr->getId()];
+            if(adj.empty())
+                return vector<Edge*>();
+            Edge* e = adj.top();
+            adj.pop();
+            while(visited.find(e->getDest()->getId()) != visited.end()){
+                if(adj.empty())
+                    return vector<Edge*>();
+//                cout << "Popping " << adj.top()->getDest()->getId() << endl;
+//                cout << "Size: " << adj.size() << endl;
+                e = adj.top();
+                adj.pop();
+            }
+            visited.insert(e->getDest()->getId());
+            path.push_back(e);
+            curr = e->getDest();
+            i++;
+//            cout << e->getDest()->getId() << endl;
+        }
+        if(breakLoop){
+            cout << "Break\n";
+            breakLoop = false;
+            continue;
+        }
+//        cout << "Almost done\n";
+        Edge *e = get_edge(*this, path.back()->getDest()->getId(), 0);
+        if (e != nullptr) {
+            notDone = false;
+            path.push_back(e);
+        } else {
+            return vector<Edge*>();
+        }
+    }
+//    cout << "Done\n";
+    return path;
+}
+
+bool Graph::RandomPathAux3(vector<Edge*> &path, unsigned int idx){
+    stack<pair<Vertex*, unsigned int>> stateStack;
+    stateStack.push({vertexSet[0], 0});
+
+    while (!stateStack.empty()) {
+        auto [curr, currIdx] = stateStack.top();
+        stateStack.pop();
+
+        if (currIdx == idx) {
+            if (idx == vertexSet.size() - 1) {
+                for (Edge* e : curr->getAdj()) {
+                    if (e->getDest()->getId() == 0) {
+                        path[idx] = e;
+                        return true;
+                    }
+                }
+                continue;
+            }
+
+            bool found = false;
+            for (Edge* e : curr->getAdj()) {
+                Vertex* v = e->getDest();
+                if (!inPath(v->getId(), path, idx)) {
+                    path[idx] = e;
+                    stateStack.push({v, currIdx + 1});
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                continue;
+            }
+        }
+
+        stateStack.push({curr, currIdx});
+    }
+    return false;
+}
+
+
+vector<Edge*> Graph::RandomPath3(){
+    cout << "Starting RandomPath\n";
+    vector<Edge*> path(vertexSet.size());
+    bool isDone = true;
+
+    if(RandomPathAux(path, 0)) {
+        cout << "Done RandomPath\n";
+        return path;
+    }
+    else {
+        return vector<Edge *>();
+    }
 }
 
 

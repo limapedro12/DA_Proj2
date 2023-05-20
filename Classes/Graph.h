@@ -8,12 +8,15 @@
 #include <cstring>
 #include <iostream>
 #include <string>
+#include <unordered_set>
+#include <queue>
+#include <stack>
 
 bool inPath(unsigned int value, unsigned int path[], unsigned int n);
 
 class Graph {
 public:
-    Vertex* findVertex(unsigned int id);
+    Vertex* findVertex(unsigned int id) const;
     std::vector<Vertex*> getVertexSet() const;
     void addVertex(Vertex* v);
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
@@ -22,6 +25,9 @@ public:
     bool RandomPathAux(std::vector<Edge*> &path, unsigned int idx);
     std::vector<Edge*> RandomPath();
     std::vector<Edge*> RandomPath2();
+    std::vector<Edge*> NearestPointsPath();
+    bool RandomPathAux3(std::vector<Edge*> &path, unsigned int idx);
+    std::vector<Edge*> RandomPath3();
 
     void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
     int tspBacktracking(unsigned int path[]);
