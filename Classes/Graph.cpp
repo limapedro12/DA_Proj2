@@ -317,41 +317,128 @@ vector<Edge*> Graph::NearestPointsPath(){
     return path;
 }
 
-bool Graph::RandomPathAux3(vector<Edge*> &path, unsigned int idx){
-    stack<pair<Vertex*, unsigned int>> stateStack;
-    stateStack.push({vertexSet[0], 0});
 
-    while (!stateStack.empty()) {
-        auto [curr, currIdx] = stateStack.top();
-        stateStack.pop();
+// auto [currId, currIdx] = stateStack.top();
+//        Vertex* curr = vertexSet[currId];
+//        stateStack.pop();
+//
+//        if (currIdx == idx) {
+//            if (idx == vertexSet.size() - 1) {
+//                for (Edge* e : curr->getAdj()) {
+//                    if (e->getDest()->getId() == 0) {
+//                        path[idx] = e;
+//                        return true;
+//                    }
+//                }
+//                continue;
+//            }
+//
+//            bool found = false;
+//            for (Edge* e : curr->getAdj()) {
+//                Vertex* v = e->getDest();
+//                if (!inPath(v->getId(), path, idx)) {
+//                    path[idx] = e;
+//                    stateStack.push({v->getId(), currIdx + 1});
+//                    found = true;
+//                    break;
+//                }
+//            }
+//            if (!found) {
+//                continue;
+//            }
+//        }
+//
+//        stateStack.push({curr->getId(), currIdx});
 
-        if (currIdx == idx) {
-            if (idx == vertexSet.size() - 1) {
-                for (Edge* e : curr->getAdj()) {
-                    if (e->getDest()->getId() == 0) {
-                        path[idx] = e;
-                        return true;
-                    }
-                }
-                continue;
-            }
+//unordered_set<int> u;
+//    while(!s.empty()){
+//        Vertex* v = vertexSet[s.top()];
+//        s.pop();
+//        u.insert(v->getId());
+//        if(u.size() == vertexSet.size())
+//            break;
+//        for(Edge* e: v->getAdj()) {
+//            int dest = e->getDest()->getId();
+//            if (u.find(dest) == u.end())
+//                s.push(e->getDest()->getId());
+//        }
+//        u.erase(v->getId());
+//    }
 
-            bool found = false;
-            for (Edge* e : curr->getAdj()) {
-                Vertex* v = e->getDest();
-                if (!inPath(v->getId(), path, idx)) {
+//stack<int> s;
+//    s.push(0);
+//    while(!s.empty()) {
+//        while (add) {
+//            s.push();
+//            if (dont add)
+//                break;
+//        }
+//        while(remove) {
+//            curr = s.top();
+//            s.pop()
+//            if(dont remove)
+//                break;
+//        }
+//    }
+
+struct func_call{
+    int vertex;
+    int for_number;
+    int index;
+};
+
+bool Graph::RandomPathAux3(vector<Edge*> &path){
+    stack<func_call> s;
+    s.push({0, 0, 0});
+    unordered_set<int> currently_in_path;
+    currently_in_path.insert(0);
+//    cout << "Insert - ";
+//    for(auto v: currently_in_path)
+//        cout << v << " ";
+//    cout << endl;
+    while(!s.empty()) {
+            int curr = s.top().vertex;
+            int i = s.top().for_number;
+            int idx = s.top().index;
+            s.pop();
+
+            if (idx == vertexSet.size() - 1){
+                Edge* e = get_edge(*this, curr, 0);
+                if(e != nullptr) {
                     path[idx] = e;
-                    stateStack.push({v, currIdx + 1});
-                    found = true;
-                    break;
+                    return true;
                 }
             }
-            if (!found) {
-                continue;
-            }
-        }
 
-        stateStack.push({curr, currIdx});
+            auto adj = vertexSet[curr]->getAdj();
+            if (i < adj.size()) {
+//                cout << "Add to stack: " << curr << " " << i + 1 << " " << idx << endl;
+                s.push({curr, i + 1, idx});
+                Vertex *next_vertex = vertexSet[curr]->getAdj()[i]->getDest();
+                path[idx] = vertexSet[curr]->getAdj()[i];
+                if(currently_in_path.find(next_vertex->getId()) == currently_in_path.end()) {
+                    currently_in_path.insert(curr);
+//                    cout << "Insert - ";
+//                    for(auto v: currently_in_path)
+//                        cout << v << " ";
+//                    cout << endl;
+//
+//                    cout << "Add to stack: " << next_vertex->getId() << " " << 0 << " " << idx + 1 << endl;
+                    s.push({(int) next_vertex->getId(), 0, idx + 1});
+                }
+            } else {
+                currently_in_path.erase(curr);
+                cout << "Poping " << curr << endl;
+//                cout << "Erase - ";
+//                for(auto v: currently_in_path)
+//                    cout << v << " ";
+//                cout << endl;
+            }
+//        while(remove) {
+//            s.pop()
+//            if(dont remove)
+//                break;
+//        }
     }
     return false;
 }
@@ -362,7 +449,7 @@ vector<Edge*> Graph::RandomPath3(){
     vector<Edge*> path(vertexSet.size());
     bool isDone = true;
 
-    if(RandomPathAux(path, 0)) {
+    if(RandomPathAux3(path)) {
         cout << "Done RandomPath\n";
         return path;
     }
@@ -372,22 +459,32 @@ vector<Edge*> Graph::RandomPath3(){
 }
 
 
-vector<Edge*> improvePath(vector<Edge*> path){
+vector<Edge*> improvePath(vector<Edge*> path, Graph g){
     double curLength = pathLengthSq(path);
     int n = path.size();
     bool foundImprovement = true;
     cout << "Starting 2-opt\n";
+    vector<unordered_map<int, double>> adj(n);
+    for(int i = 0; i < n; i++){
+        for(Edge* e: g.getVertexSet()[i]->getAdj()){
+            adj[i].insert({e->getDest()->getId(), e->getDist()});
+        }
+    }
     while (foundImprovement) {
 //        cout << "More 2-opt\n";
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
             for (int j = i + 1; j < n - 1; j++) {
-                Edge* e1 = get_edge(path[i]->getSource(), path[j]->getSource());
-                Edge* e2 = get_edge(path[i]->getDest(), path[j]->getDest());
-                if(e1 == nullptr || e2 == nullptr)
+//                auto e1 = get_edge(path[i]->getSource(), path[j]->getSource());
+                auto e1 = adj[path[i]->getSource()->getId()].find(path[j]->getSource()->getId());
+                auto end1 = adj[path[i]->getSource()->getId()].end();
+//                auto e2 = get_edge(path[i]->getDest(), path[j]->getDest());
+                auto e2 = adj[path[i]->getDest()->getId()].find(path[j]->getDest()->getId());
+                auto end2 = adj[path[i]->getDest()->getId()].end();
+                if(e1 == end1 || e2 == end2)
                     continue;
 
-                double lengthDelta = -path[i]->getDist() - path[j]->getDist() + e2->getDist() + e1->getDist();
+                double lengthDelta = -path[i]->getDist() - path[j]->getDist() + e2->second + e1->second;
                 lengthDelta = ::round(lengthDelta*100)/100;
 
                 // If the length of the path is reduced, do a 2-opt swap

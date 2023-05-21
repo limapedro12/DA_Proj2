@@ -79,7 +79,7 @@ void Menu::mainMenu() {
                 size_before += edge->getDist();
             }
 
-            std::vector<Edge*> improvedPath = improvePath(path);
+            std::vector<Edge*> improvedPath = improvePath(path, graph);
 
 //            printPath("Improved Path2", improvedPath);
 

@@ -26,7 +26,7 @@ public:
     std::vector<Edge*> RandomPath();
     std::vector<Edge*> RandomPath2();
     std::vector<Edge*> NearestPointsPath();
-    bool RandomPathAux3(std::vector<Edge*> &path, unsigned int idx);
+    bool RandomPathAux3(std::vector<Edge*> &path);
     std::vector<Edge*> RandomPath3();
 
     void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
@@ -41,6 +41,6 @@ int pathLengthSq(std::vector<Edge*> &path);
 bool do2Opt(std::vector<Edge*> &path, int i, int j);
 void printPath(std::string pathName, std::vector<Edge*> &path);
 std::vector<Edge*> createRandomPath(Graph g);
-std::vector<Edge*> improvePath(std::vector<Edge*> path);
+std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g);
 
 #endif //DA_PROJ2_GRAPH_H
