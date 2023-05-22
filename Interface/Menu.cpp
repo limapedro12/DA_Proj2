@@ -71,7 +71,11 @@ void Menu::mainMenu() {
         } else if (option == 4) {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::vector<Edge*> path = graph.RandomPath4();
+            std::vector<Edge*> path = graph.NearestPointsPath();
+            if(path.empty()) {
+                std::cout << "Não foi possível encontrar um caminho." << std::endl;
+                continue;
+            }
 //            printPath("Original Path", path);
 
             int size_before = 0;

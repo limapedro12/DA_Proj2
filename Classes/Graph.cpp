@@ -10,6 +10,10 @@ std::vector<Vertex*> Graph::getVertexSet() const {
     return vertexSet;
 }
 
+int Graph::getNumVertex() const{
+    return vertexSet.size();
+}
+
 void Graph::addVertex(Vertex *v) {
     vertexSet.push_back(v);
 }
@@ -206,60 +210,71 @@ vector<Edge*> Graph::RandomPath2(){
     return path;
 }
 
-vector<Edge*> Graph::NearestPointsPath(){
-    struct comp { bool operator()(Edge* e1, Edge* e2){
-            return e1->getDist() < e2->getDist();
-    }};
-    vector<Edge*> path;
-    bool notDone = true;
-    bool breakLoop = false;
-    while(notDone) {
-        vector<priority_queue<Edge*, vector<Edge*>, comp>> vertices;
-        vertices.reserve(vertexSet.size());
-        for(Vertex* v : vertexSet){
-            priority_queue<Edge*, vector<Edge*>, comp> vpq;
-            for(Edge* e : v->getAdj()){
-                if(e->getDest()->getId() == 0)
-                    continue;
-                vpq.push(e);
-            }
-            vertices.push_back(vpq);
+vector<Edge*> Graph::NearestPointsPath() {
+    cout <<"Starting Priority Queues\n";
+    vector<priority_queue<Edge*, vector<Edge*>, comp>> vertices;
+    vertices.reserve(vertexSet.size());
+    for(Vertex* v : vertexSet){
+        priority_queue<Edge*, vector<Edge*>, comp> vpq;
+        for(Edge* e : v->getAdj()){
+            vpq.push(e);
         }
-        unordered_set<int> visited;
+        vertices.push_back(vpq);
+    }
+    cout << "Done Priority Queues\n";
 
-        path.clear();
-        int n = vertexSet.size();
-        int i = 0;
-        Vertex* curr = vertexSet[0];
-        while (i < n - 1) {
-            priority_queue<Edge *, vector<Edge *>, comp> adj = vertices[curr->getId()];
+    cout << "Starting NearestPointsPath\n";
+    vector<Edge*> path;
+    unsigned long cost = ULONG_MAX;
+    for(int i; i < vertexSet.size(); i++){
+//        cout << "i = " << i << endl;
+        vector<Edge*> path2 = NearestPointsPath(i, vertices);
+        unsigned long cost2 = 0;
+        for(Edge* e : path2)
+            cost2 += e->getDist();
+        if(cost2 < cost){
+            cost = cost2;
+            path = path2;
+        }
+    }
+    cout << "Done NearestPointsPath\n";
+    return path;
+}
+
+vector<Edge*> Graph::NearestPointsPath(int start, vector<priority_queue<Edge*, vector<Edge*>, comp>> vertices){
+    vector<Edge*> path;
+    unordered_set<int> visited;
+    visited.insert(start);
+
+    path.clear();
+    int n = vertexSet.size();
+    int i = 0;
+    Vertex* curr = vertexSet[start];
+    while (i < n - 1) {
+        priority_queue<Edge *, vector<Edge *>, comp> adj = vertices[curr->getId()];
+        if(adj.empty())
+            return vector<Edge*>();
+
+        while(visited.find(adj.top()->getDest()->getId()) != visited.end()){
+            adj.pop();
             if(adj.empty())
                 return vector<Edge*>();
-            Edge* e = adj.top();
-            adj.pop();
-            while(visited.find(e->getDest()->getId()) != visited.end()){
-                if(adj.empty())
-                    return vector<Edge*>();
-                e = adj.top();
-                adj.pop();
-            }
-            visited.insert(e->getDest()->getId());
-            path.push_back(e);
-            curr = e->getDest();
-            i++;
         }
-        if(breakLoop){
-            cout << "Break\n";
-            breakLoop = false;
-            continue;
-        }
-        Edge *e = get_edge(*this, path.back()->getDest()->getId(), 0);
-        if (e != nullptr) {
-            notDone = false;
-            path.push_back(e);
-        } else {
-            return vector<Edge*>();
-        }
+
+        Edge* e = adj.top();
+        adj.pop();
+        visited.insert(e->getDest()->getId());
+        path.push_back(e);
+        curr = e->getDest();
+        i++;
+    }
+
+    Edge *e = get_edge(*this, path.back()->getDest()->getId(), 0);
+    if (e != nullptr)
+        path.push_back(e);
+    else {
+        cout << "Path failed\n";
+        return vector<Edge *>();
     }
     return path;
 }
@@ -317,27 +332,24 @@ vector<Edge*> Graph::RandomPath3(){
         return path;
     }
     else {
-        return vector<Edge *>();
+        return {};
     }
 }
 
 double haversine(double lat1, double lon1,
                  double lat2, double lon2){
-    // distance between latitudes
-    // and longitudes
     double dLat = (lat2 - lat1) *
                   M_PI / 180.0;
     double dLon = (lon2 - lon1) *
                   M_PI / 180.0;
 
-    // convert to radians
     lat1 = (lat1) * M_PI / 180.0;
     lat2 = (lat2) * M_PI / 180.0;
 
-    // apply formulae
     double a = pow(sin(dLat / 2), 2) +
                pow(sin(dLon / 2), 2) *
                cos(lat1) * cos(lat2);
+
     double rad = 6371;
     double c = 2 * asin(sqrt(a));
     return rad * c;
