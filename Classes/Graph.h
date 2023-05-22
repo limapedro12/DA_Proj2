@@ -29,11 +29,6 @@ public:
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
     void clear();
 
-    bool RandomPathAux(std::vector<Edge*> &path, unsigned int idx);
-    std::vector<Edge*> RandomPath();
-    std::vector<Edge*> RandomPath2();
-    std::vector<Edge*> NearestPointsPath();
-    std::vector<Edge*> NearestPointsPath(int start, std::vector<std::priority_queue<Edge*, std::vector<Edge*>, comp>> vertices);
     bool RandomPathAux3(std::vector<Edge*> &path);
     std::vector<Edge*> RandomPath3();
     std::vector<Edge*> RandomPath4();

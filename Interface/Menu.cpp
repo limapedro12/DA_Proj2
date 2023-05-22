@@ -179,7 +179,6 @@ void Menu::run2Opt(bool withRestriction) {
         std::cout << "Não foi possível encontrar um caminho." << std::endl;
         return;
     }
-//            printPath("Original Path", path);
 
     int size_before = 0;
     for (auto edge : path) {
@@ -191,8 +190,6 @@ void Menu::run2Opt(bool withRestriction) {
         improvedPath  = improvePath(path, graph);
     else
         improvedPath  = improvePathAll(path, graph);
-
-//            printPath("Improved Path2", improvedPath);
 
     int size_after = 0;
     for (auto edge : improvedPath) {
