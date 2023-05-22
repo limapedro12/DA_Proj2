@@ -35,7 +35,13 @@ public:
 
     void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
     int tspBacktracking(unsigned int path[]);
+    //int pathCost(unsigned int path[]) const;
+    //int tspBruteForce(unsigned int path[]) const;
+
+    void print() const;
+
     bool hasCoord = false;
+  
 private:
     std::vector<Vertex*> vertexSet;
     unsigned long minCost;

@@ -72,6 +72,7 @@ void Menu::mainMenu() {
             otherHeuristicMenu();
         }
         else if (option == 0) {
+            //graph.print();
             std::cout << "Obrigado por usar o nosso programa!\n\nFrancisco Alves, Pedro Lima e Pedro Januário\n";
             return;
         }
@@ -88,7 +89,20 @@ void Menu::readDataMenu() {
         "Grafos de demonstração (toy)\n\n" <<
         "4 - Fretes (shipping)\n" <<
         "5 - Estádios\n" <<
-        "6 - Turismo\n\n" <<
+        "6 - Turismo\n\n\n" <<
+        "Grafos extra (completamente conexos)\n\n" <<
+        "7 - 25 nós\n" <<
+        "8 - 50 nós\n" <<
+        "9 - 75 nós\n" <<
+        "10 - 100 nós\n" <<
+        "11 - 200 nós\n" <<
+        "12 - 300 nós\n" <<
+        "13 - 400 nós\n" <<
+        "14 - 500 nós\n" <<
+        "15 - 600 nós\n" <<
+        "16 - 700 nós\n" <<
+        "17 - 800 nós\n" <<
+        "18 - 900 nós\n\n" <<
         "0 - Menu anterior\n\n";
 
         std::string input;
@@ -102,7 +116,7 @@ void Menu::readDataMenu() {
                 option = -1;
             }
             std::cout << "\n";
-            if (option >= 1 && option <= 6) break;
+            if (option >= 1 && option <= 18) break;
             else if (option == 0) return;
             else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
         }
@@ -129,6 +143,54 @@ void Menu::readDataMenu() {
             return;
         } else if (option == 6) {
             readToy("tourism", graph);
+            ready = true;
+            return;
+        } else if (option == 7) {
+            readExtra(25, graph);
+            ready = true;
+            return;
+        } else if (option == 8) {
+            readExtra(50, graph);
+            ready = true;
+            return;
+        } else if (option == 9) {
+            readExtra(75, graph);
+            ready = true;
+            return;
+        } else if (option == 10) {
+            readExtra(100, graph);
+            ready = true;
+            return;
+        } else if (option == 11) {
+            readExtra(200, graph);
+            ready = true;
+            return;
+        } else if (option == 12) {
+            readExtra(300, graph);
+            ready = true;
+            return;
+        } else if (option == 13) {
+            readExtra(400, graph);
+            ready = true;
+            return;
+        } else if (option == 14) {
+            readExtra(500, graph);
+            ready = true;
+            return;
+        } else if (option == 15) {
+            readExtra(600, graph);
+            ready = true;
+            return;
+        } else if (option == 16) {
+            readExtra(700, graph);
+            ready = true;
+            return;
+        } else if (option == 17) {
+            readExtra(800, graph);
+            ready = true;
+            return;
+        } else if (option == 18) {
+            readExtra(900, graph);
             ready = true;
             return;
         }
