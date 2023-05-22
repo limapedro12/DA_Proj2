@@ -18,6 +18,8 @@ private:
     bool ready = false;
 
     void readDataMenu();
+    void otherHeuristicMenu();
+    void run2Opt(bool withRestriction);
 };
 
 
