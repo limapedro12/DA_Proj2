@@ -88,14 +88,11 @@ vector<Edge*> improvePath(vector<Edge*> path, Graph g){
     auto end2 = adj[0].end();
     double lengthDelta;
     while (foundImprovement) {
-//        cout << "More 2-opt\n";
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
             for (int j = i + 1; j < n - 1; j++) {
-//                auto e1 = get_edge(path[i]->getSource(), path[j]->getSource());
                 e1 = adj[path[i]->getSource()->getId()].find(path[j]->getSource()->getId());
                 end1 = adj[path[i]->getSource()->getId()].end();
-//                auto e2 = get_edge(path[i]->getDest(), path[j]->getDest());
                 e2 = adj[path[i]->getDest()->getId()].find(path[j]->getDest()->getId());
                 end2 = adj[path[i]->getDest()->getId()].end();
                 if(e1 == end1 || e2 == end2)
@@ -108,7 +105,6 @@ vector<Edge*> improvePath(vector<Edge*> path, Graph g){
                 if (lengthDelta < 0) {
                     if(!do2Opt(path, i, j))
                         continue;
-//                    cout << i << ", " << j << " - " << lengthDelta << endl;
                     curLength += lengthDelta;
                     foundImprovement = true;
                 }
@@ -130,22 +126,11 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g){
         path_temp.push_back(path[i]->getSource()->getId());
     }
 
-//    double d1;
-//    double d2;
     double lengthDelta;
     while (foundImprovement) {
-//        cout << "More 2-opt\n";
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
             for (int j = i + 1; j < n - 1; j++) {
-//                d1 = haversine(path[i]->getSource()->getLat(),
-//                                  path[i]->getSource()->getLon(),
-//                                  path[j]->getSource()->getLat(),
-//                                  path[j]->getSource()->getLon());
-//                d2 = haversine(path[i]->getDest()->getLat(),
-//                                  path[i]->getDest()->getLon(),
-//                                  path[j]->getDest()->getLat(),
-//                                  path[j]->getDest()->getLon());
 
                 int v1 = path_temp[i];
                 int v2 = path_temp[(i+1) % n];
@@ -157,13 +142,10 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g){
                               + dist2(g.findVertex(v2), g.findVertex(v4));
 
                 lengthDelta = round(lengthDelta*100)/100;
-//                cout << d1 << ", " << d2 << ", " << lengthDelta << endl;
 
                 // If the length of the path is reduced, do a 2-opt swap
                 if (lengthDelta < 0) {
                     do2OptAll(path_temp, i, j);
-//                    if(i > 40 && i < 50)
-//                        cout << i << ", " << j << " - " << lengthDelta << endl;
                     curLength += lengthDelta;
                     foundImprovement = true;
                 }

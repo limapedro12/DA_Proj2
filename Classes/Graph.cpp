@@ -325,7 +325,6 @@ bool Graph::RandomPathAux3(vector<Edge*> &path){
 vector<Edge*> Graph::RandomPath3(){
     cout << "Starting RandomPath\n";
     vector<Edge*> path(vertexSet.size());
-    bool isDone = true;
 
     if(RandomPathAux3(path)) {
         cout << "Done RandomPath\n";
@@ -362,7 +361,6 @@ vector<Edge*> Graph::RandomPath4() {
         int next = (i+1) % vertexSet.size();
         Edge* e = get_edge(*this, i, next);
         if(e == nullptr){
-//            cout << "Creating edge\n";
             double dist = haversine(vertexSet[i]->getLat(), vertexSet[i]->getLon(),
                                     vertexSet[next]->getLat(), vertexSet[next]->getLon());
             e = new Edge(vertexSet[i], vertexSet[next], dist);
