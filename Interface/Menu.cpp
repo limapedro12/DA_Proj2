@@ -69,18 +69,7 @@ void Menu::mainMenu() {
             std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
             std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
         } else if (option == 4) {
-            auto start = std::chrono::high_resolution_clock::now();
-
-            // CHAMAR MÉTODO GRAFO
-
-            auto stop = std::chrono::high_resolution_clock::now();
-
-            // mostrar caminho?
-
-            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
-            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
-            std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+            otherHeuristicMenu();
         }
         else if (option == 0) {
             //graph.print();
@@ -207,3 +196,87 @@ void Menu::readDataMenu() {
         }
     }
 }
+
+void Menu::otherHeuristicMenu(){
+    while (true) {
+        std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n\n" <<
+                  "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
+                  "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
+                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
+                  "0 - Menu anterior" << std::endl << std::endl;
+
+        std::string input;
+        int option;
+
+        while (true) {
+            std::getline(std::cin, input);
+            try {
+                option = stoi(input);
+            } catch (std::invalid_argument) {
+                option = -1;
+            }
+            std::cout << "\n";
+            if (option >= 1 && option <= 6) break;
+            else if (option == 0) return;
+            else std::cout << "Opção inválida. Por favor tente novamente.\n\n";
+        }
+
+        if (option == 1) {
+            run2Opt(true);
+            return;
+        } else if (option == 2 && graph.hasCoord) {
+            run2Opt(false);
+            return;
+        } else if((option == 3 && graph.hasCoord) || (option == 2 && !graph.hasCoord)){
+            otherHeuristicPrintPath = !otherHeuristicPrintPath;
+        }
+    }
+}
+
+void Menu::run2Opt(bool withRestriction) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    std::vector<Edge*> path;
+    if(withRestriction)
+        path = graph.RandomPath3();
+    else
+        path = graph.RandomPath4();
+    if(path.empty()) {
+        std::cout << "Não foi possível encontrar um caminho." << std::endl;
+        return;
+    }
+
+    int size_before = 0;
+    for (auto edge : path) {
+        size_before += edge->getDist();
+    }
+
+    std::vector<Edge*> improvedPath;
+    if(withRestriction)
+        improvedPath  = improvePath(path, graph);
+    else
+        improvedPath  = improvePathAll(path, graph);
+
+    int size_after = 0;
+    for (auto edge : improvedPath) {
+        size_after += edge->getDist();
+    }
+
+    auto stop = std::chrono::high_resolution_clock::now();
+
+    if(otherHeuristicPrintPath)
+        printPath("Caminho 2-opt: ", improvedPath);
+
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+    std::cout << "Custo inicial: " << size_before << std::endl;
+    std::cout << "Custo final: " << size_after << std::endl;
+    std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
+
+    std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+    std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+
+    std::cout << "Pressione ENTER para continuar...";
+    std::cin.ignore();
+}
+

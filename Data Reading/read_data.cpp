@@ -83,6 +83,8 @@ void readReal(int graph_no, Graph& g) {
 
         g.addBidirectionalEdge(source, dest, dist);
     }
+
+    g.hasCoord = true;
 }
 
 void readExtra(unsigned int node_count, Graph& g) {

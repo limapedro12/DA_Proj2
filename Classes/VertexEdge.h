@@ -13,6 +13,8 @@ public:
     Vertex(unsigned int id);
     Vertex(unsigned int id, double lat, double lon);
     unsigned int getId() const;
+    double getLat() const;
+    double getLon() const;
     std::vector<Edge*> getAdj() const;
     Edge* addEdge(Vertex* dest, double dist);
 
