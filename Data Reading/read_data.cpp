@@ -37,6 +37,7 @@ void readToy(const std::string& name, Graph& g) {
         g.addBidirectionalEdge(source, dest, dist);
     }
 
+    g.hasCoord = false;
 }
 
 void readReal(int graph_no, Graph& g) {
