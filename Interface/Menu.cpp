@@ -139,7 +139,9 @@ void Menu::otherHeuristicMenu(){
     while (true) {
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n\n" <<
                   "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
-                  "2 - Heurística 2-opt sem restricao" << std::endl << std::endl;
+                  "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
+                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
+                  "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;
         int option;
@@ -160,9 +162,11 @@ void Menu::otherHeuristicMenu(){
         if (option == 1) {
             run2Opt(true);
             return;
-        } else if (option == 2) {
+        } else if (option == 2 && graph.hasCoord) {
             run2Opt(false);
             return;
+        } else if((option == 3 && graph.hasCoord) || (option == 2 && !graph.hasCoord)){
+            otherHeuristicPrintPath = !otherHeuristicPrintPath;
         }
     }
 }
@@ -198,7 +202,8 @@ void Menu::run2Opt(bool withRestriction) {
 
     auto stop = std::chrono::high_resolution_clock::now();
 
-//            printPath("2-opt Path", path);
+    if(otherHeuristicPrintPath)
+        printPath("Caminho 2-opt: ", improvedPath);
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 

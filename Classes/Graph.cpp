@@ -141,7 +141,6 @@ bool Graph::RandomPathAux3(vector<Edge*> &path){
                 }
             } else {
                 currently_in_path.erase(curr);
-                cout << "Poping " << curr << endl;
             }
     }
     return false;

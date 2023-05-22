@@ -16,6 +16,7 @@ public:
 private:
     Graph graph;
     bool ready = false;
+    bool otherHeuristicPrintPath = false;
 
     void readDataMenu();
     void otherHeuristicMenu();

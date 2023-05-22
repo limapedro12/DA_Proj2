@@ -61,13 +61,12 @@ void vIntToVEdge(vector<int> &path, vector<Edge*> &path2, Graph g){
 void printPath(string pathName, vector<Edge*> &path) {
     cout << pathName << " = [";
     for (int i = 0; i < path.size(); i++) {
-        if (i % 10 == 0) {
-            cout << "\n    ";
-        }
-        printf("%d[ %3d, %3d], ", path[i]->getSource()->getId(), path[i]->getSource(), path[i]->getSource()->getLon());
+//        if (i % 10 == 0) {
+//            cout << "\n    ";
+//        }
+        cout << path[i]->getSource()->getId() << ", ";
     }
-    printf("%d[ %3d, %3d]", path.back()->getDest()->getId(), path.back()->getDest()->getLat(), path.back()->getDest()->getLon());
-    printf("\n];\n");
+    cout << path.back()->getDest()->getId() << "];\n";
 }
 
 vector<Edge*> improvePath(vector<Edge*> path, Graph g){
