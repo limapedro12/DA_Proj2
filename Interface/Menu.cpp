@@ -71,7 +71,7 @@ void Menu::mainMenu() {
         } else if (option == 4) {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::vector<Edge*> path = graph.RandomPath3();
+            std::vector<Edge*> path = graph.RandomPath4();
 //            printPath("Original Path", path);
 
             int size_before = 0;

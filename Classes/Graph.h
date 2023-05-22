@@ -11,8 +11,10 @@
 #include <unordered_set>
 #include <queue>
 #include <stack>
-
-bool inPath(unsigned int value, unsigned int path[], unsigned int n);
+#include <algorithm>
+#include <random>
+#include <cstdio>
+#include <vector>
 
 class Graph {
 public:
@@ -28,6 +30,7 @@ public:
     std::vector<Edge*> NearestPointsPath();
     bool RandomPathAux3(std::vector<Edge*> &path);
     std::vector<Edge*> RandomPath3();
+    std::vector<Edge*> RandomPath4();
 
     void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
     int tspBacktracking(unsigned int path[]);
@@ -37,10 +40,8 @@ private:
     unsigned int* minPath;
 };
 
-int pathLengthSq(std::vector<Edge*> &path);
-bool do2Opt(std::vector<Edge*> &path, int i, int j);
-void printPath(std::string pathName, std::vector<Edge*> &path);
-std::vector<Edge*> createRandomPath(Graph g);
-std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g);
+bool inPath(unsigned int value, unsigned int path[], unsigned int n);
+Edge* get_edge(Vertex* src, Vertex* dest);
+Edge* get_edge(const Graph& g, int src, int dest);
 
 #endif //DA_PROJ2_GRAPH_H
