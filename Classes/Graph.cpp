@@ -168,35 +168,34 @@ bool Graph::RandomPathAux3(vector<Edge*> &path){
     unordered_set<int> currently_in_path;
     currently_in_path.insert(0);
     while(!s.empty()) {
-            int curr = s.top().vertex;
-            int i = s.top().for_number;
-            int idx = s.top().index;
-            s.pop();
+        int curr = s.top().vertex;
+        int i = s.top().for_number;
+        int idx = s.top().index;
+        s.pop();
 
-            if (idx == vertexSet.size() - 1){
-                Edge* e = get_edge(*this, curr, 0);
-                if(e != nullptr) {
-                    path[idx] = e;
-                    return true;
-                }
+        if (idx == vertexSet.size() - 1){
+            Edge* e = get_edge(*this, curr, 0);
+            if(e != nullptr) {
+                path[idx] = e;
+                return true;
             }
+        }
 
-            auto adj = vertexSet[curr]->getAdj();
-            if (i < adj.size()) {
-                s.push({curr, i + 1, idx});
-                Vertex *next_vertex = vertexSet[curr]->getAdj()[i]->getDest();
-                path[idx] = vertexSet[curr]->getAdj()[i];
-                if(currently_in_path.find(next_vertex->getId()) == currently_in_path.end()) {
-                    currently_in_path.insert(curr);
-                    s.push({(int) next_vertex->getId(), 0, idx + 1});
-                }
-            } else {
-                currently_in_path.erase(curr);
+        auto adj = vertexSet[curr]->getAdj();
+        if (i < adj.size()) {
+            s.push({curr, i + 1, idx});
+            Vertex *next_vertex = vertexSet[curr]->getAdj()[i]->getDest();
+            path[idx] = vertexSet[curr]->getAdj()[i];
+            if(currently_in_path.find(next_vertex->getId()) == currently_in_path.end()) {
+                currently_in_path.insert(curr);
+                s.push({(int) next_vertex->getId(), 0, idx + 1});
             }
+        } else {
+            currently_in_path.erase(curr);
+        }
     }
     return false;
 }
-
 
 vector<Edge*> Graph::RandomPath3(){
     cout << "Starting RandomPath\n";

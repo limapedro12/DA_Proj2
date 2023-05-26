@@ -50,9 +50,9 @@ void vIntToVEdge(vector<int> &path, vector<Edge*> &path2, Graph g){
         if(e == nullptr)
             e = new Edge(g.findVertex(path[i]), g.findVertex(path[i+1]),
                          haversine(g.findVertex(path[i])->getLat(),
-                                       g.findVertex(path[i])->getLon(),
-                                       g.findVertex(path[i+1])->getLat(),
-                                       g.findVertex(path[i+1])->getLon()));
+                                   g.findVertex(path[i])->getLon(),
+                                   g.findVertex(path[i+1])->getLat(),
+                                   g.findVertex(path[i+1])->getLon()));
         path2[i] = e;
     }
 }
@@ -130,7 +130,6 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g){
         foundImprovement = false;
         for (int i = 0; i < n - 2; i++) {
             for (int j = i + 1; j < n - 1; j++) {
-
                 int v1 = path_temp[i];
                 int v2 = path_temp[(i+1) % n];
                 int v3 = path_temp[j];
