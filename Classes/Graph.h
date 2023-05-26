@@ -63,6 +63,8 @@ public:
     /**
      * @brief Auxiliary recursive function for the tspBacktracking function
      *
+     * Time Complexity: O(n!) where n is the number of vertices
+     *
      * @param path array with the path
      * @param idx index of the current vertex
      * @param cost cost of the current path
@@ -71,6 +73,8 @@ public:
 
     /**
      * @brief Calculates the minimum cost path using the brute force algorithm with backtracking
+     *
+     * Time Complexity: O(n!) where n is the number of vertices
      *
      * @param path array where the path will be stored
      *
@@ -96,6 +100,8 @@ private:
 /**
  * @brief Verifies if the value is in the array path
  *
+ * Time Complexity: O(n) where n is the size of path
+ *
  * @param value value to search
  * @param path array to search
  * @param n size of path
@@ -108,6 +114,8 @@ bool inPath(unsigned int value, unsigned int path[], unsigned int n);
 /**
  * @brief Get the Edge that has as source the vertex src and as destination vertex dest
  *
+ * Time Complexity: O(u), where u is the degree of the source vertex
+ *
  * @param src source vertex
  * @param dest destination vertex
  *
@@ -117,6 +125,8 @@ Edge* get_edge(Vertex* src, Vertex* dest);
 
 /**
  * @brief Get the Edge that has as source the vertex with index src and as destination vertex with index dest and is in the graph g
+ *
+ * Time Complexity: O(u), where u is the degree of the source vertex
  *
  * @param g Graph where to search for the edge
  * @param src index of the source vertex

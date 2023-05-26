@@ -18,6 +18,8 @@
  *
  * @details This function calculates the sum of the squared distances of a path
  *
+ * Time Complexity: O(n) where n is the number of edges in the path
+ *
  * @param path vector of edges that represent the path
  *
  * @return sum of the squared distances of the path
@@ -32,6 +34,8 @@ int pathLengthSq(std::vector<Edge*> &path);
  * and reverses the order of the edges between i and j
  *
  * This is only used in the function that is restricted to the edges of the graph
+ *
+ * Time Complexity: O(n) where n is the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
@@ -65,6 +69,8 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic
  *
+ * Time Complexity: O(n^3*log(n)) where n is the number of edges in the graph
+ *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
  * @return an 2-opt heuritic to the TSP problem, restricted by the edges of the graph
@@ -79,6 +85,8 @@ std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g);
  *
  * This is only used in the function that isn't restricted to the edges of the graph
  *
+ * Time Complexity: O(n) where n is the number of edges in the path
+ *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
  * @param j index of the second edge
@@ -89,6 +97,8 @@ bool do2OptAll(std::vector<int> &path, int i, int j);
 
 /**
  * @brief This function transforms a path of the indexes of vertexes into a path of edges
+ *
+ * Time Complexity: O(n) where n is the number of edges in the path
  *
  * @param path path of the indexes of vertexes
  * @param path2 vector to store the path of edges
@@ -107,6 +117,8 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  * if lenghtDelta > 0 then the swap improves the path
  *
  * This function returns a path that is not restricted by the edges of the graph
+ *
+ * Time Complexity: O(n^3*log(n)) where n is the number of edges in the graph
  *
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic
