@@ -203,6 +203,7 @@ void Menu::otherHeuristicMenu(){
                   "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
                   "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
                   (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
+                  "5 - Heurística 3-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
                   "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;
@@ -229,6 +230,9 @@ void Menu::otherHeuristicMenu(){
             return;
         } else if((option == 3 && graph.hasCoord) || (option == 2 && !graph.hasCoord)){
             otherHeuristicPrintPath = !otherHeuristicPrintPath;
+        } else if(option == 5){
+            run3Opt(true);
+            return;
         }
     }
 }
@@ -280,3 +284,49 @@ void Menu::run2Opt(bool withRestriction) {
     std::cin.ignore();
 }
 
+void Menu::run3Opt(bool withRestriction) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    std::vector<Edge*> path;
+    if(withRestriction)
+        path = graph.RandomPath3();
+    else
+        path = graph.RandomPath4();
+    if(path.empty()) {
+        std::cout << "Não foi possível encontrar um caminho." << std::endl;
+        return;
+    }
+
+    int size_before = 0;
+    for (auto edge : path) {
+        size_before += edge->getDist();
+    }
+
+    std::vector<Edge*> improvedPath;
+    if(withRestriction)
+        improvedPath  = improvePath3Opt(path, graph);
+    else
+        improvedPath  = improvePathAll3Opt(path, graph);
+
+    int size_after = 0;
+    for (auto edge : improvedPath) {
+        size_after += edge->getDist();
+    }
+
+    auto stop = std::chrono::high_resolution_clock::now();
+
+    if(otherHeuristicPrintPath)
+        printPath("Caminho 3-opt: ", improvedPath);
+
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+    std::cout << "Custo inicial: " << size_before << std::endl;
+    std::cout << "Custo final: " << size_after << std::endl;
+    std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
+
+    std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+    std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+
+    std::cout << "Pressione ENTER para continuar...";
+    std::cin.ignore();
+}
