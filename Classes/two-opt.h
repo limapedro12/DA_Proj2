@@ -129,5 +129,7 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  */
 std::vector<Edge*> improvePathAll(std::vector<Edge*> path, Graph g);
 
+double dist2(const Vertex* v1, const Vertex* v2);
+
 
 #endif

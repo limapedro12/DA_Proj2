@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "../Classes/tsp.h"
 
 Menu::Menu() {
     Graph g;
@@ -59,10 +60,22 @@ void Menu::mainMenu() {
             auto start = std::chrono::high_resolution_clock::now();
 
             // CHAMAR MÉTODO GRAFO
+            std::cout << "Distancia:" << " ";
+            std::cout << tspApproximation(graph) << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
 
             // mostrar caminho?
+            std::vector<unsigned int> vec = tspMST(graph);
+
+            std::cout << "Caminho:" << " ";
+            std::cout << "0" << " "  << "->" << " ";
+            for (unsigned int i = 0; i < vec.size(); i++) {
+                std::cout << vec[i] << " "  << "->" << " ";
+            }
+            std::cout << "0" << " ";
+
+            std::cout << std::endl;
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
