@@ -15,7 +15,7 @@ void copy(vector<Edge*> &path, vector<Edge*> &newPath, int startPath, int endPat
     copy(path.begin() + startPath, path.begin() + endPath, newPath.begin() + startNewPath);
 }
 
-int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<int, double>> adj) {
+int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<vector<Edge*>> adj) {
     if(i >= j || j >= k || i < 0 || k >= path.size()) {
         return -1;
     }
@@ -30,64 +30,79 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     int jDest = path[j]->getDest()->getId();
     int kSource = path[k]->getSource()->getId();
     int kDest = path[k]->getDest()->getId();
-    if (adj[iSource].find(jSource) != adj[iSource].end() && adj[jDest].find(iDest) != adj[jDest].end()) {
-        double delta = path[k]->getDist() + adj[iSource][jSource] + adj[iDest][jDest];
+//    if (adj[iSource].find[jSource] != adj[iSource].end() && adj[jDest].find(iDest) != adj[jDest].end()) {
+    if (adj[iSource][jSource] != nullptr && adj[jDest][iDest] != nullptr) {
+        double delta = path[k]->getDist() + adj[iSource][jSource]->getDist() + adj[iDest][jDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 1;
         }
     }
-    if (adj[iSource].find(kSource) != adj[iSource].end() && adj[kDest].find(iDest) != adj[kDest].end()) {
-        double delta = path[j]->getDist() + adj[iSource][kSource] + adj[iDest][kDest];
+//    if (adj[iSource].find(kSource) != adj[iSource].end() && adj[kDest].find(iDest) != adj[kDest].end()) {
+    if (adj[iSource][kSource] != nullptr && adj[kDest][iDest] != nullptr) {
+        double delta = path[j]->getDist() + adj[iSource][kSource]->getDist() + adj[iDest][kDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 2;
         }
     }
-    if (adj[jSource].find(kSource) != adj[jSource].end() && adj[kDest].find(jDest) != adj[kDest].end()) {
-        double delta = path[i]->getDist() + adj[jSource][kSource] + adj[jDest][kDest];
+//    if (adj[jSource].find(kSource) != adj[jSource].end() && adj[kDest].find(jDest) != adj[kDest].end()) {
+    if (adj[jSource][kSource] != nullptr && adj[kDest][jDest] != nullptr) {
+        double delta = path[i]->getDist() + adj[jSource][kSource]->getDist() + adj[jDest][kDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 3;
         }
     }
-    if (adj[iSource].find(jDest) != adj[iSource].end() &&
-        adj[jSource].find(kDest) != adj[jSource].end() &&
-        adj[kSource].find(iDest) != adj[kSource].end()) {
-        double delta = adj[iSource][jDest] + adj[jSource][kDest] + adj[kSource][iDest];
+//    if (adj[iSource].find(jDest) != adj[iSource].end() &&
+//        adj[jSource].find(kDest) != adj[jSource].end() &&
+//        adj[kSource].find(iDest) != adj[kSource].end()) {
+    if (adj[iSource][jDest] != nullptr &&
+        adj[jSource][kDest] != nullptr &&
+        adj[kSource][iDest] != nullptr) {
+        double delta = adj[iSource][jDest]->getDist() + adj[jSource][kDest]->getDist() + adj[kSource][iDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 4;
         }
     }
-    if (adj[iSource].find(jSource) != adj[iSource].end() &&
-        adj[iDest].find(kSource) != adj[iDest].end() &&
-        adj[jDest].find(kDest) != adj[jDest].end()) {
-        double delta = adj[iSource][jSource] + adj[iDest][kSource] + adj[jDest][kDest];
+//    if (adj[iSource].find(jSource) != adj[iSource].end() &&
+//        adj[iDest].find(kSource) != adj[iDest].end() &&
+//        adj[jDest].find(kDest) != adj[jDest].end()) {
+    if (adj[iSource][jSource] != nullptr &&
+        adj[iDest][kSource] != nullptr &&
+        adj[jDest][kDest] != nullptr) {
+        double delta = adj[iSource][jSource]->getDist() + adj[iDest][kSource]->getDist() + adj[jDest][kDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 5;
         }
     }
-    if (adj[iSource].find(jDest) != adj[iSource].end() &&
-        adj[kSource].find(jSource) != adj[kSource].end() &&
-        adj[iDest].find(kDest) != adj[iDest].end()) {
-        double delta = adj[iSource][jDest] + adj[kSource][jSource] + adj[iDest][kDest];
+//    if (adj[iSource].find(jDest) != adj[iSource].end() &&
+//        adj[kSource].find(jSource) != adj[kSource].end() &&
+//        adj[iDest].find(kDest) != adj[iDest].end()) {
+    if (adj[iSource][jDest] != nullptr &&
+        adj[kSource][jSource] != nullptr &&
+        adj[iDest][kDest] != nullptr) {
+        double delta = adj[iSource][jDest]->getDist() + adj[kSource][jSource]->getDist() + adj[iDest][kDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 6;
         }
     }
-    if (adj[iSource].find(kSource) != adj[iSource].end() &&
-        adj[jDest].find(iDest) != adj[jDest].end() &&
-        adj[jSource].find(kDest) != adj[jSource].end()) {
-        double delta = adj[iSource][kSource] + adj[jDest][iDest] + adj[jSource][kDest];
+//    if (adj[iSource].find(kSource) != adj[iSource].end() &&
+//        adj[jDest].find(iDest) != adj[jDest].end() &&
+//        adj[jSource].find(kDest) != adj[jSource].end()) {
+    if (adj[iSource][kSource] != nullptr &&
+        adj[jDest][iDest] != nullptr &&
+        adj[jSource][kDest] != nullptr) {
+        double delta = adj[iSource][kSource]->getDist() + adj[jDest][iDest]->getDist() + adj[jSource][kDest]->getDist();
         delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
@@ -97,7 +112,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     return selectedPath;
 }
 
-bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath) {
+bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath, vector<vector<Edge*>> adj) {
     if(i >= j || j >= k || i < 0 || k >= path.size()) {
         return false;
     }
@@ -119,49 +134,67 @@ bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath) {
 
     switch (selectedPath) {
         case 1:
-            newPath[i] = get_edge(iSourceVertex, jSourceVertex);
-            newPath[j] = get_edge(iDestVertex, jDestVertex);
+//            newPath[i] = get_edge(iSourceVertex, jSourceVertex);
+            newPath[i] = adj[iSource][jSource];
+//            newPath[j] = get_edge(iDestVertex, jDestVertex);
+            newPath[j] = adj[iDest][jDest];
             reverse(newPath, i+1, j);
             break;
         case 2:
-            newPath[i] = get_edge(iSourceVertex, kSourceVertex);
-            newPath[k] = get_edge(iDestVertex, kDestVertex);
+//            newPath[i] = get_edge(iSourceVertex, kSourceVertex);
+            newPath[i] = adj[iSource][kSource];
+//            newPath[k] = get_edge(iDestVertex, kDestVertex);
+            newPath[k] = adj[iDest][kDest];
             reverse(newPath, i+1, k);
             break;
         case 3:
-            newPath[j] = get_edge(jSourceVertex, kSourceVertex);
-            newPath[k] = get_edge(jDestVertex, kDestVertex);
+//            newPath[j] = get_edge(jSourceVertex, kSourceVertex);
+            newPath[j] = adj[jSource][kSource];
+//            newPath[k] = get_edge(jDestVertex, kDestVertex);
+            newPath[k] = adj[jDest][kDest];
             reverse(newPath, j+1, k);
             break;
         case 4: 
-            newPath[i] = get_edge(iSourceVertex, jDestVertex);
+//            newPath[i] = get_edge(iSourceVertex, jDestVertex);
+            newPath[i] = adj[iSource][jDest];
             copy(path, newPath, j+1, k, i+1);
-            newPath[i+k-j] = get_edge(kSourceVertex, iDestVertex);
+//            newPath[i+k-j] = get_edge(kSourceVertex, iDestVertex);
+            newPath[i+k-j] = adj[kSource][iDest];
             copy(path, newPath, i+1, j, i+k-j+1);
-            newPath[k] = get_edge(jSourceVertex, kDestVertex);
+//            newPath[k] = get_edge(jSourceVertex, kDestVertex);
+            newPath[k] = adj[jSource][kDest];
             break;
         case 5:
-            newPath[i] = get_edge(iSourceVertex, jSourceVertex);
+//            newPath[i] = get_edge(iSourceVertex, jSourceVertex);
+            newPath[i] = adj[iSource][jSource];
             reverse(newPath, i+1, j);
-            newPath[j] = get_edge(iDestVertex, kSourceVertex);
+//            newPath[j] = get_edge(iDestVertex, kSourceVertex);
+            newPath[j] = adj[iDest][kSource];
             reverse(newPath, j+1, k);
-            newPath[k] = get_edge(jDestVertex, kDestVertex);
+//            newPath[k] = get_edge(jDestVertex, kDestVertex);
+            newPath[k] = adj[jDest][kDest];
             break;
         case 6:
-            newPath[i] = get_edge(iSourceVertex, jDestVertex);
+//            newPath[i] = get_edge(iSourceVertex, jDestVertex);
+            newPath[i] = adj[iSource][jDest];
             copy(path, newPath, j+1, k, i+1);
-            newPath[i+k-j] = get_edge(kSourceVertex, jSourceVertex);
+//            newPath[i+k-j] = get_edge(kSourceVertex, jSourceVertex);
+            newPath[i+k-j] = adj[kSource][jSource];
             copy(path, newPath, i+1, j, i+k-j+1);
             reverse(newPath, i+k-j+1, k);
-            newPath[k] = get_edge(iDestVertex, kDestVertex);
+//            newPath[k] = get_edge(iDestVertex, kDestVertex);
+            newPath[k] = adj[iDest][kDest];
             break;
         case 7:
-            newPath[i] = get_edge(iSourceVertex, kSourceVertex);
+//            newPath[i] = get_edge(iSourceVertex, kSourceVertex);
+            newPath[i] = adj[iSource][kSource];
             copy(path, newPath, j+1, k, i+1);
             reverse(newPath, i+1, i+k-j);
-            newPath[i+k-j] = get_edge(jDestVertex, iDestVertex);
+//            newPath[i+k-j] = get_edge(jDestVertex, iDestVertex);
+            newPath[i+k-j] = adj[jDest][iDest];
             copy(path, newPath, i+1, j, i+k-j+1);
-            newPath[k] = get_edge(jSourceVertex, kDestVertex);
+//            newPath[k] = get_edge(jSourceVertex, kDestVertex);
+            newPath[k] = adj[jSource][kDest];
             break;
         default:
             return false;
@@ -214,10 +247,12 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
     path = improvePath(path, g, false);
     bool foundImprovement = true;
     int n = path.size();
-    vector<unordered_map<int, double>> adj(n);
+//    vector<unordered_map<int, double>> adj(n);
+    vector<vector<Edge*>> adj(n, vector<Edge*>(n, nullptr));
     for(int i = 0; i < n; i++){
         for(Edge* e: g.getVertexSet()[i]->getAdj()){
-            adj[i].insert({e->getDest()->getId(), e->getDist()});
+//            adj[i].insert({e->getDest()->getId(), e->getDist()});
+            adj[i][e->getDest()->getId()] = e;
         }
     }
 
@@ -243,7 +278,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
             int selectedPath = verify3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], adj);
             if(selectedPath > 0 && selectedPath < 8){
                 foundImprovement = true;
-                do3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], selectedPath);
+                do3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], selectedPath, adj);
 //                double curLength = pathLengthSq(path);
 //                cout << "Found improvement: " << curLength << " - " << selectedPath << endl;
             }

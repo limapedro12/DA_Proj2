@@ -18,7 +18,7 @@ using namespace std;
 
 void reverse(vector<Edge*> &path, int i, int j);
 void copy(vector<Edge*> &path, vector<Edge*> &newPath, int startPath, int endPath, int startNewPath);
-int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<int, double>> adj);
+int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<vector<Edge*>> adj);
 
 /**
  * @brief This functions does a 2-opt swap of to edges of a path
@@ -37,7 +37,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
  *
  * @return true if the swap was done, false otherwise
  * */
-bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath);
+bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath, vector<vector<Edge*>> adj);
 
 /**
  * @brief This functions improves a path using the 2-opt algorithm restricted to the edges of the graph
