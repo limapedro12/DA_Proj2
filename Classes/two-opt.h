@@ -75,7 +75,7 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
  * @return an 2-opt heuritic to the TSP problem, restricted by the edges of the graph
  */
-std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g);
+std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g, bool print = true);
 
 /**
  * @brief This functions does a 2-opt swap of to edges of a path

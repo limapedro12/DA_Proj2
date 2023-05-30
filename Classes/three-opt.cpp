@@ -21,6 +21,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     }
     
     double currentEdgeLength = path[i]->getDist() + path[j]->getDist() + path[k]->getDist();
+    currentEdgeLength = ::round(currentEdgeLength*100)/100;
     double minDelta = currentEdgeLength;
     int selectedPath = 0;
     int iSource = path[i]->getSource()->getId();
@@ -31,6 +32,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     int kDest = path[k]->getDest()->getId();
     if (adj[iSource].find(jSource) != adj[iSource].end() && adj[jDest].find(iDest) != adj[jDest].end()) {
         double delta = path[k]->getDist() + adj[iSource][jSource] + adj[iDest][jDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 1;
@@ -38,6 +40,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     }
     if (adj[iSource].find(kSource) != adj[iSource].end() && adj[kDest].find(iDest) != adj[kDest].end()) {
         double delta = path[j]->getDist() + adj[iSource][kSource] + adj[iDest][kDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 2;
@@ -45,6 +48,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
     }
     if (adj[jSource].find(kSource) != adj[jSource].end() && adj[kDest].find(jDest) != adj[kDest].end()) {
         double delta = path[i]->getDist() + adj[jSource][kSource] + adj[jDest][kDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 3;
@@ -54,6 +58,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
         adj[jSource].find(kDest) != adj[jSource].end() &&
         adj[kSource].find(iDest) != adj[kSource].end()) {
         double delta = adj[iSource][jDest] + adj[jSource][kDest] + adj[kSource][iDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 4;
@@ -63,6 +68,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
         adj[iDest].find(kSource) != adj[iDest].end() &&
         adj[jDest].find(kDest) != adj[jDest].end()) {
         double delta = adj[iSource][jSource] + adj[iDest][kSource] + adj[jDest][kDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 5;
@@ -72,6 +78,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
         adj[kSource].find(jSource) != adj[kSource].end() &&
         adj[iDest].find(kDest) != adj[iDest].end()) {
         double delta = adj[iSource][jDest] + adj[kSource][jSource] + adj[iDest][kDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 6;
@@ -81,6 +88,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<unordered_map<in
         adj[jDest].find(iDest) != adj[jDest].end() &&
         adj[jSource].find(kDest) != adj[jSource].end()) {
         double delta = adj[iSource][kSource] + adj[jDest][iDest] + adj[jSource][kDest];
+        delta = ::round(delta*100)/100;
         if (delta < minDelta) {
             minDelta = delta;
             selectedPath = 7;
@@ -160,10 +168,10 @@ bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath) {
     }
     for(int x = 0; x < path.size()-1; x++) {
         if(newPath[x]->getDest()->getId() != newPath[x+1]->getSource()->getId())
-            cout << "Error" << endl;
+            return false;
     }
     if(newPath[0]->getSource()->getId() != 0 || newPath[newPath.size()-1]->getDest()->getId() != 0)
-        cout << "Error" << endl;
+        return false;
     path = newPath;
     return true;
 //    Edge* e_first = get_edge(path[i]->getSource(), path[j]->getSource());
@@ -202,10 +210,10 @@ bool do3OptAll(vector<int> &path, int i, int j) {
 
 vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
     // double curLength = pathLengthSq(path);
-//    improvePath(path, g);
+    cout << "Starting 3-opt\n";
+    path = improvePath(path, g, false);
     bool foundImprovement = true;
     int n = path.size();
-    cout << "Starting 3-opt\n";
     vector<unordered_map<int, double>> adj(n);
     for(int i = 0; i < n; i++){
         for(Edge* e: g.getVertexSet()[i]->getAdj()){
@@ -236,14 +244,14 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
             if(selectedPath > 0 && selectedPath < 8){
                 foundImprovement = true;
                 do3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], selectedPath);
-                // curLength = pathLengthSq(path);
-                cout << "Found improvement: " << pathLengthSq(path) << " - " << selectedPath << endl;
+//                double curLength = pathLengthSq(path);
+//                cout << "Found improvement: " << curLength << " - " << selectedPath << endl;
             }
         } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
     }
-    for(int i = 0; i < path.size(); i++){
-        cout << path[i]->getSource()->getId() << "->" << path[i]->getDest()->getId() << endl;
-    }
+//    for(int i = 0; i < path.size(); i++){
+//        cout << path[i]->getSource()->getId() << "->" << path[i]->getDest()->getId() << endl;
+//    }
     cout << "Done 3-opt\n";
     return path;
     // double curLength = pathLengthSq(path);
