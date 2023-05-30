@@ -44,6 +44,9 @@ double tspApproximation(const Graph& graph) {
     std::vector<unsigned int> order = tspMST(graph);
     double totalCost = 0.0;
 
+    double distf = (get_edge(graph.findVertex(0), graph.findVertex(order[0]))->getDist());
+    totalCost += distf;
+
     unsigned int numVertices = order.size();
     for (unsigned int i = 0; i < numVertices - 1; i++) {
         unsigned int curr = order[i];
@@ -58,7 +61,7 @@ double tspApproximation(const Graph& graph) {
         }
     }
 
-    unsigned int first = order.front();
+    unsigned int first = 0;
     unsigned int last = order.back();
     if (get_edge(graph.findVertex(first), graph.findVertex(last))== nullptr) {
         double dist = dist2(graph.findVertex(first), graph.findVertex(last));
