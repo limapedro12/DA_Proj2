@@ -69,11 +69,11 @@ void Menu::mainMenu() {
             std::vector<unsigned int> vec = tspMST(graph);
 
             std::cout << "Caminho:" << " ";
-            std::cout << "0" << " "  << "->" << " ";
+            std::cout << "0" << " -> ";
             for (unsigned int i = 0; i < vec.size(); i++) {
-                std::cout << vec[i] << " "  << "->" << " ";
+                std::cout << vec[i] << " -> ";
             }
-            std::cout << "0" << " ";
+            std::cout << "0";
 
             std::cout << std::endl;
 
