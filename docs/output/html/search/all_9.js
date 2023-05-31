@@ -5,5 +5,7 @@ var searchData=
   ['mainmenu_2',['mainMenu',['../class_menu.html#aef9edee86d2ea460606361c92e061583',1,'Menu']]],
   ['menu_3',['Menu',['../class_menu.html',1,'Menu'],['../class_menu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu::Menu()']]],
   ['menu_2ecpp_4',['Menu.cpp',['../_menu_8cpp.html',1,'']]],
-  ['menu_2eh_5',['Menu.h',['../_menu_8h.html',1,'']]]
+  ['menu_2eh_5',['Menu.h',['../_menu_8h.html',1,'']]],
+  ['mincost_6',['minCost',['../class_graph.html#abe2954050cd16aaac59dda37a7fd6c9b',1,'Graph']]],
+  ['minpath_7',['minPath',['../class_graph.html#a13b100266688493ea603ee2202cddd1b',1,'Graph']]]
 ];
