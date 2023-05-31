@@ -223,29 +223,18 @@ bool do3Opt(vector<Edge*> &path, int i, int j, int k, int selectedPath, vector<v
 //    return true;
 }
 
-bool do3OptAll(vector<int> &path, int i, int j) {
-    cout << "WIP\n";
-    return false;
-    // Reverse path[i+1] to path[j]
-    for(int k = 0; k < (j-i)/2; k++){
-        int temp = path[i+1+k];
-        path[i+1+k] = path[j-k];
-        path[j-k] = temp;
-    }
-
-    return true;
-}
-
 //double dist2(const Vertex* v1, const Vertex* v2) {
 //    double h = haversine(v1->getLat(), v1->getLon(), v2->getLat(), v2->getLon());
 //    return h*h;
 //}
 
-unsigned long nChoosek( unsigned n, unsigned k )
-{
-    if (k > n) return 0;
-    if (k * 2 > n) k = n-k;
-    if (k == 0) return 1;
+unsigned long combinations(unsigned n, unsigned k){
+    if (k > n)
+        return 0;
+    if (k * 2 > n) 
+        k = n-k;
+    if (k == 0) 
+        return 1;
 
     unsigned long result = n;
     for( int i = 2; i <= k; ++i ) {
@@ -256,8 +245,8 @@ unsigned long nChoosek( unsigned n, unsigned k )
 }
 
 vector<bool> done_percentages = vector<bool>(10, false);
-void printProgress(double percent_original){
-    int percent = (int) (percent_original*100);
+void printProgress(double proportion){
+    int percent = (int) (proportion*100);
     if(!done_percentages[percent/10]){
         cout << percent << "%\n";
         done_percentages[percent/10] = true;
@@ -268,7 +257,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
     // double curLength = pathLengthSq(path);
     cout << "Starting 3-opt\n";
     done_percentages = vector<bool>(10, false);
-    unsigned long number_of_combinations = nChoosek(path.size(), 3);
+    unsigned long number_of_combinations = combinations(path.size(), 3);
     path = improvePath(path, g, false);
     bool foundImprovement = true;
     int n = path.size();
@@ -281,7 +270,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
         }
     }
 
-    while (foundImprovement) {
+//    while (foundImprovement) {
         foundImprovement = false;
         std::string bitmask(3, 1); // K leading 1's
         bitmask.resize(path.size(), 0); // N-K trailing 0's
@@ -303,7 +292,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
                 continue;
             int selectedPath = verify3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], adj);
             if(selectedPath > 0 && selectedPath < 8){
-                foundImprovement = true;
+//                foundImprovement = true;
                 do3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], selectedPath, adj);
 //                double curLength = pathLengthSq(path);
 //                cout << "Found improvement: " << curLength << " - " << selectedPath << endl;
@@ -311,7 +300,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
             count++;
             printProgress((double)count/number_of_combinations);
         } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
-    }
+//    }
 //    for(int i = 0; i < path.size(); i++){
 //        cout << path[i]->getSource()->getId() << "->" << path[i]->getDest()->getId() << endl;
 //    }
