@@ -20,20 +20,74 @@ struct comp { bool operator()(Edge* e1, Edge* e2){
         return e1->getDist() < e2->getDist();
     }};
 
+/**
+ * @brief A class that represents a graph.
+ *
+ * The Graph class is the most important class of the program, since it models the dataset
+ * that the developed tasks/algorithms will run on.\n
+ * Each instance contains all its nodes/vertexes organized in a vector, each one of the nodes
+ * containing the respective edges.
+ *
+ * NOTE: The terms "node" and "vertex" are used interchangeably.
+ */
 class Graph {
 public:
+    /**
+     * Finds and returns a pointer to a vertex in the graph's vertex set.
+     *
+     * Time complexity: O(1).
+     *
+     * @param id Id of the vertex whose pointer is to be returned
+     * @return Pointer to the vertex with the given id, nullptr if not found.
+     */
     Vertex* findVertex(unsigned int id) const;
+
+    /**
+     * Graph's vertex set getter.
+     *
+     * @return A copy of the vector of pointers to the graph's nodes.
+     */
     std::vector<Vertex*> getVertexSet() const;
+
+    /**
+     * Getter of the graph's number of nodes.
+     *
+     * @return The count of graph's nodes.
+     */
     int getNumVertex() const;
+
+    /**
+     * Adds a pointer to a vertex to the graph's vertexes (pointers).
+     *
+     * NOTE: Only to be used when inserting vertexes whose ids are sequential
+     * (upon the graph's construction), since this function is only invoked in
+     * the dataset reading.
+     *
+     * @param v Pointer to the vertex to be added.
+     */
     void addVertex(Vertex* v);
+
+    /**
+     * Creates a bidirectional edge between two graph's nodes.
+     * Source/destination are interchangeable.
+     *
+     * @param source Pointer to one of the edge's ends.
+     * @param dest Pointer to the other of the edge's ends.
+     * @param dist Distance of the edge to be created.
+     */
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
+
+    /**
+     * Erases all of the graph's contents.
+     * Used when we want to load another graph of the dataset.
+     */
     void clear();
 
     /**
      * @brief Auxiliary for the RandomPath3 function
      *
      * @details This function takes a recursive approach to find a random cycle in the graph and turns it into an iterative function using a stack,
-     * to avoid recursion limits
+     * to avoid recursion limits.
      *
      * @param path vector of edges to store the path
      *
@@ -44,7 +98,7 @@ public:
     /**
      * @brief Calculates a random path using the RandomPathAux3 function
      *
-     * @details This function returns a random path using the RandomPathAux3 function, that stays restricted to the edges of the graph
+     * @details This function returns a random path using the RandomPathAux3 function, that stays restricted to the edges of the graph.
      *
      * @return vector of edges that represent the path found
      * */
@@ -54,7 +108,7 @@ public:
      * @brief Calculates a random path
      *
      * @details This function returns a random path without the restriction to the edges of the graph,
-     * therefore it can create edges that don't exist in the graph
+     * therefore it can create edges that don't exist in the graph.
      *
      * @return vector of edges that represent the path found
      * */
@@ -63,7 +117,7 @@ public:
     /**
      * @brief Auxiliary recursive function for the tspBacktracking function
      *
-     * Time Complexity: O(n!) where n is the number of vertices
+     * Time Complexity: O(n!) where n is the number of vertices.
      *
      * @param path array with the path
      * @param idx index of the current vertex
@@ -74,7 +128,7 @@ public:
     /**
      * @brief Calculates the minimum cost path using the brute force algorithm with backtracking
      *
-     * Time Complexity: O(n!) where n is the number of vertices
+     * Time Complexity: O(n!) where n is the number of vertices.
      *
      * @param path array where the path will be stored
      *
@@ -100,7 +154,7 @@ private:
 /**
  * @brief Verifies if the value is in the array path
  *
- * Time Complexity: O(n) where n is the size of path
+ * Time Complexity: O(n) where n is the size of path.
  *
  * @param value value to search
  * @param path array to search
@@ -114,7 +168,7 @@ bool inPath(unsigned int value, unsigned int path[], unsigned int n);
 /**
  * @brief Get the Edge that has as source the vertex src and as destination vertex dest
  *
- * Time Complexity: O(u), where u is the degree of the source vertex
+ * Time Complexity: O(u), where u is the degree of the source vertex.
  *
  * @param src source vertex
  * @param dest destination vertex
@@ -126,7 +180,7 @@ Edge* get_edge(Vertex* src, Vertex* dest);
 /**
  * @brief Get the Edge that has as source the vertex with index src and as destination vertex with index dest and is in the graph g
  *
- * Time Complexity: O(u), where u is the degree of the source vertex
+ * Time Complexity: O(u), where u is the degree of the source vertex.
  *
  * @param g Graph where to search for the edge
  * @param src index of the source vertex
@@ -151,7 +205,7 @@ double haversine(double lat1, double lon1, double lat2, double lon2);
 /**
  * @brief Auxiliary struct for the RandomPathAux3 function, used to
  *
- * @details Auxiliary struct for the RandomPathAux3 function, used to store the current vertex, the index of the for loop and the index of the path and push it to the stack
+ * @details Auxiliary struct for the RandomPathAux3 function, used to store the current vertex, the index of the for loop and the index of the path and push it to the stack.
  *
  * @param vertex index of the current vertex
  * @param for_number index of the for loop

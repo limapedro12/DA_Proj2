@@ -72,6 +72,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_graph-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Graph Class Reference</div></div>
@@ -82,23 +83,50 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7557bc1ef9db10cad4a4cc4ffdd1a316"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a7557bc1ef9db10cad4a4cc4ffdd1a316">findVertex</a> (int id)</td></tr>
-<tr class="separator:a7557bc1ef9db10cad4a4cc4ffdd1a316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142f371a1fe397e44d409a54810560b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a142f371a1fe397e44d409a54810560b8">findVertex</a> (unsigned int id) const</td></tr>
+<tr class="separator:a142f371a1fe397e44d409a54810560b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a619ac583094079134074658e29463c0e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a619ac583094079134074658e29463c0e">getVertexSet</a> () const</td></tr>
 <tr class="separator:a619ac583094079134074658e29463c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb5e0517e2979c54eebdafc2a9875e8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#abb5e0517e2979c54eebdafc2a9875e8f">getNumVertex</a> () const</td></tr>
+<tr class="separator:abb5e0517e2979c54eebdafc2a9875e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa95e129c42fe7150ee07d13377547324"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aa95e129c42fe7150ee07d13377547324">addVertex</a> (<a class="el" href="class_vertex.html">Vertex</a> *v)</td></tr>
 <tr class="separator:aa95e129c42fe7150ee07d13377547324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae329b92621d0a81689c1ca2aa4e3d758"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae329b92621d0a81689c1ca2aa4e3d758">addBidirectionalEdge</a> (<a class="el" href="class_vertex.html">Vertex</a> *source, <a class="el" href="class_vertex.html">Vertex</a> *dest, double dist)</td></tr>
 <tr class="separator:ae329b92621d0a81689c1ca2aa4e3d758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6192a41101102ca8aa6acca607c84f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ac6192a41101102ca8aa6acca607c84f3">clear</a> ()</td></tr>
 <tr class="separator:ac6192a41101102ca8aa6acca607c84f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a731ea2501f9012db761248049c98d517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a731ea2501f9012db761248049c98d517">sort</a> ()</td></tr>
-<tr class="separator:a731ea2501f9012db761248049c98d517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e72ba33d2409391a9fd0bbe3b71e5d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a0e72ba33d2409391a9fd0bbe3b71e5d5">RandomPathAux3</a> (std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &amp;path)</td></tr>
+<tr class="memdesc:a0e72ba33d2409391a9fd0bbe3b71e5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary for the RandomPath3 function.  <a href="class_graph.html#a0e72ba33d2409391a9fd0bbe3b71e5d5">More...</a><br /></td></tr>
+<tr class="separator:a0e72ba33d2409391a9fd0bbe3b71e5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa246e112e2c27fee20fc9068d21efa61"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aa246e112e2c27fee20fc9068d21efa61">RandomPath3</a> ()</td></tr>
+<tr class="memdesc:aa246e112e2c27fee20fc9068d21efa61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a random path using the RandomPathAux3 function.  <a href="class_graph.html#aa246e112e2c27fee20fc9068d21efa61">More...</a><br /></td></tr>
+<tr class="separator:aa246e112e2c27fee20fc9068d21efa61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13082b45a53474b86ffcca348cc7e437"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a13082b45a53474b86ffcca348cc7e437">RandomPath4</a> ()</td></tr>
+<tr class="memdesc:a13082b45a53474b86ffcca348cc7e437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a random path.  <a href="class_graph.html#a13082b45a53474b86ffcca348cc7e437">More...</a><br /></td></tr>
+<tr class="separator:a13082b45a53474b86ffcca348cc7e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a2d87cfa5e9fd2fd7e139339fbc676823">tspBacktrackingAux</a> (unsigned int path[], unsigned int idx, unsigned long cost)</td></tr>
+<tr class="memdesc:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary recursive function for the tspBacktracking function.  <a href="class_graph.html#a2d87cfa5e9fd2fd7e139339fbc676823">More...</a><br /></td></tr>
+<tr class="separator:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ad6ba29dc13cb9d8b344fd7f5baee10c8">tspBacktracking</a> (unsigned int path[])</td></tr>
+<tr class="memdesc:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum cost path using the brute force algorithm with backtracking.  <a href="class_graph.html#ad6ba29dc13cb9d8b344fd7f5baee10c8">More...</a><br /></td></tr>
+<tr class="separator:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeeede3cb48be5d8cac08ea05ce54bd52">print</a> () const</td></tr>
+<tr class="memdesc:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the graph.  <a href="class_graph.html#aeeede3cb48be5d8cac08ea05ce54bd52">More...</a><br /></td></tr>
+<tr class="separator:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aba511b62181cc07231d7cb039931fb8b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aba511b62181cc07231d7cb039931fb8b">hasCoord</a> = false</td></tr>
+<tr class="separator:aba511b62181cc07231d7cb039931fb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6eec9bd738a8909119e5b2470ff5f264"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a6eec9bd738a8909119e5b2470ff5f264">vertexSet</a></td></tr>
 <tr class="separator:a6eec9bd738a8909119e5b2470ff5f264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2954050cd16aaac59dda37a7fd6c9b"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#abe2954050cd16aaac59dda37a7fd6c9b">minCost</a></td></tr>
+<tr class="separator:abe2954050cd16aaac59dda37a7fd6c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b100266688493ea603ee2202cddd1b"><td class="memItemLeft" align="right" valign="top">unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a13b100266688493ea603ee2202cddd1b">minPath</a></td></tr>
+<tr class="separator:a13b100266688493ea603ee2202cddd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae329b92621d0a81689c1ca2aa4e3d758" name="ae329b92621d0a81689c1ca2aa4e3d758"></a>
@@ -170,8 +198,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7557bc1ef9db10cad4a4cc4ffdd1a316" name="a7557bc1ef9db10cad4a4cc4ffdd1a316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7557bc1ef9db10cad4a4cc4ffdd1a316">&#9670;&#160;</a></span>findVertex()</h2>
+<a id="a142f371a1fe397e44d409a54810560b8" name="a142f371a1fe397e44d409a54810560b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a142f371a1fe397e44d409a54810560b8">&#9670;&#160;</a></span>findVertex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,9 +207,26 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_vertex.html">Vertex</a> * Graph::findVertex </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb5e0517e2979c54eebdafc2a9875e8f" name="abb5e0517e2979c54eebdafc2a9875e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb5e0517e2979c54eebdafc2a9875e8f">&#9670;&#160;</a></span>getNumVertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::getNumVertex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -205,14 +250,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a731ea2501f9012db761248049c98d517" name="a731ea2501f9012db761248049c98d517"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a731ea2501f9012db761248049c98d517">&#9670;&#160;</a></span>sort()</h2>
+<a id="aeeede3cb48be5d8cac08ea05ce54bd52" name="aeeede3cb48be5d8cac08ea05ce54bd52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeede3cb48be5d8cac08ea05ce54bd52">&#9670;&#160;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Graph::sort </td>
+          <td class="memname">void Graph::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the graph. </p>
+
+</div>
+</div>
+<a id="aa246e112e2c27fee20fc9068d21efa61" name="aa246e112e2c27fee20fc9068d21efa61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa246e112e2c27fee20fc9068d21efa61">&#9670;&#160;</a></span>RandomPath3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Graph::RandomPath3 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -220,9 +284,193 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates a random path using the RandomPathAux3 function. </p>
+<p >This function returns a random path using the RandomPathAux3 function, that stays restricted to the edges of the graph.</p>
+<dl class="section return"><dt>Returns</dt><dd>vector of edges that represent the path found </dd></dl>
+
+</div>
+</div>
+<a id="a13082b45a53474b86ffcca348cc7e437" name="a13082b45a53474b86ffcca348cc7e437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13082b45a53474b86ffcca348cc7e437">&#9670;&#160;</a></span>RandomPath4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Graph::RandomPath4 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates a random path. </p>
+<p >This function returns a random path without the restriction to the edges of the graph, therefore it can create edges that don't exist in the graph.</p>
+<dl class="section return"><dt>Returns</dt><dd>vector of edges that represent the path found </dd></dl>
+
+</div>
+</div>
+<a id="a0e72ba33d2409391a9fd0bbe3b71e5d5" name="a0e72ba33d2409391a9fd0bbe3b71e5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e72ba33d2409391a9fd0bbe3b71e5d5">&#9670;&#160;</a></span>RandomPathAux3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::RandomPathAux3 </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Auxiliary for the RandomPath3 function. </p>
+<p >This function takes a recursive approach to find a random cycle in the graph and turns it into an iterative function using a stack, to avoid recursion limits.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>vector of edges to store the path</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the path was found, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ad6ba29dc13cb9d8b344fd7f5baee10c8" name="ad6ba29dc13cb9d8b344fd7f5baee10c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ba29dc13cb9d8b344fd7f5baee10c8">&#9670;&#160;</a></span>tspBacktracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::tspBacktracking </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>path</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the minimum cost path using the brute force algorithm with backtracking. </p>
+<p >Time Complexity: O(n!) where n is the number of vertices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>array where the path will be stored</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cost of the minimum cost path </dd></dl>
+
+</div>
+</div>
+<a id="a2d87cfa5e9fd2fd7e139339fbc676823" name="a2d87cfa5e9fd2fd7e139339fbc676823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d87cfa5e9fd2fd7e139339fbc676823">&#9670;&#160;</a></span>tspBacktrackingAux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Graph::tspBacktrackingAux </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>path</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>cost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Auxiliary recursive function for the tspBacktracking function. </p>
+<p >Time Complexity: O(n!) where n is the number of vertices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>array with the path </td></tr>
+    <tr><td class="paramname">idx</td><td>index of the current vertex </td></tr>
+    <tr><td class="paramname">cost</td><td>cost of the current path </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aba511b62181cc07231d7cb039931fb8b" name="aba511b62181cc07231d7cb039931fb8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba511b62181cc07231d7cb039931fb8b">&#9670;&#160;</a></span>hasCoord</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Graph::hasCoord = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe2954050cd16aaac59dda37a7fd6c9b" name="abe2954050cd16aaac59dda37a7fd6c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2954050cd16aaac59dda37a7fd6c9b">&#9670;&#160;</a></span>minCost</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long Graph::minCost</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13b100266688493ea603ee2202cddd1b" name="a13b100266688493ea603ee2202cddd1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13b100266688493ea603ee2202cddd1b">&#9670;&#160;</a></span>minPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int* Graph::minPath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6eec9bd738a8909119e5b2470ff5f264" name="a6eec9bd738a8909119e5b2470ff5f264"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6eec9bd738a8909119e5b2470ff5f264">&#9670;&#160;</a></span>vertexSet</h2>
 

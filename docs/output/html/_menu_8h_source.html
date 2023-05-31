@@ -81,30 +81,40 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DA_PROJ2_MENU_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Classes/Graph.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Data Reading/read_data.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_menu.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_menu.html">Menu</a> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_function" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a>();</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#aef9edee86d2ea460606361c92e061583">mainMenu</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">   14</a></span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_variable" href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">graph</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">   15</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">ready</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a683d00add4bc86b9ef248a713a511c2d">readDataMenu</a>();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Classes/Graph.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Classes/two-opt.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Data Reading/read_data.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_menu.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="class_menu.html">Menu</a> {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#aef9edee86d2ea460606361c92e061583">mainMenu</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_function" href="class_menu.html#a057b9475e771b0ef7a622a03244a795a">getGraph</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">   17</a></span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_variable" href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">graph</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">   18</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">ready</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_menu.html#a467759e2368f2c3fd4e6b0589a8c0240">   19</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_menu.html#a467759e2368f2c3fd4e6b0589a8c0240">otherHeuristicPrintPath</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif </span><span class="comment">//DA_PROJ2_MENU_H</span></div>
-<div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:11</div></div>
-<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> Menu.h:9</div></div>
-<div class="ttc" id="aclass_menu_html_a2b279d51bfa387a7938f65eb59e9b437"><div class="ttname"><a href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">Menu::graph</a></div><div class="ttdeci">Graph graph</div><div class="ttdef"><b>Definition:</b> Menu.h:14</div></div>
-<div class="ttc" id="aclass_menu_html_a683d00add4bc86b9ef248a713a511c2d"><div class="ttname"><a href="class_menu.html#a683d00add4bc86b9ef248a713a511c2d">Menu::readDataMenu</a></div><div class="ttdeci">void readDataMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:49</div></div>
-<div class="ttc" id="aclass_menu_html_ad466dd83355124a6ed958430450bfe94"><div class="ttname"><a href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu::Menu</a></div><div class="ttdeci">Menu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:3</div></div>
-<div class="ttc" id="aclass_menu_html_aef9edee86d2ea460606361c92e061583"><div class="ttname"><a href="class_menu.html#aef9edee86d2ea460606361c92e061583">Menu::mainMenu</a></div><div class="ttdeci">void mainMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:8</div></div>
-<div class="ttc" id="aclass_menu_html_af68b201007fcfb0a2f4b474ef0249349"><div class="ttname"><a href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">Menu::ready</a></div><div class="ttdeci">bool ready</div><div class="ttdef"><b>Definition:</b> Menu.h:15</div></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a683d00add4bc86b9ef248a713a511c2d">readDataMenu</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a7260b4dd0f8df0d96069180aa1ef0341">otherHeuristicMenu</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu.html#a65286451fdea02293a1935b1b952a958">run2Opt</a>(<span class="keywordtype">bool</span> withRestriction);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">//DA_PROJ2_MENU_H</span></div>
+<div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:23</div></div>
+<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> Menu.h:11</div></div>
+<div class="ttc" id="aclass_menu_html_a057b9475e771b0ef7a622a03244a795a"><div class="ttname"><a href="class_menu.html#a057b9475e771b0ef7a622a03244a795a">Menu::getGraph</a></div><div class="ttdeci">Graph getGraph() const</div><div class="ttdef"><b>Definition:</b> Menu.cpp:9</div></div>
+<div class="ttc" id="aclass_menu_html_a2b279d51bfa387a7938f65eb59e9b437"><div class="ttname"><a href="class_menu.html#a2b279d51bfa387a7938f65eb59e9b437">Menu::graph</a></div><div class="ttdeci">Graph graph</div><div class="ttdef"><b>Definition:</b> Menu.h:17</div></div>
+<div class="ttc" id="aclass_menu_html_a467759e2368f2c3fd4e6b0589a8c0240"><div class="ttname"><a href="class_menu.html#a467759e2368f2c3fd4e6b0589a8c0240">Menu::otherHeuristicPrintPath</a></div><div class="ttdeci">bool otherHeuristicPrintPath</div><div class="ttdef"><b>Definition:</b> Menu.h:19</div></div>
+<div class="ttc" id="aclass_menu_html_a65286451fdea02293a1935b1b952a958"><div class="ttname"><a href="class_menu.html#a65286451fdea02293a1935b1b952a958">Menu::run2Opt</a></div><div class="ttdeci">void run2Opt(bool withRestriction)</div><div class="ttdef"><b>Definition:</b> Menu.cpp:249</div></div>
+<div class="ttc" id="aclass_menu_html_a683d00add4bc86b9ef248a713a511c2d"><div class="ttname"><a href="class_menu.html#a683d00add4bc86b9ef248a713a511c2d">Menu::readDataMenu</a></div><div class="ttdeci">void readDataMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:95</div></div>
+<div class="ttc" id="aclass_menu_html_a7260b4dd0f8df0d96069180aa1ef0341"><div class="ttname"><a href="class_menu.html#a7260b4dd0f8df0d96069180aa1ef0341">Menu::otherHeuristicMenu</a></div><div class="ttdeci">void otherHeuristicMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:213</div></div>
+<div class="ttc" id="aclass_menu_html_ad466dd83355124a6ed958430450bfe94"><div class="ttname"><a href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu::Menu</a></div><div class="ttdeci">Menu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:4</div></div>
+<div class="ttc" id="aclass_menu_html_aef9edee86d2ea460606361c92e061583"><div class="ttname"><a href="class_menu.html#aef9edee86d2ea460606361c92e061583">Menu::mainMenu</a></div><div class="ttdeci">void mainMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:13</div></div>
+<div class="ttc" id="aclass_menu_html_af68b201007fcfb0a2f4b474ef0249349"><div class="ttname"><a href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">Menu::ready</a></div><div class="ttdeci">bool ready</div><div class="ttdef"><b>Definition:</b> Menu.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

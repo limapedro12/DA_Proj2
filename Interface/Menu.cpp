@@ -60,7 +60,7 @@ void Menu::mainMenu() {
             auto start = std::chrono::high_resolution_clock::now();
 
             // CHAMAR MÉTODO GRAFO
-            std::cout << "Distancia:" << " ";
+            std::cout << "Distância:" << " ";
             std::cout << tspApproximation(graph) << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
@@ -215,7 +215,7 @@ void Menu::otherHeuristicMenu(){
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n\n" <<
                   "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
                   "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
-                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
+                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Habilitar a impressão do caminho") << std::endl <<
                   "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;
