@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a graph's vertex.  
+ <a href="class_vertex.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -110,7 +113,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8e2eb1c5bf923165179ff9d8b4f29349"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a8e2eb1c5bf923165179ff9d8b4f29349">adj</a></td></tr>
 <tr class="separator:a8e2eb1c5bf923165179ff9d8b4f29349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents a graph's vertex. </p>
+<p >Represents a graph's vertex/node by its id (for some graphs of the given dataset, latitude and longitude) and their adjacent edges.</p>
+<p >NOTE: The terms "vertex" and "node" ara use interchangeably. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4dabdbdc0085a5c4a30cfaa42dc38e02" name="a4dabdbdc0085a5c4a30cfaa42dc38e02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4dabdbdc0085a5c4a30cfaa42dc38e02">&#9670;&#160;</a></span>Vertex() <span class="overload">[1/2]</span></h2>
 
@@ -126,6 +133,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> basic constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id of the vertex to be created </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -160,6 +174,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id of the vertex to be created </td></tr>
+    <tr><td class="paramname">lat</td><td>Latitude of the vertex to be created </td></tr>
+    <tr><td class="paramname">lon</td><td>Longitude of the vertex to be created </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -189,6 +212,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds and returns a pointer to an <a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> to the vertex's (pointers to) adjacent edges.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Pointer to the destination vertex </td></tr>
+    <tr><td class="paramname">dist</td><td>Distance of the edge to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the created edge </dd></dl>
 
 </div>
 </div>
@@ -206,6 +238,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter of vertex's (pointers to) adjacent edges set.</p>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the vertex's vector of (pointers to) adjacent edges. </dd></dl>
 
 </div>
 </div>
@@ -223,6 +257,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>'s id getter.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>'s id </dd></dl>
 
 </div>
 </div>
@@ -240,6 +276,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>'s latitude getter.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>'s latitude </dd></dl>
 
 </div>
 </div>
@@ -257,6 +295,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Veretx's longitude getter.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>'s longitude </dd></dl>
 
 </div>
 </div>
@@ -274,6 +314,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Prints vertex's information. </p>
 
 </div>
 </div>

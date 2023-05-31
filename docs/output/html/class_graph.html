@@ -79,6 +79,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that represents a graph.  
+ <a href="class_graph.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_graph_8h_source.html">Graph.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -128,7 +131,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a13b100266688493ea603ee2202cddd1b"><td class="memItemLeft" align="right" valign="top">unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a13b100266688493ea603ee2202cddd1b">minPath</a></td></tr>
 <tr class="separator:a13b100266688493ea603ee2202cddd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A class that represents a graph. </p>
+<p >The <a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a> class is the most important class of the program, since it models the dataset that the developed tasks/algorithms will run on.<br  />
+Each instance contains all its nodes/vertexes organized in a vector, each one of the nodes containing the respective edges.</p>
+<p >NOTE: The terms "node" and "vertex" are used interchangeably. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae329b92621d0a81689c1ca2aa4e3d758" name="ae329b92621d0a81689c1ca2aa4e3d758"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae329b92621d0a81689c1ca2aa4e3d758">&#9670;&#160;</a></span>addBidirectionalEdge()</h2>
 
@@ -160,6 +168,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Creates a bidirectional edge between two graph's nodes. Source/destination are interchangeable.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Pointer to one of the edge's ends. </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the other of the edge's ends. </td></tr>
+    <tr><td class="paramname">dist</td><td>Distance of the edge to be created. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -178,6 +195,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Adds a pointer to a vertex to the graph's vertexes (pointers).</p>
+<p >NOTE: Only to be used when inserting vertexes whose ids are sequential (upon the graph's construction), since this function is only invoked in the dataset reading.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Pointer to the vertex to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -195,6 +220,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Erases all of the graph's contents. Used when we want to load another graph of the dataset. </p>
 
 </div>
 </div>
@@ -213,6 +239,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Finds and returns a pointer to a vertex in the graph's vertex set.</p>
+<p >Time complexity: O(1).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id of the vertex whose pointer is to be returned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the vertex with the given id, nullptr if not found. </dd></dl>
 
 </div>
 </div>
@@ -230,6 +265,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter of the graph's number of nodes.</p>
+<dl class="section return"><dt>Returns</dt><dd>The count of graph's nodes. </dd></dl>
 
 </div>
 </div>
@@ -247,6 +284,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a>'s vertex set getter.</p>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the vector of pointers to the graph's nodes. </dd></dl>
 
 </div>
 </div>
