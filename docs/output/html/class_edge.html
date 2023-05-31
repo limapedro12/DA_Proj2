@@ -78,6 +78,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents an edge between two vertexes/nodes of a graph.  
+ <a href="class_edge.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_vertex_edge_8h_source.html">VertexEdge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -108,7 +111,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:abcadfaa8985d0d593a124d0fea39130a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_edge.html#abcadfaa8985d0d593a124d0fea39130a">reverse</a> = nullptr</td></tr>
 <tr class="separator:abcadfaa8985d0d593a124d0fea39130a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents an edge between two vertexes/nodes of a graph. </p>
+<p >Represents an edge between to nodes of a graph by pointers to the two ends and distance.</p>
+<p >NOTE: The terms "vertex" and "node" are used interchangeably. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae945786c298dc86fcf24ff99c0152f7a" name="ae945786c298dc86fcf24ff99c0152f7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae945786c298dc86fcf24ff99c0152f7a">&#9670;&#160;</a></span>Edge()</h2>
 
@@ -140,6 +147,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Pointer to the source <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> </td></tr>
+    <tr><td class="paramname">dest</td><td>Pinter to the destination <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> </td></tr>
+    <tr><td class="paramname">dist</td><td>Distance of the edge to be constructed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -158,6 +173,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Destination <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> getter.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the edge's destination <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>. </dd></dl>
 
 </div>
 </div>
@@ -175,6 +192,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a>'s distance getter.</p>
+<dl class="section return"><dt>Returns</dt><dd>The edge's size (distance) </dd></dl>
 
 </div>
 </div>
@@ -192,6 +211,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter of the reverse edge (source and destination switched).</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the reverse edge </dd></dl>
 
 </div>
 </div>
@@ -209,6 +230,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Source <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a> getter.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the edge's source <a class="el" href="class_vertex.html" title="Represents a graph&#39;s vertex.">Vertex</a>. </dd></dl>
 
 </div>
 </div>
@@ -226,6 +249,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Prints information about the edge. </p>
 
 </div>
 </div>
@@ -244,6 +268,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Reverse edge setter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reverse</td><td>Pointer to the edge to be set as instance's reverse. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

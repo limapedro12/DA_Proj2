@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['print_0',['print',['../class_vertex.html#a59d7eb90e37338f4ad2d0be3ba41e8a1',1,'Vertex::print()'],['../class_edge.html#adcc4b30ad22a5f22bcc3e2bcdeb1a336',1,'Edge::print()']]]
+  ['operator_28_29_0',['operator()',['../structcomp.html#a489923b65c620118d7343bca192ec090',1,'comp']]],
+  ['otherheuristicmenu_1',['otherHeuristicMenu',['../class_menu.html#a7260b4dd0f8df0d96069180aa1ef0341',1,'Menu']]],
+  ['otherheuristicprintpath_2',['otherHeuristicPrintPath',['../class_menu.html#a467759e2368f2c3fd4e6b0589a8c0240',1,'Menu']]]
 ];

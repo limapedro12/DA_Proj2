@@ -79,6 +79,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A UI <a class="el" href="class_menu.html" title="A UI Menu class.">Menu</a> class.  
+ <a href="class_menu.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_menu_8h_source.html">Menu.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -92,6 +95,10 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a683d00add4bc86b9ef248a713a511c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a683d00add4bc86b9ef248a713a511c2d">readDataMenu</a> ()</td></tr>
 <tr class="separator:a683d00add4bc86b9ef248a713a511c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7260b4dd0f8df0d96069180aa1ef0341"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a7260b4dd0f8df0d96069180aa1ef0341">otherHeuristicMenu</a> ()</td></tr>
+<tr class="separator:a7260b4dd0f8df0d96069180aa1ef0341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65286451fdea02293a1935b1b952a958"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a65286451fdea02293a1935b1b952a958">run2Opt</a> (bool withRestriction)</td></tr>
+<tr class="separator:a65286451fdea02293a1935b1b952a958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -99,8 +106,13 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a2b279d51bfa387a7938f65eb59e9b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af68b201007fcfb0a2f4b474ef0249349"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#af68b201007fcfb0a2f4b474ef0249349">ready</a> = false</td></tr>
 <tr class="separator:af68b201007fcfb0a2f4b474ef0249349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467759e2368f2c3fd4e6b0589a8c0240"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu.html#a467759e2368f2c3fd4e6b0589a8c0240">otherHeuristicPrintPath</a> = false</td></tr>
+<tr class="separator:a467759e2368f2c3fd4e6b0589a8c0240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A UI <a class="el" href="class_menu.html" title="A UI Menu class.">Menu</a> class. </p>
+<p >This is a class that provides the program's UI menu and submenus. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad466dd83355124a6ed958430450bfe94" name="ad466dd83355124a6ed958430450bfe94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad466dd83355124a6ed958430450bfe94">&#9670;&#160;</a></span>Menu()</h2>
 
@@ -115,6 +127,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructs a menu and creates a <a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a> to model the data that will be read. </p>
 
 </div>
 </div>
@@ -133,6 +146,33 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Provides the UI main menu. Calls private functions that provide the submenus. </p>
+
+</div>
+</div>
+<a id="a7260b4dd0f8df0d96069180aa1ef0341" name="a7260b4dd0f8df0d96069180aa1ef0341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7260b4dd0f8df0d96069180aa1ef0341">&#9670;&#160;</a></span>otherHeuristicMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::otherHeuristicMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Provides the submenu that allows to use the other heuristic (T2.3). </p>
 
 </div>
 </div>
@@ -149,6 +189,33 @@ Private Attributes</h2></td></tr>
           <td class="memname">void Menu::readDataMenu </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Provides the submenu that allows to load a dataset. </p>
+
+</div>
+</div>
+<a id="a65286451fdea02293a1935b1b952a958" name="a65286451fdea02293a1935b1b952a958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65286451fdea02293a1935b1b952a958">&#9670;&#160;</a></span>run2Opt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu::run2Opt </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withRestriction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -181,6 +248,30 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p ><a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a> that models the desired graph of the dataset. </p>
+
+</div>
+</div>
+<a id="a467759e2368f2c3fd4e6b0589a8c0240" name="a467759e2368f2c3fd4e6b0589a8c0240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467759e2368f2c3fd4e6b0589a8c0240">&#9670;&#160;</a></span>otherHeuristicPrintPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Menu::otherHeuristicPrintPath = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Whether the calculated path using the other heuristic (T2.3) should be printed. </p>
 
 </div>
 </div>
@@ -203,6 +294,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Whether a graph has been loaded from the dataset. </p>
 
 </div>
 </div>

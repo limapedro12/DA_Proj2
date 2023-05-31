@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dest_0',['dest',['../class_edge.html#a50339c1a85710ca827d4e3865727ffd7',1,'Edge']]],
-  ['dist_1',['dist',['../class_edge.html#af5e90ce4a035531bc90c710c86f9448f',1,'Edge']]]
+  ['edge_0',['Edge',['../class_edge.html',1,'Edge'],['../class_edge.html#ae945786c298dc86fcf24ff99c0152f7a',1,'Edge::Edge()']]]
 ];
