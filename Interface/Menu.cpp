@@ -199,11 +199,22 @@ void Menu::readDataMenu() {
 
 void Menu::otherHeuristicMenu(){
     while (true) {
+        std::queue<string> numbers;
+        numbers.push("2");
+        numbers.push("3");
+        numbers.push("4");
+        numbers.push("5");
+        auto next_number = [&numbers]() {
+            string front = numbers.front();
+            numbers.pop();
+            return front;
+        };
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n\n" <<
                   "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
-                  "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
-                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
-                  "5 - Heurística 3-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
+                  (graph.hasCoord ? next_number() + " - Heurística 2-opt sem restricao \n": "") <<
+                  next_number() + " - Heurística 3-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
+                  (graph.hasCoord ? next_number() + " - Heurística 3-opt sem restricao \n": "") <<
+                  next_number() + " - " + (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
                   "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;
@@ -228,11 +239,14 @@ void Menu::otherHeuristicMenu(){
         } else if (option == 2 && graph.hasCoord) {
             run2Opt(false);
             return;
-        } else if((option == 3 && graph.hasCoord) || (option == 2 && !graph.hasCoord)){
-            otherHeuristicPrintPath = !otherHeuristicPrintPath;
-        } else if(option == 5){
+        } else if (option == 2 && !graph.hasCoord || option == 3 && graph.hasCoord) {
             run3Opt(true);
             return;
+        } else if (option == 4 && graph.hasCoord) {
+            run3Opt(false);
+            return;
+        } else if((option == 5 && graph.hasCoord) || (option == 3 && !graph.hasCoord)) {
+            otherHeuristicPrintPath = !otherHeuristicPrintPath;
         }
     }
 }

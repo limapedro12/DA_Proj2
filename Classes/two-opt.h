@@ -127,7 +127,7 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
  * @return an 2-opt heuritic to the TSP problem without restrictions
  */
-std::vector<Edge*> improvePathAll(std::vector<Edge*> path, Graph g);
+std::vector<Edge*> improvePathAll(std::vector<Edge*> path, Graph g, bool print = false);
 
 double dist2(const Vertex* v1, const Vertex* v2);
 

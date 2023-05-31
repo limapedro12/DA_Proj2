@@ -241,9 +241,34 @@ bool do3OptAll(vector<int> &path, int i, int j) {
 //    return h*h;
 //}
 
+unsigned long nChoosek( unsigned n, unsigned k )
+{
+    if (k > n) return 0;
+    if (k * 2 > n) k = n-k;
+    if (k == 0) return 1;
+
+    unsigned long result = n;
+    for( int i = 2; i <= k; ++i ) {
+        result *= (n-i+1);
+        result /= i;
+    }
+    return result;
+}
+
+vector<bool> done_percentages = vector<bool>(10, false);
+void printProgress(double percent_original){
+    int percent = (int) (percent_original*100);
+    if(!done_percentages[percent/10]){
+        cout << percent << "%\n";
+        done_percentages[percent/10] = true;
+    }
+}
+
 vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
     // double curLength = pathLengthSq(path);
     cout << "Starting 3-opt\n";
+    done_percentages = vector<bool>(10, false);
+    unsigned long number_of_combinations = nChoosek(path.size(), 3);
     path = improvePath(path, g, false);
     bool foundImprovement = true;
     int n = path.size();
@@ -263,6 +288,7 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
 
         vector<int> selectedNums;
         selectedNums.reserve(3);
+        int count = 0;
     
         // print integers and permute bitmask
         do {
@@ -282,6 +308,8 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
 //                double curLength = pathLengthSq(path);
 //                cout << "Found improvement: " << curLength << " - " << selectedPath << endl;
             }
+            count++;
+            printProgress((double)count/number_of_combinations);
         } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
     }
 //    for(int i = 0; i < path.size(); i++){
@@ -334,45 +362,66 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
 }
 
 vector<Edge*> improvePathAll3Opt(vector<Edge*> path, Graph g){
-    cout << "WIP\n";
-    return path;
-    double curLength = pathLengthSq(path);
-    int n = path.size();
+    // double curLength = pathLengthSq(path);
+    cout << "Starting 3-opt\n";
+    path = improvePathAll(path, g, false);
     bool foundImprovement = true;
-    cout << "Starting 2-opt\n";
-
-    vector<int> path_temp;
+    int n = path.size();
+//    vector<unordered_map<int, double>> adj(n);
+    vector<vector<Edge*>> adj(n, vector<Edge*>(n, nullptr));
     for(int i = 0; i < n; i++){
-        path_temp.push_back(path[i]->getSource()->getId());
+        for(Edge* e: g.getVertexSet()[i]->getAdj()){
+//            adj[i].insert({e->getDest()->getId(), e->getDist()});
+            adj[i][e->getDest()->getId()] = e;
+        }
     }
-
-    double lengthDelta;
-    while (foundImprovement) {
-        foundImprovement = false;
-        for (int i = 0; i < n - 2; i++) {
-            for (int j = i + 1; j < n - 1; j++) {
-                int v1 = path_temp[i];
-                int v2 = path_temp[(i+1) % n];
-                int v3 = path_temp[j];
-                int v4 = path_temp[(j+1) % n];
-                lengthDelta = - dist2(g.findVertex(v1), g.findVertex(v2))
-                              - dist2(g.findVertex(v3), g.findVertex(v4))
-                              + dist2(g.findVertex(v1), g.findVertex(v3))
-                              + dist2(g.findVertex(v2), g.findVertex(v4));
-
-                lengthDelta = round(lengthDelta*100)/100;
-
-                // If the length of the path is reduced, do a 2-opt swap
-                if (lengthDelta < 0) {
-                    do2OptAll(path_temp, i, j);
-                    curLength += lengthDelta;
-                    foundImprovement = true;
-                }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(adj[i][j] != nullptr) {
+                Edge* e = new Edge(g.getVertexSet()[i], g.getVertexSet()[j], haversine(g.getVertexSet()[i]->getLat(),
+                                                                                                  g.getVertexSet()[i]->getLon(),
+                                                                                                  g.getVertexSet()[j]->getLat(),
+                                                                                                  g.getVertexSet()[j]->getLon()));
+                Edge *e_reverse = new Edge(g.getVertexSet()[j], g.getVertexSet()[i], e->getDist());
+                e->setReverse(e_reverse);
+                e_reverse->setReverse(e);
+                adj[j][i] = e_reverse;
             }
         }
     }
-    vIntToVEdge(path_temp, path, g);
-    cout << "Done 2-opt\n";
+
+    while (foundImprovement) {
+        foundImprovement = false;
+        std::string bitmask(3, 1); // K leading 1's
+        bitmask.resize(path.size(), 0); // N-K trailing 0's
+
+        vector<int> selectedNums;
+        selectedNums.reserve(3);
+
+        // print integers and permute bitmask
+        do {
+            selectedNums.clear();
+            for (int i = 0; i < path.size(); ++i) // [0..N-1] integers
+            {
+                if (bitmask[i]) {
+                    selectedNums.push_back(i);
+                }
+            }
+            if(selectedNums[0] + 1 == selectedNums[1] || selectedNums[1] + 1 == selectedNums[2])
+                continue;
+            int selectedPath = verify3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], adj);
+            if(selectedPath > 0 && selectedPath < 8){
+                foundImprovement = true;
+                do3Opt(path, selectedNums[0], selectedNums[1], selectedNums[2], selectedPath, adj);
+//                double curLength = pathLengthSq(path);
+//                cout << "Found improvement: " << curLength << " - " << selectedPath << endl;
+            }
+        } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
+    }
+//    for(int i = 0; i < path.size(); i++){
+//        cout << path[i]->getSource()->getId() << "->" << path[i]->getDest()->getId() << endl;
+//    }
+    cout << "Done 3-opt\n";
     return path;
 }
 

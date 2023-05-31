@@ -114,11 +114,11 @@ vector<Edge*> improvePath(vector<Edge*> path, Graph g, bool print){
     return path;
 }
 
-vector<Edge*> improvePathAll(vector<Edge*> path, Graph g){
+vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
     double curLength = pathLengthSq(path);
     int n = path.size();
     bool foundImprovement = true;
-    cout << "Starting 2-opt\n";
+    if(print) cout << "Starting 2-opt\n";
 
     vector<int> path_temp;
     for(int i = 0; i < n; i++){
@@ -151,7 +151,7 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g){
         }
     }
     vIntToVEdge(path_temp, path, g);
-    cout << "Done 2-opt\n";
+    if(print) cout << "Done 2-opt\n";
     return path;
 }
 
