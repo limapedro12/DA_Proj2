@@ -52,7 +52,8 @@ double tspApproximation(const Graph& graph) {
         unsigned int curr = order[i];
         unsigned int next = order[i + 1];
         if (get_edge(graph.findVertex(curr), graph.findVertex(next))== nullptr) {
-            double dist = dist2(graph.findVertex(curr), graph.findVertex(next));
+            double dist = haversine(graph.findVertex(curr)->getLat(), graph.findVertex(curr)->getLon(),
+                                    graph.findVertex(next)->getLat(), graph.findVertex(next)->getLon());
             totalCost += dist;
         }
         else {
@@ -64,7 +65,8 @@ double tspApproximation(const Graph& graph) {
     unsigned int first = 0;
     unsigned int last = order.back();
     if (get_edge(graph.findVertex(first), graph.findVertex(last))== nullptr) {
-        double dist = dist2(graph.findVertex(first), graph.findVertex(last));
+        double dist = haversine(graph.findVertex(first)->getLat(), graph.findVertex(first)->getLon(),
+                                graph.findVertex(last)->getLat(), graph.findVertex(last)->getLon());
         totalCost += dist;
     }
     else {

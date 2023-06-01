@@ -15,6 +15,7 @@
 #include <random>
 #include <cstdio>
 #include <vector>
+#include <cmath>
 
 struct comp { bool operator()(Edge* e1, Edge* e2){
         return e1->getDist() < e2->getDist();

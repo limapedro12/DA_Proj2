@@ -90,6 +90,7 @@ void readReal(int graph_no, Graph& g) {
 
 void readExtra(unsigned int node_count, Graph& g) {
     g.clear();
+
     for (unsigned int i = 0; i < node_count; i++) g.addVertex(new Vertex(i));
 
     std::ifstream edges("../Project2Data/Extra-Fully-Connected-Graphs/edges_" + std::to_string(node_count) + ".csv");
