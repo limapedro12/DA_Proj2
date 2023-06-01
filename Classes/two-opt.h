@@ -58,8 +58,9 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  * @brief This functions improves a path using the 2-opt algorithm restricted to the edges of the graph
  *
  * @details This function improves a path using the 2-opt algorithm.
- * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps
- * if the swap improves the path, it is done, otherwise it tries to improve the path by doing 2-opt swaps
+ * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps.
+ * For every combination of two edges it verifyies if the swap improves the path,
+ * if it is does, the swap is done, otherwise it continues to the next combination of edges.
  * This verification can be done in O(1) time the following formula:
  * lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2)
  * if lenghtDelta > 0 then the swap improves the path
@@ -110,8 +111,9 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  * @brief This functions improves a path using the 2-opt algorithm without restrictions
  *
  * @details This function improves a path using the 2-opt algorithm.
- * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps
- * if the swap improves the path, it is done, otherwise it tries to improve the path by doing 2-opt swaps
+ * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps.
+ * For every combination of two edges it verifyies if the swap improves the path,
+ * if it is does, the swap is done, otherwise it continues to the next combination of edges.
  * This verification can be done in O(1) time the following formula:
  * lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2)
  * if lenghtDelta > 0 then the swap improves the path
@@ -129,6 +131,12 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  */
 std::vector<Edge*> improvePathAll(std::vector<Edge*> path, Graph g, bool print = false);
 
+/**
+ * @brief This function calculates the distance squared between two vertexes
+ * @param v1 first vertex
+ * @param v2 second vertex
+ * @return the distance squared between the two vertexes
+ */
 double dist2(const Vertex* v1, const Vertex* v2);
 
 #endif
