@@ -223,7 +223,7 @@ void Menu::otherHeuristicMenu(){
                   (graph.hasCoord ? next_number() + " - Heurística 2-opt sem restricao \n": "") <<
                   next_number() + " - Heurística 3-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
                   (graph.hasCoord ? next_number() + " - Heurística 3-opt sem restricao \n": "") <<
-                  next_number() + " - " + (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
+                  next_number() + " - " + (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Habilitar a impressão do caminho") << std::endl <<
                   "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;

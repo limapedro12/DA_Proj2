@@ -201,7 +201,7 @@ void printProgress(double proportion){
 }
 
 vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
-    cout << "Starting 3-opt\n";
+    cout << "A calcular 3-opt...\n";
     done_percentages = vector<bool>(10, false);
     unsigned long number_of_combinations = combinations(path.size(), 3);
     path = improvePath(path, g, false);
@@ -238,12 +238,12 @@ vector<Edge*> improvePath3Opt(vector<Edge*> path, Graph g){
         printProgress((double)count/number_of_combinations);
     } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
 
-    cout << "Done 3-opt\n";
+    cout << "3-opt calculado\n\n";
     return path;
 }
 
 vector<Edge*> improvePathAll3Opt(vector<Edge*> path, Graph g){
-    cout << "Starting 3-opt\n";
+    cout << "A calcular 3-opt...\n";
     path = improvePathAll(path, g, false);
     bool foundImprovement = true;
     int n = path.size();
@@ -290,7 +290,7 @@ vector<Edge*> improvePathAll3Opt(vector<Edge*> path, Graph g){
         }
     } while (std::prev_permutation(bitmask.begin(), bitmask.end()));
 
-    cout << "Done 3-opt\n";
+    cout << "3-opt calculado\n\n";
     return path;
 }
 

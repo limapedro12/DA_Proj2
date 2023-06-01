@@ -135,11 +135,9 @@ public:
      * @return cost of the minimum cost path
      * */
     int tspBacktracking(unsigned int path[]);
-    //int pathCost(unsigned int path[]) const;
-    //int tspBruteForce(unsigned int path[]) const;
 
     /**
-     * @brief Prints the graph
+     * @brief Prints the graph.
      * */
     void print() const;
 

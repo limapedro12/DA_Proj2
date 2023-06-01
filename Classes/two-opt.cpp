@@ -73,7 +73,7 @@ vector<Edge*> improvePath(vector<Edge*> path, Graph g, bool print){
     double curLength = pathLengthSq(path);
     int n = path.size();
     bool foundImprovement = true;
-    if(print) cout << "Starting 2-opt\n";
+    if(print) cout << "A calcular 2-opt...\n";
     vector<unordered_map<int, double>> adj(n);
     for(int i = 0; i < n; i++){
         for(Edge* e: g.getVertexSet()[i]->getAdj()){
@@ -110,7 +110,7 @@ vector<Edge*> improvePath(vector<Edge*> path, Graph g, bool print){
             }
         }
     }
-    if(print) cout << "Done 2-opt\n";
+    if(print) cout << "2-opt calculado\n\n";
     return path;
 }
 
@@ -118,7 +118,7 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
     double curLength = pathLengthSq(path);
     int n = path.size();
     bool foundImprovement = true;
-    if(print) cout << "Starting 2-opt\n";
+    if(print) cout << "A calcular 2-opt...\n";
 
     vector<int> path_temp;
     for(int i = 0; i < n; i++){
@@ -151,7 +151,7 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
         }
     }
     vIntToVEdge(path_temp, path, g);
-    if(print) cout << "Done 2-opt\n";
+    if(print) cout << "2-opt calculado\n\n";
     return path;
 }
 
