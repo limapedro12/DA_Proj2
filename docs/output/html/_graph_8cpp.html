@@ -75,47 +75,57 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Graph.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_graph_8h_source.html">Graph.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfunc__call.html">func_call</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4c61f0a46fc485e62f61ad8fdbdc038d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_graph_8cpp.html#a4c61f0a46fc485e62f61ad8fdbdc038d">binarySearch</a> (int id, const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt; &amp;v, int low, int high)</td></tr>
-<tr class="separator:a4c61f0a46fc485e62f61ad8fdbdc038d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2224a00a8eef6bd459c257f3510b5867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_graph_8cpp.html#a2224a00a8eef6bd459c257f3510b5867">inPath</a> (unsigned int value, unsigned int path[], unsigned int n)</td></tr>
+<tr class="memdesc:a2224a00a8eef6bd459c257f3510b5867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the value is in the array path.  <a href="_graph_8cpp.html#a2224a00a8eef6bd459c257f3510b5867">More...</a><br /></td></tr>
+<tr class="separator:a2224a00a8eef6bd459c257f3510b5867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0eb25ea12b1a9314f4e9350cd80a8d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_graph_8cpp.html#ad0eb25ea12b1a9314f4e9350cd80a8d7">get_edge</a> (<a class="el" href="class_vertex.html">Vertex</a> *src, <a class="el" href="class_vertex.html">Vertex</a> *dest)</td></tr>
+<tr class="memdesc:ad0eb25ea12b1a9314f4e9350cd80a8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex src and as destination vertex dest.  <a href="_graph_8cpp.html#ad0eb25ea12b1a9314f4e9350cd80a8d7">More...</a><br /></td></tr>
+<tr class="separator:ad0eb25ea12b1a9314f4e9350cd80a8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4311fb95f4f3c105e0150253f18aeed2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_graph_8cpp.html#a4311fb95f4f3c105e0150253f18aeed2">get_edge</a> (const <a class="el" href="class_graph.html">Graph</a> &amp;g, int src, int dest)</td></tr>
+<tr class="memdesc:a4311fb95f4f3c105e0150253f18aeed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex with index src and as destination vertex with index dest and is in the graph g.  <a href="_graph_8cpp.html#a4311fb95f4f3c105e0150253f18aeed2">More...</a><br /></td></tr>
+<tr class="separator:a4311fb95f4f3c105e0150253f18aeed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3410d50a83dc81b71aeab3fa0340dac5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_graph_8cpp.html#a3410d50a83dc81b71aeab3fa0340dac5">haversine</a> (double lat1, double lon1, double lat2, double lon2)</td></tr>
+<tr class="memdesc:a3410d50a83dc81b71aeab3fa0340dac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the distance between two points, given its coordinates, using the haversine formula.  <a href="_graph_8cpp.html#a3410d50a83dc81b71aeab3fa0340dac5">More...</a><br /></td></tr>
+<tr class="separator:a3410d50a83dc81b71aeab3fa0340dac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4c61f0a46fc485e62f61ad8fdbdc038d" name="a4c61f0a46fc485e62f61ad8fdbdc038d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c61f0a46fc485e62f61ad8fdbdc038d">&#9670;&#160;</a></span>binarySearch()</h2>
+<a id="a4311fb95f4f3c105e0150253f18aeed2" name="a4311fb95f4f3c105e0150253f18aeed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4311fb95f4f3c105e0150253f18aeed2">&#9670;&#160;</a></span>get_edge() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a> * binarySearch </td>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * get_edge </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramtype">const <a class="el" href="class_graph.html">Graph</a> &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>low</em>, </td>
+          <td class="paramname"><em>src</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>high</em>&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -124,6 +134,155 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the <a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex with index src and as destination vertex with index dest and is in the graph g. </p>
+<p >Time Complexity: O(u), where u is the degree of the source vertex.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td><a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a> where to search for the edge </td></tr>
+    <tr><td class="paramname">src</td><td>index of the source vertex </td></tr>
+    <tr><td class="paramname">dest</td><td>index of the destination vertex</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex with index src and as destination vertex with index dest and is in the graph g </dd></dl>
+
+</div>
+</div>
+<a id="ad0eb25ea12b1a9314f4e9350cd80a8d7" name="ad0eb25ea12b1a9314f4e9350cd80a8d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0eb25ea12b1a9314f4e9350cd80a8d7">&#9670;&#160;</a></span>get_edge() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * get_edge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex src and as destination vertex dest. </p>
+<p >Time Complexity: O(u), where u is the degree of the source vertex.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>source vertex </td></tr>
+    <tr><td class="paramname">dest</td><td>destination vertex</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_edge.html" title="Represents an edge between two vertexes/nodes of a graph.">Edge</a> that has as source the vertex src and as destination vertex dest </dd></dl>
+
+</div>
+</div>
+<a id="a3410d50a83dc81b71aeab3fa0340dac5" name="a3410d50a83dc81b71aeab3fa0340dac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3410d50a83dc81b71aeab3fa0340dac5">&#9670;&#160;</a></span>haversine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double haversine </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lon1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lat2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lon2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the distance between two points, given its coordinates, using the haversine formula. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lat1</td><td>latitude of the first point </td></tr>
+    <tr><td class="paramname">lon1</td><td>longitude of the first point </td></tr>
+    <tr><td class="paramname">lat2</td><td>latitude of the second point </td></tr>
+    <tr><td class="paramname">lon2</td><td>longitude of the second point</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>distance between the two points </dd></dl>
+
+</div>
+</div>
+<a id="a2224a00a8eef6bd459c257f3510b5867" name="a2224a00a8eef6bd459c257f3510b5867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2224a00a8eef6bd459c257f3510b5867">&#9670;&#160;</a></span>inPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool inPath </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>path</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifies if the value is in the array path. </p>
+<p >Time Complexity: O(n) where n is the size of path.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>value to search </td></tr>
+    <tr><td class="paramname">path</td><td>array to search </td></tr>
+    <tr><td class="paramname">n</td><td>size of path</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the value is in the array path, else return false </dd></dl>
 
 </div>
 </div>

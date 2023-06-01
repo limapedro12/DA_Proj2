@@ -2,7 +2,8 @@
 
 using namespace std;
 
-Vertex* Graph::findVertex(unsigned int id) const{
+Vertex* Graph::findVertex(unsigned int id) const {
+    if (id > vertexSet.size()) return nullptr;
     return vertexSet[id];
 }
 

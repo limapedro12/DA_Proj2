@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vertexset_0',['vertexSet',['../class_graph.html#a6eec9bd738a8909119e5b2470ff5f264',1,'Graph']]]
+  ['mincost_0',['minCost',['../class_graph.html#abe2954050cd16aaac59dda37a7fd6c9b',1,'Graph']]],
+  ['minpath_1',['minPath',['../class_graph.html#a13b100266688493ea603ee2202cddd1b',1,'Graph']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['setreverse_0',['setReverse',['../class_edge.html#a64881280015bd83702fe3b2c6234b7e5',1,'Edge']]],
-  ['sort_1',['sort',['../class_graph.html#a731ea2501f9012db761248049c98d517',1,'Graph']]]
+  ['operator_28_29_0',['operator()',['../structcomp.html#a489923b65c620118d7343bca192ec090',1,'comp']]],
+  ['otherheuristicmenu_1',['otherHeuristicMenu',['../class_menu.html#a7260b4dd0f8df0d96069180aa1ef0341',1,'Menu']]]
 ];

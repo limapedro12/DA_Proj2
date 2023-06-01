@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['readdatamenu_0',['readDataMenu',['../class_menu.html#a683d00add4bc86b9ef248a713a511c2d',1,'Menu']]],
-  ['readreal_1',['readReal',['../read__data_8cpp.html#a8692e57639534dc4c99b761b546bb95a',1,'readReal(int graph_no, Graph &amp;g):&#160;read_data.cpp'],['../read__data_8h.html#a8692e57639534dc4c99b761b546bb95a',1,'readReal(int graph_no, Graph &amp;g):&#160;read_data.cpp']]],
-  ['readtoy_2',['readToy',['../read__data_8cpp.html#ae7ce80bae21e1d413beed54426a31423',1,'readToy(const std::string &amp;name, Graph &amp;g):&#160;read_data.cpp'],['../read__data_8h.html#ae7ce80bae21e1d413beed54426a31423',1,'readToy(const std::string &amp;name, Graph &amp;g):&#160;read_data.cpp']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['mainmenu_1',['mainMenu',['../class_menu.html#aef9edee86d2ea460606361c92e061583',1,'Menu']]],
+  ['menu_2',['Menu',['../class_menu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu']]]
 ];

@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['setreverse_0',['setReverse',['../class_edge.html#a64881280015bd83702fe3b2c6234b7e5',1,'Edge']]],
-  ['sort_1',['sort',['../class_graph.html#a731ea2501f9012db761248049c98d517',1,'Graph']]],
-  ['source_2',['source',['../class_edge.html#a811595096c310f833d490bdba2c7437e',1,'Edge']]],
-  ['stringify_3',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY():&#160;CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper_4',['STRINGIFY_HELPER',['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER():&#160;CMakeCXXCompilerId.cpp']]]
+  ['tsp_2ecpp_0',['tsp.cpp',['../tsp_8cpp.html',1,'']]],
+  ['tsp_2eh_1',['tsp.h',['../tsp_8h.html',1,'']]],
+  ['tspapproximation_2',['tspApproximation',['../tsp_8cpp.html#a4bbf5962c9bed3511532fc0452bffa21',1,'tspApproximation(const Graph &amp;graph):&#160;tsp.cpp'],['../tsp_8h.html#a4bbf5962c9bed3511532fc0452bffa21',1,'tspApproximation(const Graph &amp;graph):&#160;tsp.cpp']]],
+  ['tspbacktracking_3',['tspBacktracking',['../class_graph.html#ad6ba29dc13cb9d8b344fd7f5baee10c8',1,'Graph']]],
+  ['tspbacktrackingaux_4',['tspBacktrackingAux',['../class_graph.html#a2d87cfa5e9fd2fd7e139339fbc676823',1,'Graph']]],
+  ['tspmst_5',['tspMST',['../tsp_8cpp.html#a4c310bff7dada0e5b6b4849ed59de935',1,'tspMST(const Graph &amp;graph):&#160;tsp.cpp'],['../tsp_8h.html#a4c310bff7dada0e5b6b4849ed59de935',1,'tspMST(const Graph &amp;graph):&#160;tsp.cpp']]],
+  ['two_2dopt_2ecpp_6',['two-opt.cpp',['../two-opt_8cpp.html',1,'']]],
+  ['two_2dopt_2eh_7',['two-opt.h',['../two-opt_8h.html',1,'']]]
 ];
