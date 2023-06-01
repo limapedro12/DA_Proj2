@@ -16,6 +16,7 @@
 #include <cstdio>
 #include <vector>
 #include <cmath>
+#include <cfloat>
 
 struct comp { bool operator()(Edge* e1, Edge* e2){
         return e1->getDist() < e2->getDist();
@@ -124,7 +125,7 @@ public:
      * @param idx index of the current vertex
      * @param cost cost of the current path
      * */
-    void tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost);
+    void tspBacktrackingAux(unsigned int path[], unsigned int idx, double cost);
 
     /**
      * @brief Calculates the minimum cost path using the brute force algorithm with backtracking
@@ -135,7 +136,7 @@ public:
      *
      * @return cost of the minimum cost path
      * */
-    int tspBacktracking(unsigned int path[]);
+     double tspBacktracking(unsigned int path[]);
 
     /**
      * @brief Prints the graph.
@@ -146,7 +147,7 @@ public:
 
 private:
     std::vector<Vertex*> vertexSet;
-    unsigned long minCost;
+    double minCost;
     unsigned int* minPath;
 };
 

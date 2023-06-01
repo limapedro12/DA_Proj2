@@ -50,7 +50,7 @@ Edge* get_edge(const Graph& g, int src, int dest){
     return get_edge(g.findVertex(src), g.findVertex(dest));
 }
 
-void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned long cost){
+void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, double cost){
     unsigned int cenas = path[idx-1];
     Vertex* curr = vertexSet[cenas];
     if(idx == vertexSet.size()){
@@ -83,9 +83,9 @@ void Graph::tspBacktrackingAux(unsigned int path[], unsigned int idx, unsigned l
     }
 }
 
-int Graph::tspBacktracking(unsigned int path[]) {
+double Graph::tspBacktracking(unsigned int path[]) {
     minPath = new unsigned int[vertexSet.size()];
-    minCost = ULONG_MAX;
+    minCost = DBL_MAX;
     path[0] = 0;
 
     tspBacktrackingAux(path, 1, 0);

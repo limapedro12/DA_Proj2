@@ -39,8 +39,9 @@ void Menu::mainMenu() {
             auto start = std::chrono::high_resolution_clock::now();
 
             unsigned int path[graph.getVertexSet().size()];
+            double cost = graph.tspBacktracking(path);
 
-            std::cout << "Custo: " << graph.tspBacktracking(path) << std::endl;
+            std::cout << "Custo: " << cost << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
 
@@ -273,7 +274,7 @@ void Menu::run2Opt(bool withRestriction) {
         return;
     }
 
-    int size_before = 0;
+    double size_before = 0;
     for (auto edge : path) {
         size_before += edge->getDist();
     }
@@ -284,7 +285,7 @@ void Menu::run2Opt(bool withRestriction) {
     else
         improvedPath  = improvePathAll(path, graph);
 
-    int size_after = 0;
+    double size_after = 0;
     for (auto edge : improvedPath) {
         size_after += edge->getDist();
     }
@@ -320,7 +321,7 @@ void Menu::run3Opt(bool withRestriction) {
         return;
     }
 
-    int size_before = 0;
+    double size_before = 0;
     for (auto edge : path) {
         size_before += edge->getDist();
     }
@@ -331,7 +332,7 @@ void Menu::run3Opt(bool withRestriction) {
     else
         improvedPath  = improvePathAll3Opt(path, graph);
 
-    int size_after = 0;
+    double size_after = 0;
     for (auto edge : improvedPath) {
         size_after += edge->getDist();
     }
