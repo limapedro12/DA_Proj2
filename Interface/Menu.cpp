@@ -208,10 +208,22 @@ void Menu::readDataMenu() {
 
 void Menu::otherHeuristicMenu(){
     while (true) {
+        std::queue<string> numbers;
+        numbers.push("2");
+        numbers.push("3");
+        numbers.push("4");
+        numbers.push("5");
+        auto next_number = [&numbers]() {
+            string front = numbers.front();
+            numbers.pop();
+            return front;
+        };
         std::cout << "\nEscolha uma opção, escrevendo o número correspondente e pressionando ENTER\n\n" <<
                   "1 - Heurística 2-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
-                  "2 - " << (graph.hasCoord ? "Heurística 2-opt sem restricao \n3 - " : "") <<
-                  (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Habilitar a impressão do caminho") << std::endl <<
+                  (graph.hasCoord ? next_number() + " - Heurística 2-opt sem restricao \n": "") <<
+                  next_number() + " - Heurística 3-opt com restricao de apenas seguir as aresta do grafo" << std::endl <<
+                  (graph.hasCoord ? next_number() + " - Heurística 3-opt sem restricao \n": "") <<
+                  next_number() + " - " + (otherHeuristicPrintPath ? "Desabilitar a impressão do caminho" : "Abilitar a impressão do caminho") << std::endl <<
                   "0 - Menu anterior" << std::endl << std::endl;
 
         std::string input;
@@ -236,7 +248,13 @@ void Menu::otherHeuristicMenu(){
         } else if (option == 2 && graph.hasCoord) {
             run2Opt(false);
             return;
-        } else if((option == 3 && graph.hasCoord) || (option == 2 && !graph.hasCoord)){
+        } else if (option == 2 && !graph.hasCoord || option == 3 && graph.hasCoord) {
+            run3Opt(true);
+            return;
+        } else if (option == 4 && graph.hasCoord) {
+            run3Opt(false);
+            return;
+        } else if((option == 5 && graph.hasCoord) || (option == 3 && !graph.hasCoord)) {
             otherHeuristicPrintPath = !otherHeuristicPrintPath;
         }
     }
@@ -275,6 +293,53 @@ void Menu::run2Opt(bool withRestriction) {
 
     if(otherHeuristicPrintPath)
         printPath("Caminho 2-opt: ", improvedPath);
+
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+    std::cout << "Custo inicial: " << size_before << std::endl;
+    std::cout << "Custo final: " << size_after << std::endl;
+    std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
+
+    std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+    std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
+
+    std::cout << "Pressione ENTER para continuar...";
+    std::cin.ignore();
+}
+
+void Menu::run3Opt(bool withRestriction) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    std::vector<Edge*> path;
+    if(withRestriction)
+        path = graph.RandomPath3();
+    else
+        path = graph.RandomPath4();
+    if(path.empty()) {
+        std::cout << "Não foi possível encontrar um caminho." << std::endl;
+        return;
+    }
+
+    int size_before = 0;
+    for (auto edge : path) {
+        size_before += edge->getDist();
+    }
+
+    std::vector<Edge*> improvedPath;
+    if(withRestriction)
+        improvedPath  = improvePath3Opt(path, graph);
+    else
+        improvedPath  = improvePathAll3Opt(path, graph);
+
+    int size_after = 0;
+    for (auto edge : improvedPath) {
+        size_after += edge->getDist();
+    }
+
+    auto stop = std::chrono::high_resolution_clock::now();
+
+    if(otherHeuristicPrintPath)
+        printPath("Caminho 3-opt: ", improvedPath);
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 

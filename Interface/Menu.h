@@ -6,6 +6,7 @@
 
 #include "../Classes/Graph.h"
 #include "../Classes/two-opt.h"
+#include "../Classes/three-opt.h"
 #include "../Data Reading/read_data.h"
 
 /**
@@ -49,6 +50,7 @@ private:
      */
     void otherHeuristicMenu();
     void run2Opt(bool withRestriction);
+    void run3Opt(bool withRestriction);
 };
 
 
