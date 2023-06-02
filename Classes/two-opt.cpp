@@ -61,9 +61,6 @@ void vIntToVEdge(vector<int> &path, vector<Edge*> &path2, Graph g){
 void printPath(string pathName, vector<Edge*> &path) {
     cout << pathName << " = [";
     for (int i = 0; i < path.size(); i++) {
-//        if (i % 10 == 0) {
-//            cout << "\n    ";
-//        }
         cout << path[i]->getSource()->getId() << ", ";
     }
     cout << path.back()->getDest()->getId() << "];\n";
@@ -145,10 +142,6 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
                 int v2 = path_temp[(i+1) % n];
                 int v3 = path_temp[j];
                 int v4 = path_temp[(j+1) % n];
-//                lengthDelta = - dist2(g.findVertex(v1), g.findVertex(v2))
-//                              - dist2(g.findVertex(v3), g.findVertex(v4))
-//                              + dist2(g.findVertex(v1), g.findVertex(v3))
-//                              + dist2(g.findVertex(v2), g.findVertex(v4));
                 lengthDelta = - dist2matrix[v1][v2]
                               - dist2matrix[v3][v4]
                               + dist2matrix[v1][v3]
