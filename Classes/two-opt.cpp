@@ -124,6 +124,17 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
     for(int i = 0; i < n; i++){
         path_temp.push_back(path[i]->getSource()->getId());
     }
+    vector<vector<double>> dist2matrix(n, vector<double>(n, -1));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            Edge* e = get_edge(g, i, j);
+            if(e == nullptr)
+                dist2matrix[i][j] = dist2(g.findVertex(i), g.findVertex(j));
+            else
+                dist2matrix[i][j] = e->getDist()*e->getDist();
+        }
+    }
+    cout << "Dist2matrix calculada\n";
 
     double lengthDelta;
     while (foundImprovement) {
@@ -134,10 +145,14 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
                 int v2 = path_temp[(i+1) % n];
                 int v3 = path_temp[j];
                 int v4 = path_temp[(j+1) % n];
-                lengthDelta = - dist2(g.findVertex(v1), g.findVertex(v2))
-                              - dist2(g.findVertex(v3), g.findVertex(v4))
-                              + dist2(g.findVertex(v1), g.findVertex(v3))
-                              + dist2(g.findVertex(v2), g.findVertex(v4));
+//                lengthDelta = - dist2(g.findVertex(v1), g.findVertex(v2))
+//                              - dist2(g.findVertex(v3), g.findVertex(v4))
+//                              + dist2(g.findVertex(v1), g.findVertex(v3))
+//                              + dist2(g.findVertex(v2), g.findVertex(v4));
+                lengthDelta = - dist2matrix[v1][v2]
+                              - dist2matrix[v3][v4]
+                              + dist2matrix[v1][v3]
+                              + dist2matrix[v2][v4];
 
                 lengthDelta = round(lengthDelta*100)/100;
 

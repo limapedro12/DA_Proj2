@@ -164,7 +164,7 @@ double haversine(double lat1, double lon1,
                cos(lat1) * cos(lat2);
 
     double rad = 6371;
-    double c = 2 * asin(sqrt(a));
+    double c = 2 * 1000 * asin(sqrt(a));
     return rad * c;
 }
 

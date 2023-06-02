@@ -277,6 +277,8 @@ void Menu::run2Opt(bool withRestriction) {
     double size_before = 0;
     for (auto edge : path) {
         size_before += edge->getDist();
+        cout << edge->getSource()->getId() << " " << edge->getDest()->getId() << " -> " << edge->getDist() << endl;
+
     }
 
     std::vector<Edge*> improvedPath;
@@ -288,6 +290,7 @@ void Menu::run2Opt(bool withRestriction) {
     double size_after = 0;
     for (auto edge : improvedPath) {
         size_after += edge->getDist();
+        cout << edge->getSource()->getId() << " " << edge->getDest()->getId() << " -> " << edge->getDist() << endl;
     }
 
     auto stop = std::chrono::high_resolution_clock::now();
