@@ -40,7 +40,7 @@ bool do2OptAll(vector<int> &path, int i, int j) {
 }
 
 double dist2(const Vertex* v1, const Vertex* v2) {
-    double h = haversine(v1->getLat(), v1->getLon(), v2->getLat(), v2->getLon());
+    double h = haversine(v1->getLat(), v1->getLon(), v2->getLat(), v2->getLon()) * 1000;
     return h*h;
 }
 
@@ -52,7 +52,7 @@ void vIntToVEdge(vector<int> &path, vector<Edge*> &path2, Graph g){
                          haversine(g.findVertex(path[i])->getLat(),
                                    g.findVertex(path[i])->getLon(),
                                    g.findVertex(path[i+1])->getLat(),
-                                   g.findVertex(path[i+1])->getLon()));
+                                   g.findVertex(path[i+1])->getLon())*1000);
         path2[i] = e;
     }
 }
@@ -131,7 +131,6 @@ vector<Edge*> improvePathAll(vector<Edge*> path, Graph g, bool print){
                 dist2matrix[i][j] = e->getDist()*e->getDist();
         }
     }
-    cout << "Dist2matrix calculada\n";
 
     double lengthDelta;
     while (foundImprovement) {
