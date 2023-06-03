@@ -90,15 +90,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a4a6cb1bcbc16870edb5af83eb81efe61"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#a4a6cb1bcbc16870edb5af83eb81efe61">do2OptAll</a> (vector&lt; int &gt; &amp;path, int i, int j)</td></tr>
 <tr class="separator:a4a6cb1bcbc16870edb5af83eb81efe61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec272e00f528d1a79642f7cff4a82612"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#aec272e00f528d1a79642f7cff4a82612">dist2</a> (const <a class="el" href="class_vertex.html">Vertex</a> *v1, const <a class="el" href="class_vertex.html">Vertex</a> *v2)</td></tr>
+<tr class="memdesc:aec272e00f528d1a79642f7cff4a82612"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the distance squared between two vertexes.  <a href="two-opt_8cpp.html#aec272e00f528d1a79642f7cff4a82612">More...</a><br /></td></tr>
 <tr class="separator:aec272e00f528d1a79642f7cff4a82612"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3105a11716ad7f63c6b74ebcbc91f73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#aa3105a11716ad7f63c6b74ebcbc91f73">vIntToVEdge</a> (vector&lt; int &gt; &amp;path, vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &amp;path2, <a class="el" href="class_graph.html">Graph</a> g)</td></tr>
 <tr class="separator:aa3105a11716ad7f63c6b74ebcbc91f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad20cee5fa15af9d906b42dd82fcc1135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#ad20cee5fa15af9d906b42dd82fcc1135">printPath</a> (string pathName, vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; &amp;path)</td></tr>
 <tr class="separator:ad20cee5fa15af9d906b42dd82fcc1135"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad358ec62dbe1e8fc1103fb2796dade13"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#ad358ec62dbe1e8fc1103fb2796dade13">improvePath</a> (vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; path, <a class="el" href="class_graph.html">Graph</a> g)</td></tr>
-<tr class="separator:ad358ec62dbe1e8fc1103fb2796dade13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800cfbd2f8d96f5de430931dd0ee9adc"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#a800cfbd2f8d96f5de430931dd0ee9adc">improvePathAll</a> (vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; path, <a class="el" href="class_graph.html">Graph</a> g)</td></tr>
-<tr class="separator:a800cfbd2f8d96f5de430931dd0ee9adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb8bbee0cfd48f59d4185b292d906a8d"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#abb8bbee0cfd48f59d4185b292d906a8d">improvePath</a> (vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; path, <a class="el" href="class_graph.html">Graph</a> g, bool print)</td></tr>
+<tr class="separator:abb8bbee0cfd48f59d4185b292d906a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f671af8ce550a44f61b6fc09af3b9f7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="two-opt_8cpp.html#a3f671af8ce550a44f61b6fc09af3b9f7">improvePathAll</a> (vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; path, <a class="el" href="class_graph.html">Graph</a> g, bool print)</td></tr>
+<tr class="separator:a3f671af8ce550a44f61b6fc09af3b9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aec272e00f528d1a79642f7cff4a82612" name="aec272e00f528d1a79642f7cff4a82612"></a>
@@ -126,6 +127,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function calculates the distance squared between two vertexes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td>first vertex </td></tr>
+    <tr><td class="paramname">v2</td><td>second vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the distance squared between the two vertexes </dd></dl>
 
 </div>
 </div>
@@ -197,8 +208,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad358ec62dbe1e8fc1103fb2796dade13" name="ad358ec62dbe1e8fc1103fb2796dade13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad358ec62dbe1e8fc1103fb2796dade13">&#9670;&#160;</a></span>improvePath()</h2>
+<a id="abb8bbee0cfd48f59d4185b292d906a8d" name="abb8bbee0cfd48f59d4185b292d906a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb8bbee0cfd48f59d4185b292d906a8d">&#9670;&#160;</a></span>improvePath()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +224,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_graph.html">Graph</a>&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>print</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,8 +242,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a800cfbd2f8d96f5de430931dd0ee9adc" name="a800cfbd2f8d96f5de430931dd0ee9adc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a800cfbd2f8d96f5de430931dd0ee9adc">&#9670;&#160;</a></span>improvePathAll()</h2>
+<a id="a3f671af8ce550a44f61b6fc09af3b9f7" name="a3f671af8ce550a44f61b6fc09af3b9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f671af8ce550a44f61b6fc09af3b9f7">&#9670;&#160;</a></span>improvePathAll()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +258,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_graph.html">Graph</a>&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>print</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

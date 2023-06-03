@@ -107,12 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a13082b45a53474b86ffcca348cc7e437"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a13082b45a53474b86ffcca348cc7e437">RandomPath4</a> ()</td></tr>
 <tr class="memdesc:a13082b45a53474b86ffcca348cc7e437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a random path.  <a href="class_graph.html#a13082b45a53474b86ffcca348cc7e437">More...</a><br /></td></tr>
 <tr class="separator:a13082b45a53474b86ffcca348cc7e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a2d87cfa5e9fd2fd7e139339fbc676823">tspBacktrackingAux</a> (unsigned int path[], unsigned int idx, unsigned long cost)</td></tr>
-<tr class="memdesc:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary recursive function for the tspBacktracking function.  <a href="class_graph.html#a2d87cfa5e9fd2fd7e139339fbc676823">More...</a><br /></td></tr>
-<tr class="separator:a2d87cfa5e9fd2fd7e139339fbc676823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ad6ba29dc13cb9d8b344fd7f5baee10c8">tspBacktracking</a> (unsigned int path[])</td></tr>
-<tr class="memdesc:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum cost path using the brute force algorithm with backtracking.  <a href="class_graph.html#ad6ba29dc13cb9d8b344fd7f5baee10c8">More...</a><br /></td></tr>
-<tr class="separator:ad6ba29dc13cb9d8b344fd7f5baee10c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae022db1eb4d37b8914bf03716d2cf1fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae022db1eb4d37b8914bf03716d2cf1fe">tspBacktrackingAux</a> (unsigned int path[], unsigned int idx, double cost)</td></tr>
+<tr class="memdesc:ae022db1eb4d37b8914bf03716d2cf1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary recursive function for the tspBacktracking function.  <a href="class_graph.html#ae022db1eb4d37b8914bf03716d2cf1fe">More...</a><br /></td></tr>
+<tr class="separator:ae022db1eb4d37b8914bf03716d2cf1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26a0f1474ca25282c78279669908aeaf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a26a0f1474ca25282c78279669908aeaf">tspBacktracking</a> (unsigned int path[])</td></tr>
+<tr class="memdesc:a26a0f1474ca25282c78279669908aeaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum cost path using the brute force algorithm with backtracking.  <a href="class_graph.html#a26a0f1474ca25282c78279669908aeaf">More...</a><br /></td></tr>
+<tr class="separator:a26a0f1474ca25282c78279669908aeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#aeeede3cb48be5d8cac08ea05ce54bd52">print</a> () const</td></tr>
 <tr class="memdesc:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the graph.  <a href="class_graph.html#aeeede3cb48be5d8cac08ea05ce54bd52">More...</a><br /></td></tr>
 <tr class="separator:aeeede3cb48be5d8cac08ea05ce54bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,8 +126,8 @@ Public Attributes</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6eec9bd738a8909119e5b2470ff5f264"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a6eec9bd738a8909119e5b2470ff5f264">vertexSet</a></td></tr>
 <tr class="separator:a6eec9bd738a8909119e5b2470ff5f264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2954050cd16aaac59dda37a7fd6c9b"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#abe2954050cd16aaac59dda37a7fd6c9b">minCost</a></td></tr>
-<tr class="separator:abe2954050cd16aaac59dda37a7fd6c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253d20ca24d812a98171a67d70f373e3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a253d20ca24d812a98171a67d70f373e3">minCost</a></td></tr>
+<tr class="separator:a253d20ca24d812a98171a67d70f373e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13b100266688493ea603ee2202cddd1b"><td class="memItemLeft" align="right" valign="top">unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a13b100266688493ea603ee2202cddd1b">minPath</a></td></tr>
 <tr class="separator:a13b100266688493ea603ee2202cddd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -171,9 +171,9 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 <p >Creates a bidirectional edge between two graph's nodes. Source/destination are interchangeable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Pointer to one of the edge's ends. </td></tr>
-    <tr><td class="paramname">dest</td><td>Pointer to the other of the edge's ends. </td></tr>
-    <tr><td class="paramname">dist</td><td>Distance of the edge to be created. </td></tr>
+    <tr><td class="paramname">source</td><td>Pointer to one of the edge's ends </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the other of the edge's ends </td></tr>
+    <tr><td class="paramname">dist</td><td>Distance of the edge to be created </td></tr>
   </table>
   </dd>
 </dl>
@@ -199,7 +199,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 <p >NOTE: Only to be used when inserting vertexes whose ids are sequential (upon the graph's construction), since this function is only invoked in the dataset reading.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Pointer to the vertex to be added. </td></tr>
+    <tr><td class="paramname">v</td><td>Pointer to the vertex to be added </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +247,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the vertex with the given id, nullptr if not found. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the vertex with the given id, nullptr if not found </dd></dl>
 
 </div>
 </div>
@@ -266,7 +266,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
       </table>
 </div><div class="memdoc">
 <p >Getter of the graph's number of nodes.</p>
-<dl class="section return"><dt>Returns</dt><dd>The count of graph's nodes. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The count of graph's nodes </dd></dl>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
       </table>
 </div><div class="memdoc">
 <p ><a class="el" href="class_graph.html" title="A class that represents a graph.">Graph</a>'s vertex set getter.</p>
-<dl class="section return"><dt>Returns</dt><dd>A copy of the vector of pointers to the graph's nodes. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the vector of pointers to the graph's nodes </dd></dl>
 
 </div>
 </div>
@@ -378,14 +378,14 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 
 </div>
 </div>
-<a id="ad6ba29dc13cb9d8b344fd7f5baee10c8" name="ad6ba29dc13cb9d8b344fd7f5baee10c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6ba29dc13cb9d8b344fd7f5baee10c8">&#9670;&#160;</a></span>tspBacktracking()</h2>
+<a id="a26a0f1474ca25282c78279669908aeaf" name="a26a0f1474ca25282c78279669908aeaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26a0f1474ca25282c78279669908aeaf">&#9670;&#160;</a></span>tspBacktracking()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Graph::tspBacktracking </td>
+          <td class="memname">double Graph::tspBacktracking </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>path</em>[]</td><td>)</td>
@@ -395,7 +395,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 </div><div class="memdoc">
 
 <p>Calculates the minimum cost path using the brute force algorithm with backtracking. </p>
-<p >Time Complexity: O(n!) where n is the number of vertices.</p>
+<p >Time Complexity: O(V!).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>array where the path will be stored</td></tr>
@@ -406,8 +406,8 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 
 </div>
 </div>
-<a id="a2d87cfa5e9fd2fd7e139339fbc676823" name="a2d87cfa5e9fd2fd7e139339fbc676823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d87cfa5e9fd2fd7e139339fbc676823">&#9670;&#160;</a></span>tspBacktrackingAux()</h2>
+<a id="ae022db1eb4d37b8914bf03716d2cf1fe" name="ae022db1eb4d37b8914bf03716d2cf1fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae022db1eb4d37b8914bf03716d2cf1fe">&#9670;&#160;</a></span>tspBacktrackingAux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,7 +427,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>cost</em>&#160;</td>
         </tr>
         <tr>
@@ -439,7 +439,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 </div><div class="memdoc">
 
 <p>Auxiliary recursive function for the tspBacktracking function. </p>
-<p >Time Complexity: O(n!) where n is the number of vertices.</p>
+<p >Time Complexity: O(V!).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>array with the path </td></tr>
@@ -466,8 +466,8 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
 
 </div>
 </div>
-<a id="abe2954050cd16aaac59dda37a7fd6c9b" name="abe2954050cd16aaac59dda37a7fd6c9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe2954050cd16aaac59dda37a7fd6c9b">&#9670;&#160;</a></span>minCost</h2>
+<a id="a253d20ca24d812a98171a67d70f373e3" name="a253d20ca24d812a98171a67d70f373e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a253d20ca24d812a98171a67d70f373e3">&#9670;&#160;</a></span>minCost</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,7 +476,7 @@ Each instance contains all its nodes/vertexes organized in a vector, each one of
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long Graph::minCost</td>
+          <td class="memname">double Graph::minCost</td>
         </tr>
       </table>
   </td>

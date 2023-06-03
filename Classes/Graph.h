@@ -40,21 +40,21 @@ public:
      * Time complexity: O(1).
      *
      * @param id Id of the vertex whose pointer is to be returned
-     * @return Pointer to the vertex with the given id, nullptr if not found.
+     * @return Pointer to the vertex with the given id, nullptr if not found
      */
     Vertex* findVertex(unsigned int id) const;
 
     /**
      * Graph's vertex set getter.
      *
-     * @return A copy of the vector of pointers to the graph's nodes.
+     * @return A copy of the vector of pointers to the graph's nodes
      */
     std::vector<Vertex*> getVertexSet() const;
 
     /**
      * Getter of the graph's number of nodes.
      *
-     * @return The count of graph's nodes.
+     * @return The count of graph's nodes
      */
     int getNumVertex() const;
 
@@ -65,7 +65,7 @@ public:
      * (upon the graph's construction), since this function is only invoked in
      * the dataset reading.
      *
-     * @param v Pointer to the vertex to be added.
+     * @param v Pointer to the vertex to be added
      */
     void addVertex(Vertex* v);
 
@@ -73,9 +73,9 @@ public:
      * Creates a bidirectional edge between two graph's nodes.
      * Source/destination are interchangeable.
      *
-     * @param source Pointer to one of the edge's ends.
-     * @param dest Pointer to the other of the edge's ends.
-     * @param dist Distance of the edge to be created.
+     * @param source Pointer to one of the edge's ends
+     * @param dest Pointer to the other of the edge's ends
+     * @param dist Distance of the edge to be created
      */
     void addBidirectionalEdge(Vertex* source, Vertex* dest, double dist);
 
@@ -119,7 +119,7 @@ public:
     /**
      * @brief Auxiliary recursive function for the tspBacktracking function
      *
-     * Time Complexity: O(n!) where n is the number of vertices.
+     * Time Complexity: O(V!).
      *
      * @param path array with the path
      * @param idx index of the current vertex
@@ -130,7 +130,7 @@ public:
     /**
      * @brief Calculates the minimum cost path using the brute force algorithm with backtracking
      *
-     * Time Complexity: O(n!) where n is the number of vertices.
+     * Time Complexity: O(V!).
      *
      * @param path array where the path will be stored
      *

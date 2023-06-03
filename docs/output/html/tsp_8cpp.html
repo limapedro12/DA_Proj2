@@ -88,8 +88,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4c310bff7dada0e5b6b4849ed59de935"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tsp_8cpp.html#a4c310bff7dada0e5b6b4849ed59de935">tspMST</a> (const <a class="el" href="class_graph.html">Graph</a> &amp;graph)</td></tr>
+<tr class="memdesc:a4c310bff7dada0e5b6b4849ed59de935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a path using the Minimum Spanning Tree (MST) that will be used for the Traveling Salesman Problem (TSP).  <a href="tsp_8cpp.html#a4c310bff7dada0e5b6b4849ed59de935">More...</a><br /></td></tr>
 <tr class="separator:a4c310bff7dada0e5b6b4849ed59de935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bbf5962c9bed3511532fc0452bffa21"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tsp_8cpp.html#a4bbf5962c9bed3511532fc0452bffa21">tspApproximation</a> (const <a class="el" href="class_graph.html">Graph</a> &amp;graph)</td></tr>
+<tr class="memdesc:a4bbf5962c9bed3511532fc0452bffa21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates an approximate solution to the Traveling Salesman Problem (TSP) using the MST heuristic and calculates the total cost of the path given by it.  <a href="tsp_8cpp.html#a4bbf5962c9bed3511532fc0452bffa21">More...</a><br /></td></tr>
 <tr class="separator:a4bbf5962c9bed3511532fc0452bffa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -109,6 +111,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates an approximate solution to the Traveling Salesman Problem (TSP) using the MST heuristic and calculates the total cost of the path given by it. </p>
+<p >This function constructs a minimum spanning tree (MST) of the given graph using the <code>tspMST</code> function. It then calculates the total cost of the path returned by tspMST.</p>
+<p >Time Complexity: ???? where n is the number of edges in the path</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The total cost of the approximate TSP solution path. </dd></dl>
+
 </div>
 </div>
 <a id="a4c310bff7dada0e5b6b4849ed59de935" name="a4c310bff7dada0e5b6b4849ed59de935"></a>
@@ -126,6 +139,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates a path using the Minimum Spanning Tree (MST) that will be used for the Traveling Salesman Problem (TSP). </p>
+<p >This function constructs a minimum spanning tree of the given graph and generates an order of vertices to visit based on the MST.</p>
+<p >Time Complexity: ???? where n is the number of edges in the path</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of unsigned integers representing the order in which vertices should be visited in the approximate TSP solution. The vector is empty if the graph has no vertices. </dd></dl>
 
 </div>
 </div>

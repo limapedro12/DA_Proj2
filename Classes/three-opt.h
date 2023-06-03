@@ -113,7 +113,7 @@ void printProgress(double proportion);
  *
  * The return of this function is not guaranteed to be the best path possible, it is just an heuristic
  *
- * Time Complexity: O(n^4) where n is the number of edges in the graph
+ * Time Complexity: O(E^4).
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
@@ -137,7 +137,7 @@ std::vector<Edge*> improvePath3Opt(std::vector<Edge*> path, Graph g);
  *
  * The return of this function is not guaranteed to be the best path possible, it is just an heuristic.
  *
- * Time Complexity: O(n^4) where n is the number of edges in the graph
+ * Time Complexity: O(E^4).
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added

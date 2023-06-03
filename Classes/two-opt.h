@@ -70,7 +70,7 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic
  *
- * Time Complexity: O(n^3*log(n)) where n is the number of edges in the graph
+ * Time Complexity: O(E^3*log(E)).
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
@@ -120,7 +120,7 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  *
  * This function returns a path that is not restricted by the edges of the graph
  *
- * Time Complexity: O(n^3*log(n)) where n is the number of edges in the graph
+ * Time Complexity: O(E^3*log(E)).
  *
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic

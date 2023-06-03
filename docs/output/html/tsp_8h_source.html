@@ -85,16 +85,18 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Finds the minimum spanning tree (MST) traversal order using Prim&#39;s algorithm</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>std::vector&lt;unsigned int&gt; <a class="code hl_function" href="tsp_8h.html#a4c310bff7dada0e5b6b4849ed59de935">tspMST</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graph.html">Graph</a>&amp; graph);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// Calculates the TSP tour cost approximation using the MST traversal order</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">double</span> <a class="code hl_function" href="tsp_8h.html#a4bbf5962c9bed3511532fc0452bffa21">tspApproximation</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graph.html">Graph</a>&amp; graph);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Calculates the TSP tour cost approximation using the MST traversal order</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span>std::vector&lt;unsigned int&gt; <a class="code hl_function" href="tsp_8h.html#a4c310bff7dada0e5b6b4849ed59de935">tspMST</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graph.html">Graph</a>&amp; graph);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// Calculates the TSP tour cost approximation using the MST traversal order</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span><span class="keywordtype">double</span> <a class="code hl_function" href="tsp_8h.html#a4bbf5962c9bed3511532fc0452bffa21">tspApproximation</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_graph.html">Graph</a>&amp; graph);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_graph_8h_html"><div class="ttname"><a href="_graph_8h.html">Graph.h</a></div></div>
-<div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdoc">A class that represents a graph.</div><div class="ttdef"><b>Definition:</b> Graph.h:33</div></div>
-<div class="ttc" id="atsp_8h_html_a4bbf5962c9bed3511532fc0452bffa21"><div class="ttname"><a href="tsp_8h.html#a4bbf5962c9bed3511532fc0452bffa21">tspApproximation</a></div><div class="ttdeci">double tspApproximation(const Graph &amp;graph)</div><div class="ttdef"><b>Definition:</b> tsp.cpp:43</div></div>
-<div class="ttc" id="atsp_8h_html_a4c310bff7dada0e5b6b4849ed59de935"><div class="ttname"><a href="tsp_8h.html#a4c310bff7dada0e5b6b4849ed59de935">tspMST</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; tspMST(const Graph &amp;graph)</div><div class="ttdef"><b>Definition:</b> tsp.cpp:9</div></div>
+<div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdoc">A class that represents a graph.</div><div class="ttdef"><b>Definition:</b> Graph.h:35</div></div>
+<div class="ttc" id="atsp_8h_html_a4bbf5962c9bed3511532fc0452bffa21"><div class="ttname"><a href="tsp_8h.html#a4bbf5962c9bed3511532fc0452bffa21">tspApproximation</a></div><div class="ttdeci">double tspApproximation(const Graph &amp;graph)</div><div class="ttdoc">Calculates an approximate solution to the Traveling Salesman Problem (TSP) using the MST heuristic an...</div><div class="ttdef"><b>Definition:</b> tsp.cpp:43</div></div>
+<div class="ttc" id="atsp_8h_html_a4c310bff7dada0e5b6b4849ed59de935"><div class="ttname"><a href="tsp_8h.html#a4c310bff7dada0e5b6b4849ed59de935">tspMST</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; tspMST(const Graph &amp;graph)</div><div class="ttdoc">Calculates a path using the Minimum Spanning Tree (MST) that will be used for the Traveling Salesman ...</div><div class="ttdef"><b>Definition:</b> tsp.cpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
