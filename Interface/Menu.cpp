@@ -45,6 +45,8 @@ void Menu::mainMenu() {
 
             auto stop = std::chrono::high_resolution_clock::now();
 
+            std::cout << "Caminho: ";
+
             for (size_t i = 0; i < graph.getVertexSet().size(); i++)
                 std::cout << path[i] << " -> ";
             std::cout << "0" << std::endl;
@@ -56,15 +58,14 @@ void Menu::mainMenu() {
         } else if (option == 3) {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::cout << "Distância total:" << " ";
+            std::cout << "Distância total: ";
             std::cout << tspApproximation(graph) << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
 
             std::vector<unsigned int> vec = tspMST(graph);
 
-            std::cout << "Caminho:" << " ";
-            std::cout << "0" << " -> ";
+            std::cout << "Caminho: 0 -> ";
             for (unsigned int i = 0; i < vec.size(); i++) {
                 std::cout << vec[i] << " -> ";
             }
