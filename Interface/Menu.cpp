@@ -45,9 +45,9 @@ void Menu::mainMenu() {
 
             auto stop = std::chrono::high_resolution_clock::now();
 
-            for (size_t i = 0; i < graph.getVertexSet().size() - 1; i++)
+            for (size_t i = 0; i < graph.getVertexSet().size(); i++)
                 std::cout << path[i] << " -> ";
-            std::cout << path[graph.getVertexSet().size()-1] << std::endl;
+            std::cout << "0" << std::endl;
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
@@ -68,9 +68,7 @@ void Menu::mainMenu() {
             for (unsigned int i = 0; i < vec.size(); i++) {
                 std::cout << vec[i] << " -> ";
             }
-            std::cout << "0";
-
-            std::cout << std::endl;
+            std::cout << "0" << std::endl;
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
