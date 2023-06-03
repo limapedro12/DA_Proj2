@@ -51,7 +51,7 @@ void Menu::mainMenu() {
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+            std::cout << "Tamanho do input (nós): " << graph.getVertexSet().size() << std::endl;
             std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
         } else if (option == 3) {
             auto start = std::chrono::high_resolution_clock::now();
@@ -74,7 +74,7 @@ void Menu::mainMenu() {
 
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-            std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+            std::cout << "Tamanho do input (nós): " << graph.getVertexSet().size() << std::endl;
             std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
         } else if (option == 4) {
             otherHeuristicMenu();
@@ -298,7 +298,7 @@ void Menu::run2Opt(bool withRestriction) {
     std::cout << "Distância total final: " << size_after << std::endl;
     std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
 
-    std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+    std::cout << "Tamanho do input (nós): " << graph.getVertexSet().size() << std::endl;
     std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
 
     std::cout << "Pressione ENTER para continuar...";
@@ -345,7 +345,7 @@ void Menu::run3Opt(bool withRestriction) {
     std::cout << "Distância total final: " << size_after << std::endl;
     std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
 
-    std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
+    std::cout << "Tamanho do input (nós): " << graph.getVertexSet().size() << std::endl;
     std::cout << "Tempo de execução: " << duration.count() << " ms" << std::endl;
 
     std::cout << "Pressione ENTER para continuar...";
