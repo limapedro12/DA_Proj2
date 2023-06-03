@@ -41,7 +41,7 @@ void Menu::mainMenu() {
             unsigned int path[graph.getVertexSet().size()];
             double cost = graph.tspBacktracking(path);
 
-            std::cout << "Custo: " << cost << std::endl;
+            std::cout << "Distância total: " << cost << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
 
@@ -56,13 +56,11 @@ void Menu::mainMenu() {
         } else if (option == 3) {
             auto start = std::chrono::high_resolution_clock::now();
 
-            // CHAMAR MÉTODO GRAFO
-            std::cout << "Distância:" << " ";
+            std::cout << "Distância total:" << " ";
             std::cout << tspApproximation(graph) << std::endl;
 
             auto stop = std::chrono::high_resolution_clock::now();
 
-            // mostrar caminho?
             std::vector<unsigned int> vec = tspMST(graph);
 
             std::cout << "Caminho:" << " ";
@@ -82,7 +80,6 @@ void Menu::mainMenu() {
             otherHeuristicMenu();
         }
         else if (option == 0) {
-            //graph.print();
             std::cout << "Obrigado por usar o nosso programa!\n\nFrancisco Alves, Pedro Lima e Pedro Januário\n";
             return;
         }
@@ -297,8 +294,8 @@ void Menu::run2Opt(bool withRestriction) {
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-    std::cout << "Custo inicial: " << size_before << std::endl;
-    std::cout << "Custo final: " << size_after << std::endl;
+    std::cout << "Distância total inicial: " << size_before << std::endl;
+    std::cout << "Distância total final: " << size_after << std::endl;
     std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
 
     std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
@@ -344,8 +341,8 @@ void Menu::run3Opt(bool withRestriction) {
 
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-    std::cout << "Custo inicial: " << size_before << std::endl;
-    std::cout << "Custo final: " << size_after << std::endl;
+    std::cout << "Distância total inicial: " << size_before << std::endl;
+    std::cout << "Distância total final: " << size_after << std::endl;
     std::cout << "Melhoria: " << (float) (size_before - size_after) / size_before * 100 << "%" << std::endl;
 
     std::cout << "Tamanho do input: " << graph.getVertexSet().size() << std::endl;
