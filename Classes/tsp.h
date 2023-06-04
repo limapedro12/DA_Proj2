@@ -12,7 +12,7 @@
  *
  * @details This function constructs a minimum spanning tree of the given graph and generates an order of vertices to visit based on the MST.
  *
- * Time Complexity: ???? where n is the number of edges in the path
+ * Time Complexity: O((V + E) log (V)).
  *
  * @param graph
  *
@@ -27,7 +27,7 @@ std::vector<unsigned int> tspMST(const Graph& graph);
  *
  * @details This function constructs a minimum spanning tree (MST) of the given graph using the `tspMST` function. It then calculates the total cost of the path returned by tspMST.
  *
- * Time Complexity: ???? where n is the number of edges in the path
+ * Time Complexity: O((V + E) log (V)).
  *
  * @param graph
  *

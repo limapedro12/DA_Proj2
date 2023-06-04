@@ -205,7 +205,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function copies the edges between startPath and endPath of path to newPath. </p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path from where the edges are going to be copied </td></tr>
@@ -271,7 +271,7 @@ Functions</h2></td></tr>
 
 <p>This functions does a 3-opt swap of three edges of a path. </p>
 <p >This function does a 3-opt swap of to edges of a path, therefore it removes the edges i, j, k, creating 3 sub-tours and then reconnects them in one of 7 possible ways, defined in the argument selectedPath.</p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -311,10 +311,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This functions improves a path using the 3-opt algorithm, restricted to the edges of the graph. </p>
-<p >This function improves a path using the 3-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt. For every comibantion of three diferent edges the algortithm verifies if one of thev 7 possible swap improves the path, it is done, othewise if continues to the next combination of 3 edges. It first calls the function verify3Opt to check if the swap improves the path and which is the best option, and then it calls the function do3Opt to do the swap. Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.</p>
+<p >This function improves a path using the 3-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt. For every combination of three different edges the algorithm verifies if one of the 7 possible swap improves the path, it is done, otherwise if continues to the next combination of 3 edges. It first calls the function verify3Opt to check if the swap improves the path and which is the best option, and then it calls the function do3Opt to do the swap. Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.</p>
 <p >This function returns a path restricted by the edges of the graph</p>
 <p >The return of this function is not guaranteed to be the best path possible, it is just an heuristic</p>
-<p >Time Complexity: O(E^4).</p>
+<p >Time Complexity: O(V^4) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -353,10 +353,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This functions improves a path using the 3-opt algorithm, without restrictions. </p>
-<p >This function improves a path using the 3-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt. For every comibantion of three diferent edges the algortithm verifies if one of thev 7 possible swap improves the path, it is done, othewise if continues to the next combination of 3 edges. It first calls the function verify3Opt to check if the swap improves the path and which is the best option, and then it calls the function do3Opt to do the swap. Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.</p>
+<p >This function improves a path using the 3-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt. For every combination of three different edges the algorithm verifies if one of the 7 possible swap improves the path, it is done, otherwise if continues to the next combination of 3 edges. It first calls the function verify3Opt to check if the swap improves the path and which is the best option, and then it calls the function do3Opt to do the swap. Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.</p>
 <p >This function returns an improved path without restrictions.</p>
 <p >The return of this function is not guaranteed to be the best path possible, it is just an heuristic.</p>
-<p >Time Complexity: O(E^4).</p>
+<p >Time Complexity: O(V^4) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -385,7 +385,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function prints the progress of the algorithm. </p>
-<p >This function prints the the percentage of the algorithm that has already been executed This function only prints the percentages that are multiples of 10 (10%, 20%, 30%, ...)</p>
+<p >This function prints the the percentage of the algorithm that has already been executed This function only prints the percentages that are multiples of 10 (e.g. 10%, 20%, 30%, ...)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">proportion</td><td>proportion of the algorithm that has already been executed </td></tr>
@@ -428,7 +428,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function reverses the order of the edges between i and j. </p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>

@@ -194,7 +194,7 @@ Functions</h2></td></tr>
 <p>This functions does a 2-opt swap of to edges of a path. </p>
 <p >This function does a 2-opt swap of to edges of a path, therefore it adds an edge from source of i to dest of j and from source of j to dest of i and reverses the order of the edges between i and j</p>
 <p >This is only used in the function that is restricted to the edges of the graph</p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -242,7 +242,7 @@ Functions</h2></td></tr>
 <p>This functions does a 2-opt swap of to edges of a path. </p>
 <p >This function does a 2-opt swap in the given path, therefore reverses the order of the edges between i and j</p>
 <p >This is only used in the function that isn't restricted to the edges of the graph</p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -288,10 +288,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This functions improves a path using the 2-opt algorithm restricted to the edges of the graph. </p>
-<p >This function improves a path using the 2-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps. For every combination of two edges it verifyies if the swap improves the path, if it is does, the swap is done, otherwise it continues to the next combination of edges. This verification can be done in O(1) time the following formula: lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2) if lenghtDelta &gt; 0 then the swap improves the path</p>
+<p >This function improves a path using the 2-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps. For every combination of two edges it verifies if the swap improves the path, if it is does, the swap is done, otherwise it continues to the next combination of edges. This verification can be done in O(1) time the following formula: lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2) if lenghtDelta &gt; 0 then the swap improves the path</p>
 <p >This function returns a path restricted by the edges of the graph</p>
 <p >The return of this function is not guaranteed to be the best path possible, it is just an heuristic</p>
-<p >Time Complexity: O(E^3*log(E)).</p>
+<p >Time Complexity: O(V^3*log(V)) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -336,9 +336,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This functions improves a path using the 2-opt algorithm without restrictions. </p>
-<p >This function improves a path using the 2-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps. For every combination of two edges it verifyies if the swap improves the path, if it is does, the swap is done, otherwise it continues to the next combination of edges. This verification can be done in O(1) time the following formula: lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2) if lenghtDelta &gt; 0 then the swap improves the path</p>
+<p >This function improves a path using the 2-opt algorithm. This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps. For every combination of two edges it verifies if the swap improves the path, if it is does, the swap is done, otherwise it continues to the next combination of edges. This verification can be done in O(1) time the following formula: lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2) if lenghtDelta &gt; 0 then the swap improves the path</p>
 <p >This function returns a path that is not restricted by the edges of the graph</p>
-<p >Time Complexity: O(E^3*log(E)).</p>
+<p >Time Complexity: O(V^3*log(V)) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <p >The return of this function is not guaranteed to be the best path possible, it is just an heuristic</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -369,7 +369,7 @@ Functions</h2></td></tr>
 
 <p>Calculates the sum of the squared distances of a path. </p>
 <p >This function calculates the sum of the squared distances of a path</p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path</td></tr>
@@ -450,7 +450,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function transforms a path of the indexes of vertexes into a path of edges. </p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>path of the indexes of vertexes </td></tr>

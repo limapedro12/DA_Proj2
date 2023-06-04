@@ -168,7 +168,7 @@ bool inPath(unsigned int value, unsigned int path[], unsigned int n);
 /**
  * @brief Get the Edge that has as source the vertex src and as destination vertex dest
  *
- * Time Complexity: O(u), where u is the degree of the source vertex.
+ * Time Complexity: O(E).
  *
  * @param src source vertex
  * @param dest destination vertex
@@ -180,7 +180,7 @@ Edge* get_edge(Vertex* src, Vertex* dest);
 /**
  * @brief Get the Edge that has as source the vertex with index src and as destination vertex with index dest and is in the graph g
  *
- * Time Complexity: O(u), where u is the degree of the source vertex.
+ * Time Complexity: O(E).
  *
  * @param g Graph where to search for the edge
  * @param src index of the source vertex

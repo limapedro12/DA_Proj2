@@ -196,7 +196,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function copies the edges between startPath and endPath of path to newPath. </p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path from where the edges are going to be copied </td></tr>
@@ -262,7 +262,7 @@ Variables</h2></td></tr>
 
 <p>This functions does a 3-opt swap of three edges of a path. </p>
 <p >This function does a 3-opt swap of to edges of a path, therefore it removes the edges i, j, k, creating 3 sub-tours and then reconnects them in one of 7 possible ways, defined in the argument selectedPath.</p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
@@ -348,7 +348,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function prints the progress of the algorithm. </p>
-<p >This function prints the the percentage of the algorithm that has already been executed This function only prints the percentages that are multiples of 10 (10%, 20%, 30%, ...)</p>
+<p >This function prints the the percentage of the algorithm that has already been executed This function only prints the percentages that are multiples of 10 (e.g. 10%, 20%, 30%, ...)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">proportion</td><td>proportion of the algorithm that has already been executed </td></tr>
@@ -391,7 +391,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function reverses the order of the edges between i and j. </p>
-<p >Time Complexity: O(n) where n is the number of edges in the path</p>
+<p >Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>vector of edges that represent the path </td></tr>
