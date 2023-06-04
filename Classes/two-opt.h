@@ -18,7 +18,7 @@
  *
  * @details This function calculates the sum of the squared distances of a path
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  *
@@ -35,7 +35,7 @@ int pathLengthSq(std::vector<Edge*> &path);
  *
  * This is only used in the function that is restricted to the edges of the graph
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
@@ -59,7 +59,7 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  *
  * @details This function improves a path using the 2-opt algorithm.
  * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps.
- * For every combination of two edges it verifyies if the swap improves the path,
+ * For every combination of two edges it verifies if the swap improves the path,
  * if it is does, the swap is done, otherwise it continues to the next combination of edges.
  * This verification can be done in O(1) time the following formula:
  * lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2)
@@ -70,7 +70,7 @@ void printPath(std::string pathName, std::vector<Edge*> &path);
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic
  *
- * Time Complexity: O(E^3*log(E)).
+ * Time Complexity: O(V^3*log(V)) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
@@ -86,7 +86,7 @@ std::vector<Edge*> improvePath(std::vector<Edge*> path, Graph g, bool print = tr
  *
  * This is only used in the function that isn't restricted to the edges of the graph
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
@@ -99,7 +99,7 @@ bool do2OptAll(std::vector<int> &path, int i, int j);
 /**
  * @brief This function transforms a path of the indexes of vertexes into a path of edges
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path path of the indexes of vertexes
  * @param path2 vector to store the path of edges
@@ -112,7 +112,7 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  *
  * @details This function improves a path using the 2-opt algorithm.
  * This Algorithm starts with a given path and tries to improve it by doing 2-opt swaps.
- * For every combination of two edges it verifyies if the swap improves the path,
+ * For every combination of two edges it verifies if the swap improves the path,
  * if it is does, the swap is done, otherwise it continues to the next combination of edges.
  * This verification can be done in O(1) time the following formula:
  * lenghtDelata = (dist(i, j)^2 + dist(i+1, j+1)^2) - (dist(i, i+1)^2 + dist(j, j+1)^2)
@@ -120,7 +120,7 @@ void vIntToVEdge(std::vector<int> &path, std::vector<Edge*> &path2, Graph g);
  *
  * This function returns a path that is not restricted by the edges of the graph
  *
- * Time Complexity: O(E^3*log(E)).
+ * Time Complexity: O(V^3*log(V)) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * The return of this function is not guaranteed to be the best path possible,
  * it is just an heuristic

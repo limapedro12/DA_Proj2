@@ -19,7 +19,7 @@ using namespace std;
 /**
  * @brief This function reverses the order of the edges between i and j
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
@@ -30,7 +30,7 @@ void reverse(vector<Edge*> &path, int i, int j);
 /**
  * @brief This function copies the edges between startPath and endPath of path to newPath
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path from where the edges are going to be copied
  * @param newPath vector of edges that represent the new path where the edges are going to be copied
@@ -68,7 +68,7 @@ int verify3Opt(vector<Edge*> &path, int i, int j, int k, vector<vector<Edge*>> a
  * then reconnects them in one of 7 possible ways, defined in the
  * argument selectedPath.
  *
- * Time Complexity: O(n) where n is the number of edges in the path
+ * Time Complexity: O(V) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param i index of the first edge
@@ -92,7 +92,7 @@ unsigned long combinations(unsigned n, unsigned k);
  * @brief This function prints the progress of the algorithm
  *
  * @details This function prints the the percentage of the algorithm that has already been executed
- * This function only prints the percentages that are multiples of 10 (10%, 20%, 30%, ...)
+ * This function only prints the percentages that are multiples of 10 (e.g. 10%, 20%, 30%, ...)
  *
  * @param proportion proportion of the algorithm that has already been executed
  */
@@ -103,8 +103,8 @@ void printProgress(double proportion);
  *
  * @details This function improves a path using the 3-opt algorithm.
  * This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt.
- * For every comibantion of three diferent edges the algortithm verifies if one of thev 7 possible swap improves the path,
- * it is done, othewise if continues to the next combination of 3 edges.
+ * For every combination of three different edges the algorithm verifies if one of the 7 possible swap improves the path,
+ * it is done, otherwise if continues to the next combination of 3 edges.
  * It first calls the function verify3Opt to check if the swap improves the path and which is the best option,
  * and then it calls the function do3Opt to do the swap.
  * Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.
@@ -113,7 +113,7 @@ void printProgress(double proportion);
  *
  * The return of this function is not guaranteed to be the best path possible, it is just an heuristic
  *
- * Time Complexity: O(E^4).
+ * Time Complexity: O(V^4) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
@@ -127,8 +127,8 @@ std::vector<Edge*> improvePath3Opt(std::vector<Edge*> path, Graph g);
  *
  * @details This function improves a path using the 3-opt algorithm.
  * This Algorithm starts with a given path and tries to improve it by doing a single execution of 3-opt.
- * For every comibantion of three diferent edges the algortithm verifies if one of thev 7 possible swap improves the path,
- * it is done, othewise if continues to the next combination of 3 edges.
+ * For every combination of three different edges the algorithm verifies if one of the 7 possible swap improves the path,
+ * it is done, otherwise if continues to the next combination of 3 edges.
  * It first calls the function verify3Opt to check if the swap improves the path and which is the best option,
  * and then it calls the function do3Opt to do the swap.
  * Before running the 3-opt algorithm, it runs the 2-opt algorithm to get better results.
@@ -137,7 +137,7 @@ std::vector<Edge*> improvePath3Opt(std::vector<Edge*> path, Graph g);
  *
  * The return of this function is not guaranteed to be the best path possible, it is just an heuristic.
  *
- * Time Complexity: O(E^4).
+ * Time Complexity: O(V^4) where V is the number of vertices in the graph, that is the same as the number of edges in the path
  *
  * @param path vector of edges that represent the path
  * @param g graph that contains the edges of the path and that restrictes the edges that can be added
