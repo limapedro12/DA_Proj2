@@ -1,1 +1,1 @@
-Developed with [Pedro Lima](github.com/up202108806) and [Francisco Alves](github.com/FranciscoAlves124).
+Developed with [Pedro Lima](http://www.github.com/up202108806) and [Francisco Alves](http://www.github.com/FranciscoAlves124).
